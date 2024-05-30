@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>album</title>
+    <script src="https://kit.fontawesome.com/6dee20ad07.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/styles/index.album.css}">
+    <link rel="shortcut icon" th:href="@{/assets/images/soundstoryicon.png}">
+</head>
+<body>
+
+<nav id="nav">
+    <div class="logo-image">
+        <a target="_blank" th:src="@{/assets/images/soundstoryicon.png}" href="#"></a>
+        <img th:src="@{/assets/images/soundstoryicon.png}" alt="홈 로고" class="image">
+        <a href="#" class="title" type="text">Sound Story</a>
+    </div>
+    <ul class="primary">
+        <li>
+            <a href="#" class="item-image">
+                <img th:src="@{/assets/images/singer.png}" alt="아티스트" class="image"></a>
+            <a href="#artist" class="text" type="text">인기 아티스트</a>
+        </li>
+        <li>
+            <a href="#" class="item-image">
+                <img th:src="@{/assets/images/album.png}" alt="앨범" class="image"></a>
+            <a href="#album" class="text" type="text">인기 앨범</a>
+        </li>
+        <li>
+            <a href="#" class="item-image">
+                <img th:src="@{/assets/images/chart.png}" alt="차트" class="image"></a>
+            <a href="#chart" class="text" type="text">인기 차트</a>
+        </li>
+        <li>
+            <a href="#" class="item-image">
+                <img th:src="@{/assets/images/recommend.png}" alt="차트" class="image"></a>
+            <a href="" class="text" type="text">장르별 추천</a>
+        </li>
+    </ul>
+    <!--    </div>-->
+    <div class="playlist">
+        <div class="playlist-container">----플레이리스트----</div>
+        <!--            <div class="spring"></div>-->
+        <button class="add-button">
+            <i class="icon fa-solid fa-plus"></i>
+        </button>
+        <div class="playlist-text">
+            <span class="text">나만의 플레이리스트틀 추가해 보세요 !</span>
+        </div>
+
+    </div>
+
+</nav>
+<main class="main">
+    <header id="header">
+        <ul class="menu">
+            <li class="item">
+                <label class="label">
+                    <input class="input" placeholder="아티스트 및 음악 검색" type="search">
+
+                </label>
+            </li>
+            <li class="item">
+                <a class="search-button" href="" type="submit">검색</a>
+            </li>
+            <li class="spring"></li>
+            <li class="item">
+                <a class="login-button" href="#">로그인 하기</a>
+            </li>
+        </ul>
+        <ul class="button">
+            <li class="album-button">
+                <button class="item">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="item">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </li>
+        </ul>
+    </header>
+
+    <div class="album_section">
+        <div class="album_wrap">
+            <div class="album_thumb">
+                <a href="#">
+                    <img alt="정국" class="album_thumb_image"
+                         src="https://i.scdn.co/image/ab67616d00001e02782a8cae588fee29eefec8b6">
+                </a>
+            </div>
+            <div class="album_text">
+                <div class="album_text_top">앨범</div>
+                <div class="album_title">NJWMX</div>
+                <div class="album_info">
+                    <span class="album_info_thumb">
+                        <img class="album_info_image" src="https://i.scdn.co/image/ab6761610000f178f5d2200231e6ad75e8485476" alt="newJeans">
+                    </span>
+                    <span class="album_info_title">NewJeans</span>
+                    <span class="album_info_content">2023 . 12곡 , 42분 34초</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="album_list_section">
+        <div class="album_list_head">
+            <div class="album_list_head_1">
+                <div class="album_list_head_text">#</div>
+            </div>
+            <div class="album_list_head_2">
+                <div class="album_list_head_text">제목</div>
+            </div>
+            <div class="album_list_head_3">
+                <div class="album_list_head_text">아티스트</div>
+            </div>
+            <div class="album_list_head_4">
+                <div class="album_list_head_text">
+                    <i class="fa-regular fa-clock"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="album_list_body" aria-rowcount="12" title="NJWMX">
+            <div aria-rowindex="1" class="album_list_body_list">
+                <div class="album_list_body_song">
+                    <div class="album_list_body_index">
+                        <div class="album_list_body_text">1</div>
+                    </div>
+                    <div class="album_list_body_title">
+                        <div class="album_list_body_text">
+                            <a href="#">Ditto – 250 Remix</a>
+                        </div>
+                    </div>
+                    <div class="album_list_body_artist">
+                        <div class="album_list_body_text">
+                            <a href="#">NewJeans</a>
+                        </div>
+                    </div>
+                    <div class="album_list_body_time">
+                        <div class="album_list_body_text">3:21</div>
+                    </div>
+                </div>
+            </div>
+            <div aria-rowindex="2" class="album_list_body_list">
+                <div class="album_list_body_song">
+                    <div class="album_list_body_index">
+                        <div class="album_list_body_text">2</div>
+                    </div>
+                    <div class="album_list_body_title">
+                        <div class="album_list_body_text">
+                            <a href="#">OMG – FRNK Remix</a>
+                        </div>
+                    </div>
+                    <div class="album_list_body_artist">
+                        <div class="album_list_body_text">
+                            <a href="#">NewJeans</a>
+                        </div>
+                    </div>
+                    <div class="album_list_body_time">
+                        <div class="album_list_body_text">3:30</div>
+                    </div>
+                </div>
+            </div>
+            <div aria-rowindex="3" class="album_list_body_list">
+                <div class="album_list_body_song">
+                    <div class="album_list_body_index">
+                        <div class="album_list_body_text">3</div>
+                    </div>
+                    <div class="album_list_body_title">
+                        <div class="album_list_body_text">
+                            <a href="#">Attention – 250 Remix</a>
+                        </div>
+                    </div>
+                    <div class="album_list_body_artist">
+                        <div class="album_list_body_text">
+                            <a href="#">NewJeans</a>
+                        </div>
+                    </div>
+                    <div class="album_list_body_time">
+                        <div class="album_list_body_text">3:01</div>
+                    </div>
+                </div>
+            </div>
+            <div aria-rowindex="4" class="album_list_body_list">
+                <div class="album_list_body_song">
+                    <div class="album_list_body_index">
+                        <div class="album_list_body_text">4</div>
+                    </div>
+                    <div class="album_list_body_title">
+                        <div class="album_list_body_text">
+                            <a href="#">Hype Boy – 250 Remix</a>
+                        </div>
+                    </div>
+                    <div class="album_list_body_artist">
+                        <div class="album_list_body_text">
+                            <a href="#">NewJeans</a>
+                        </div>
+                    </div>
+                    <div class="album_list_body_time">
+                        <div class="album_list_body_text">4:11</div>
+                    </div>
+                </div>
+            </div>
+            <div aria-rowindex="5" class="album_list_body_list">
+                <div class="album_list_body_song">
+                    <div class="album_list_body_index">
+                        <div class="album_list_body_text">5</div>
+                    </div>
+                    <div class="album_list_body_title">
+                        <div class="album_list_body_text">
+                            <a href="#">Cookie – FRNK Remix</a>
+                        </div>
+                    </div>
+                    <div class="album_list_body_artist">
+                        <div class="album_list_body_text">
+                            <a href="#">NewJeans</a>
+                        </div>
+                    </div>
+                    <div class="album_list_body_time">
+                        <div class="album_list_body_text">3:32</div>
+                    </div>
+                </div>
+            </div>
+            <div aria-rowindex="6" class="album_list_body_list">
+                <div class="album_list_body_song">
+                    <div class="album_list_body_index">
+                        <div class="album_list_body_text">6</div>
+                    </div>
+                    <div class="album_list_body_title">
+                        <div class="album_list_body_text">
+                            <a href="#">Hurt - 250 Remix</a>
+                        </div>
+                    </div>
+                    <div class="album_list_body_artist">
+                        <div class="album_list_body_text">
+                            <a href="#">NewJeans</a>
+                        </div>
+                    </div>
+                    <div class="album_list_body_time">
+                        <div class="album_list_body_text">3:44</div>
+                    </div>
+                </div>
+            </div>
+            <div aria-rowindex="7" class="album_list_body_list">
+                <div class="album_list_body_song">
+                    <div class="album_list_body_index">
+                        <div class="album_list_body_text">7</div>
+                    </div>
+                    <div class="album_list_body_title">
+                        <div class="album_list_body_text">
+                            <a href="#">Ditto - 250 Remix (Instrumental)</a>
+                        </div>
+                    </div>
+                    <div class="album_list_body_artist">
+                        <div class="album_list_body_text">
+                            <a href="#">NewJeans</a>
+                        </div>
+                    </div>
+                    <div class="album_list_body_time">
+                        <div class="album_list_body_text">3:21</div>
+                    </div>
+                </div>
+            </div>
+            <div aria-rowindex="8" class="album_list_body_list">
+                <div class="album_list_body_song">
+                    <div class="album_list_body_index">
+                        <div class="album_list_body_text">8</div>
+                    </div>
+                    <div class="album_list_body_title">
+                        <div class="album_list_body_text">
+                            <a href="#">OMG – FRNK Remix (Instrumental)</a>
+                        </div>
+                    </div>
+                    <div class="album_list_body_artist">
+                        <div class="album_list_body_text">
+                            <a href="#">NewJeans</a>
+                        </div>
+                    </div>
+                    <div class="album_list_body_time">
+                        <div class="album_list_body_text">3:30</div>
+                    </div>
+                </div>
+            </div>
+            <div aria-rowindex="9" class="album_list_body_list">
+                <div class="album_list_body_song">
+                    <div class="album_list_body_index">
+                        <div class="album_list_body_text">9</div>
+                    </div>
+                    <div class="album_list_body_title">
+                        <div class="album_list_body_text">
+                            <a href="#">Attention – 250 Remix (Instrumental)</a>
+                        </div>
+                    </div>
+                    <div class="album_list_body_artist">
+                        <div class="album_list_body_text">
+                            <a href="#">NewJeans</a>
+                        </div>
+                    </div>
+                    <div class="album_list_body_time">
+                        <div class="album_list_body_text">3:01</div>
+                    </div>
+                </div>
+            </div>
+            <div aria-rowindex="10" class="album_list_body_list">
+                <div class="album_list_body_song">
+                    <div class="album_list_body_index">
+                        <div class="album_list_body_text">10</div>
+                    </div>
+                    <div class="album_list_body_title">
+                        <div class="album_list_body_text">
+                            <a href="#">Hype Boy – 250 Remix (Instrumental)</a>
+                        </div>
+                    </div>
+                    <div class="album_list_body_artist">
+                        <div class="album_list_body_text">
+                            <a href="#">NewJeans</a>
+                        </div>
+                    </div>
+                    <div class="album_list_body_time">
+                        <div class="album_list_body_text">4:11</div>
+                    </div>
+                </div>
+            </div>
+            <div aria-rowindex="11" class="album_list_body_list">
+                <div class="album_list_body_song">
+                    <div class="album_list_body_index">
+                        <div class="album_list_body_text">11</div>
+                    </div>
+                    <div class="album_list_body_title">
+                        <div class="album_list_body_text">
+                            <a href="#">Cookie – FRNK Remix (Instrumental)</a>
+                        </div>
+                    </div>
+                    <div class="album_list_body_artist">
+                        <div class="album_list_body_text">
+                            <a href="#">NewJeans</a>
+                        </div>
+                    </div>
+                    <div class="album_list_body_time">
+                        <div class="album_list_body_text">3:32</div>
+                    </div>
+                </div>
+            </div>
+            <div aria-rowindex="12" class="album_list_body_list">
+                <div class="album_list_body_song">
+                    <div class="album_list_body_index">
+                        <div class="album_list_body_text">12</div>
+                    </div>
+                    <div class="album_list_body_title">
+                        <div class="album_list_body_text">
+                            <a href="#">Hurt – 250 Remix (Instrumental)</a>
+                        </div>
+                    </div>
+                    <div class="album_list_body_artist">
+                        <div class="album_list_body_text">
+                            <a href="#">NewJeans</a>
+                        </div>
+                    </div>
+                    <div class="album_list_body_time">
+                        <div class="album_list_body_text">3:36</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="album_list_footer"></div>
+
+    </div>
+</main>
+<footer id="footer">
+    <ul class="menu">
+        <li class="item">
+            <a class="link" href="">사운드 스토리 이용약관</a>
+        </li>
+        <li class="item">
+            <a class="link" href="">안전 및 개인정보 보호 센터</a>
+        </li>
+        <li class="item">
+            <a class="link" href=""> 개인정보 처리방침</a>
+        </li>
+        <li class="item">
+            <a class="link" href="">&copy; SoundStory Corp.</a>
+        </li>
+
+    </ul>
+</footer>
+</body>
+</html>

@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sound Story</title>
+    <script src="https://kit.fontawesome.com/6dee20ad07.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/styles/index.home.css}">
+    <link rel="shortcut icon" th:href="@{/assets/images/soundstoryicon.png}">
+    <!--    <link rel="shortcut icon" th:href="@{/assets/images/plus.png}">-->
+    <!--    <link rel="shortcut icon" th:href="@{/assets/images/singer.png}">-->
+    <!--    <link rel="shortcut icon" th:href="@{/assets/images/album.png}">-->
+    <!--    <link rel="shortcut icon" th:href="@{/assets/images/chart.png}">-->
+</head>
+<body>
+<nav id="nav">
+    <div class="logo-image">
+        <a target="_blank" th:src="@{/assets/images/soundstoryicon.png}" href="#"></a>
+        <img th:src="@{/assets/images/soundstoryicon.png}" alt="홈 로고" class="image">
+        <a href="#" class="title" type="text">Sound Story</a>
+    </div>
+    <ul class="primary">
+        <li>
+            <a href="#" class="item-image">
+                <img th:src="@{/assets/images/singer.png}" alt="아티스트" class="image"></a>
+            <a href="#artist" class="text" type="text">인기 아티스트</a>
+        </li>
+        <li>
+            <a href="#" class="item-image">
+                <img th:src="@{/assets/images/album.png}" alt="앨범" class="image"></a>
+            <a href="#album" class="text" type="text">인기 앨범</a>
+        </li>
+        <li>
+            <a href="#" class="item-image">
+                <img th:src="@{/assets/images/chart.png}" alt="차트" class="image"></a>
+            <a href="#chart" class="text" type="text">인기 차트</a>
+        </li>
+        <li>
+            <a href="#" class="item-image">
+                <img th:src="@{/assets/images/recommend.png}" alt="차트" class="image"></a>
+            <a href="#genre" class="text" type="text">장르별 추천</a>
+        </li>
+    </ul>
+    <!--    </div>-->
+    <div class="playlist">
+        <div class="playlist-container">----플레이리스트----</div>
+        <!--            <div class="spring"></div>-->
+        <button class="add-button">
+            <i class="icon fa-solid fa-plus"></i>
+        </button>
+        <div class="playlist-text">
+            <span class="text">나만의 플레이리스트틀 추가해 보세요 !</span>
+        </div>
+
+    </div>
+
+</nav>
+
+<main id="main">
+    <div class="main-div">
+        <header id="header">
+            <ul class="menu">
+                <li class="item">
+                    <label class="label">
+                        <input class="input" placeholder="아티스트 및 음악 검색" type="search">
+
+                    </label>
+                </li>
+                <li class="item">
+                    <a class="search-button" href="" type="submit">검색</a>
+                </li>
+                <li class="spring"></li>
+                <li class="item">
+                    <a class="login-button" href="#">로그인 하기</a>
+                </li>
+            </ul>
+            <ul class="button">
+                <li class="album-button">
+                    <button class="item">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button class="item">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </li>
+            </ul>
+        </header>
+
+        <section class="artist">
+            <div class="artist-container">
+                <a href="#" class="title" name="artist">인기 아티스트</a>
+            </div>
+            <ul class="list">
+                <li class="item">
+                    <a href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d" class="image-wrapper">
+                        <img alt class="image" src="https://i.scdn.co/image/ab67616100005174f5d2200231e6ad75e8485476">
+                    </a>
+                    <div class="bottom">
+                        <div class="title-container">
+                            <a class="artist-name" href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">뉴진스</a>
+                        </div>
+                        <div class="subtitle-container">
+                            <a class="job-name" href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">아티스트</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="item">
+                    <a href="https://open.spotify.com/artist/36cgvBn0aadzOijnjjwqMN" class="image-wrapper">
+                        <img alt class="image" src="https://i.scdn.co/image/ab676161000051745884b5e3bdc71d42b62bfcfd">
+                    </a>
+                    <div class="bottom">
+                        <div class="title-container">
+                            <a class="artist-name"
+                               href="https://open.spotify.com/artist/36cgvBn0aadzOijnjjwqMN">ILLIT</a>
+                        </div>
+                        <div class="subtitle-container">
+                            <a class="job-name" href="https://open.spotify.com/artist/36cgvBn0aadzOijnjjwqMN">아티스트</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="item">
+                    <a href="https://open.spotify.com/artist/4SpbR6yFEvexJuaBpgAU5p" class="image-wrapper">
+                        <img alt class="image" src="https://i.scdn.co/image/ab6761610000517473f96bdf146d008680149954">
+                    </a>
+                    <div class="bottom">
+                        <div class="title-container">
+                            <a class="artist-name"
+                               href="https://open.spotify.com/artist/4SpbR6yFEvexJuaBpgAU5p">르세라핌</a>
+                        </div>
+                        <div class="subtitle-container">
+                            <a class="job-name" href="https://open.spotify.com/artist/4SpbR6yFEvexJuaBpgAU5p">아티스트</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="item">
+                    <a href="https://open.spotify.com/artist/4XpUIb8uuNlIWVKmgKZXC0" class="image-wrapper">
+                        <img alt class="image" src="https://i.scdn.co/image/ab67616100005174bc333412dcb39d8ef2bd91cc">
+                    </a>
+                    <div class="bottom">
+                        <div class="title-container">
+                            <a class="artist-name" href="https://open.spotify.com/artist/4XpUIb8uuNlIWVKmgKZXC0">지코</a>
+                        </div>
+                        <div class="subtitle-container">
+                            <a class="job-name" href="https://open.spotify.com/artist/4XpUIb8uuNlIWVKmgKZXC0">아티스트</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="item">
+                    <a href="https://open.spotify.com/artist/3HqSLMAZ3g3d5poNaI7GOU" class="image-wrapper">
+                        <img alt class="image" src="https://i.scdn.co/image/ab67616100005174bd0642ff425698afac5caffd">
+                    </a>
+                    <div class="bottom">
+                        <div class="title-container">
+                            <a class="artist-name" href="https://open.spotify.com/artist/3HqSLMAZ3g3d5poNaI7GOU">아이유</a>
+                        </div>
+                        <div class="subtitle-container">
+                            <a class="job-name" href="https://open.spotify.com/artist/3HqSLMAZ3g3d5poNaI7GOU">아티스트</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="item">
+                    <a href="https://open.spotify.com/artist/06HL4z0CvFAxyc27GXpf02" class="image-wrapper">
+                        <img alt class="image" src="https://i.scdn.co/image/ab67616100005174e672b5f553298dcdccb0e676">
+                    </a>
+                    <div class="bottom">
+                        <div class="title-container">
+                            <a class="artist-name" href="https://open.spotify.com/artist/06HL4z0CvFAxyc27GXpf02">Taylor
+                                Swift</a>
+                        </div>
+                        <div class="subtitle-container">
+                            <a class="job-name" href="https://open.spotify.com/artist/06HL4z0CvFAxyc27GXpf02">아티스트</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="item">
+                    <a href="https://open.spotify.com/artist/6HaGTQPmzraVmaVxvz6EUc" class="image-wrapper">
+                        <img alt class="image" src="https://i.scdn.co/image/ab6761610000517440a7268dd742e5f63759b960">
+                    </a>
+                    <div class="bottom">
+                        <div class="title-container">
+                            <a class="artist-name" href="https://open.spotify.com/artist/6HaGTQPmzraVmaVxvz6EUc">정국</a>
+                        </div>
+                        <div class="subtitle-container">
+                            <a class="job-name" href="https://open.spotify.com/artist/6HaGTQPmzraVmaVxvz6EUc">아티스트</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="item">
+                    <a href="https://open.spotify.com/artist/6VuMaDnrHyPL1p4EHjYLi7" class="image-wrapper">
+                        <img alt class="image" src="https://i.scdn.co/image/ab67616100005174f83823555da55fd07555fbd0">
+                    </a>
+                    <div class="bottom">
+                        <div class="title-container">
+                            <a class="artist-name" href="https://open.spotify.com/artist/6VuMaDnrHyPL1p4EHjYLi7">Charlie
+                                Puth</a>
+                        </div>
+                        <div class="subtitle-container">
+                            <a class="job-name" href="https://open.spotify.com/artist/6VuMaDnrHyPL1p4EHjYLi7">아티스트</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="item">
+                    <a href="https://open.spotify.com/artist/6VuMaDnrHyPL1p4EHjYLi7" class="image-wrapper">
+                        <img alt class="image" src="https://i.scdn.co/image/ab67616100005174573935eb61a1897aeb43c531">
+                    </a>
+                    <div class="bottom">
+                        <div class="title-container">
+                            <a class="artist-name" href="https://open.spotify.com/artist/6VuMaDnrHyPL1p4EHjYLi7">
+                                aespa</a>
+                        </div>
+                        <div class="subtitle-container">
+                            <a class="job-name" href="https://open.spotify.com/artist/6VuMaDnrHyPL1p4EHjYLi7">아티스트</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="item">
+                    <a href="https://open.spotify.com/artist/6VuMaDnrHyPL1p4EHjYLi7" class="image-wrapper">
+                        <img alt class="image" src="https://i.scdn.co/image/ab676161000051748ae7f2aaa9817a704a87ea36">
+                    </a>
+                    <div class="bottom">
+                        <div class="title-container">
+                            <a class="artist-name" href="https://open.spotify.com/artist/6VuMaDnrHyPL1p4EHjYLi7">
+                                Justin Bieber</a>
+                        </div>
+                        <div class="subtitle-container">
+                            <a class="job-name" href="https://open.spotify.com/artist/6VuMaDnrHyPL1p4EHjYLi7">아티스트</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="item">
+                    <a href="https://open.spotify.com/artist/6VuMaDnrHyPL1p4EHjYLi7" class="image-wrapper">
+                        <img alt class="image" src="https://i.scdn.co/image/ab676161000051744a21b4760d2ecb7b0dcdc8da">
+                    </a>
+                    <div class="bottom">
+                        <div class="title-container">
+                            <a class="artist-name" href="https://open.spotify.com/artist/6VuMaDnrHyPL1p4EHjYLi7">Billie Eilish</a>
+                        </div>
+                        <div class="subtitle-container">
+                            <a class="job-name" href="https://open.spotify.com/artist/6VuMaDnrHyPL1p4EHjYLi7">아티스트</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="item">
+                    <a href="https://open.spotify.com/artist/6VuMaDnrHyPL1p4EHjYLi7" class="image-wrapper">
+                        <img alt class="image" src="https://i.scdn.co/image/ab67616100005174e17c0aa1714a03d62b5ce4e0">
+                    </a>
+                    <div class="bottom">
+                        <div class="title-container">
+                            <a class="artist-name" href="https://open.spotify.com/artist/6VuMaDnrHyPL1p4EHjYLi7">Post Malone</a>
+                        </div>
+                        <div class="subtitle-container">
+                            <a class="job-name" href="https://open.spotify.com/artist/6VuMaDnrHyPL1p4EHjYLi7">아티스트</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section class="album">
+            <div class="album-container">
+                <a href="#" class="title" name="album">인기 앨범</a>
+            </div>
+            <ul class="list">
+                <li class="item">
+                    <a href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d" class="album-wrapper">
+                        <img alt class="album" src="https://i.scdn.co/image/ab67616d00001e02741fd4807f442af3f7359316">
+                    </a>
+                    <div class="bottom">
+                        <div class="title-container">
+                            <a class="album-name"
+                               href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">GOLDEN</a>
+                        </div>
+                        <div class="subtitle-container">
+                            <a class="artist-name" href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">정국</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="item">
+                    <a href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d" class="album-wrapper">
+                        <img alt class="album" src="https://i.scdn.co/image/ab67616d00001e028f116e476da669a9a3e7dcaa">
+                    </a>
+                    <div class="bottom">
+                        <div class="title-container">
+                            <a class="album-name" href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">IM
+                                HERO</a>
+                        </div>
+                        <div class="subtitle-container">
+                            <a class="artist-name" href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">임영웅</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="item">
+                    <a href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d" class="album-wrapper">
+                        <img alt class="album" src="https://i.scdn.co/image/ab67616d00001e021b8ae147aceb9fc130391287">
+                    </a>
+                    <div class="bottom">
+                        <div class="title-container">
+                            <a class="album-name"
+                               href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">SPOT!</a>
+                        </div>
+                        <div class="subtitle-container">
+                            <a class="artist-name"
+                               href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">지코,제니</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="item">
+                    <a href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d" class="album-wrapper">
+                        <img alt class="album" src="https://i.scdn.co/image/ab67616d00001e028bcb1a80720292aaffb35989">
+                    </a>
+                    <div class="bottom">
+                        <div class="title-container">
+                            <a class="album-name" href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">IVE
+                                SWITCH</a>
+                        </div>
+                        <div class="subtitle-container">
+                            <a class="artist-name" href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">아이브</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="item">
+                    <a href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d" class="album-wrapper">
+                        <img alt class="album" src="https://i.scdn.co/image/ab67616d00001e028e504c5aedaae49a73ed4963">
+                    </a>
+                    <div class="bottom">
+                        <div class="title-container">
+                            <a class="album-name"
+                               href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">Layover</a>
+                        </div>
+                        <div class="subtitle-container">
+                            <a class="artist-name" href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">V</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section class="chart">
+            <div class="chart-container">
+                <a href="#" class="title" name="chart">인기 차트</a>
+            </div>
+            <ul class="list">
+                <li class="item">
+                    <a href="https://charts-images.scdn.co/assets_generated/locale_ko/regional/weekly/region_global_default.jpg"
+                       class="chart-wrapper">
+                        <img alt class="chart"
+                             src="https://charts-images.scdn.co/assets_generated/locale_ko/regional/weekly/region_global_default.jpg">
+                    </a>
+                    <div class="bottom">
+                        <div class="title-container">
+                            <a class="chart-name" href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">인기 곡 -
+                                글로벌</a>
+                        </div>
+                        <div class="subtitle-container">
+                            <a class="chart-description" href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">현재
+                                가장 많이 재생된 트랙의 주간 업데이트 입니다.</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="item">
+                    <a href="https://charts-images.scdn.co/assets_generated/locale_ko/regional/weekly/region_us_default.jpg"
+                       class="chart-wrapper">
+                        <img alt class="chart"
+                             src="https://charts-images.scdn.co/assets_generated/locale_ko/regional/weekly/region_us_default.jpg">
+                    </a>
+                    <div class="bottom">
+                        <div class="title-container">
+                            <a class="chart-name" href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">인기 곡 -
+                                미국</a>
+                        </div>
+                        <div class="subtitle-container">
+                            <a class="chart-description" href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">현재
+                                가장 많이 재생된 트랙의 주간 업데이트 입니다.</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="item">
+                    <a href="https://charts-images.scdn.co/assets/locale_en/regional/daily/region_global_default.jpg"
+                       class="chart-wrapper">
+                        <img alt class="chart"
+                             src="https://charts-images.scdn.co/assets/locale_en/regional/daily/region_global_default.jpg">
+                    </a>
+                    <div class="bottom">
+                        <div class="title-container">
+                            <a class="chart-name" href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">TOP 50 -
+                                글로벌</a>
+                        </div>
+                        <div class="subtitle-container">
+                            <a class="chart-description" href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">현재
+                                가장 많이 재생된 트랙의 일일 업데이트 입니다 - 글로벌</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="item">
+                    <a href="https://charts-images.scdn.co/assets/locale_en/regional/daily/region_global_default.jpg"
+                       class="chart-wrapper">
+                        <img alt class="chart"
+                             src="https://charts-images.scdn.co/assets/locale_en/regional/daily/region_us_default.jpg">
+                    </a>
+                    <div class="bottom">
+                        <div class="title-container">
+                            <a class="chart-name" href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">TOP 50 -
+                                미국</a>
+                        </div>
+                        <div class="subtitle-container">
+                            <a class="chart-description" href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">현재
+                                가장 많이 재생된 트랙의 일일 업데이트 입니다 - 미국</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="item">
+                    <a href="https://charts-images.scdn.co/assets/locale_en/regional/daily/region_global_default.jpg"
+                       class="chart-wrapper">
+                        <img alt class="chart"
+                             src="https://charts-images.scdn.co/assets/locale_en/viral/daily/region_global_default.jpg">
+                    </a>
+                    <div class="bottom">
+                        <div class="title-container">
+                            <a class="chart-name" href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">바이럴 50 -
+                                글로벌</a>
+                        </div>
+                        <div class="subtitle-container">
+                            <a class="chart-description" href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">현재
+                                가장 유명한 트랙의 일일 업데이트 입니다 - 글로벌</a>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </section>
+        <section class="genre">
+            <div class="genre-container">
+                <a href="#" class="title" name="genre">장르별 추천</a>
+            </div>
+            <ul class="list">
+                <li class="item">
+                    <a href="https://music.apple.com/kr/curator/apple-music-k-pop/988658197"
+                       class="genre-wrapper">
+                        <img alt class="genre"
+                             src="https://is1-ssl.mzstatic.com/image/thumb/Features221/v4/bd/23/c7/bd23c7e7-bee1-cea8-3275-48d0a390e826/e2606246-59f3-4d91-9751-0c0332533cbf.png/316x316bf.webp">
+                    </a>
+                    <div class="bottom">
+                        <div class="title-container">
+                            <a class="genre-name"
+                               href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">K-POP</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="item">
+                    <a href="https://charts-images.scdn.co/assets_generated/locale_ko/regional/weekly/region_us_default.jpg"
+                       class="genre-wrapper">
+                        <img alt class="genre"
+                             src="https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/ce/c4/88/cec48846-0d6e-e797-381e-705eb4c659f4/9480d152-a8a0-4b50-b5fd-a9d3de689394.png/316x316bf.webp">
+                    </a>
+                    <div class="bottom">
+                        <div class="title-container">
+                            <a class="genre-name" href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">OST</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="item">
+                    <a href="https://charts-images.scdn.co/assets_generated/locale_ko/regional/weekly/region_us_default.jpg"
+                       class="genre-wrapper">
+                        <img alt class="genre"
+                             src="https://is1-ssl.mzstatic.com/image/thumb/Features221/v4/2e/54/b5/2e54b52b-73e8-1094-ec4d-cabc1b9b8ced/a93c233c-706d-4d53-87e1-a756bc62b21b.png/316x316bf.webp">
+                    </a>
+                    <div class="bottom">
+                        <div class="title-container">
+                            <a class="genre-name" href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">R&B</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="item">
+                    <a href="https://charts-images.scdn.co/assets_generated/locale_ko/regional/weekly/region_us_default.jpg"
+                       class="genre-wrapper">
+                        <img alt class="genre"
+                             src="https://is1-ssl.mzstatic.com/image/thumb/Features221/v4/73/ab/0c/73ab0c91-e854-97f5-c4e1-301a3018c99f/a3d25868-4dbe-496f-aa43-ebe219f2ddf7.png/316x316bf.webp">
+                    </a>
+                    <div class="bottom">
+                        <div class="title-container">
+                            <a class="genre-name" href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">재즈</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="item">
+                    <a href="https://charts-images.scdn.co/assets_generated/locale_ko/regional/weekly/region_us_default.jpg"
+                       class="genre-wrapper">
+                        <img alt class="genre"
+                             src="https://is1-ssl.mzstatic.com/image/thumb/Features211/v4/a1/cb/d0/a1cbd09e-6f40-1552-91ce-620af93c7c3f/9b6ed36c-0bc5-4167-a127-fd0cedcaeecd.png/316x316bf.webp">
+                    </a>
+                    <div class="bottom">
+                        <div class="title-container">
+                            <a class="genre-name" href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">힙합/랩</a>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </section>
+    </div>
+</main>
+<footer id="footer">
+    <ul class="menu">
+        <li class="item">
+            <a class="link" href="">사운드 스토리 이용약관</a>
+        </li>
+        <li class="item">
+            <a class="link" href="">안전 및 개인정보 보호 센터</a>
+        </li>
+        <li class="item">
+            <a class="link" href=""> 개인정보 처리방침</a>
+        </li>
+        <li class="item">
+            <a class="link" href="">&copy; SoundStory Corp.</a>
+        </li>
+
+    </ul>
+</footer>
+
+</body>
+</html>

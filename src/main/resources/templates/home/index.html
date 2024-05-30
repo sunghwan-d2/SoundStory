@@ -7,14 +7,27 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sound Story</title>
     <script src="https://kit.fontawesome.com/6dee20ad07.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" th:href="@{/assets/styles/index.home.css}">
     <link rel="shortcut icon" th:href="@{/assets/images/soundstoryicon.png}">
-    <!--    <link rel="shortcut icon" th:href="@{/assets/images/plus.png}">-->
-    <!--    <link rel="shortcut icon" th:href="@{/assets/images/singer.png}">-->
-    <!--    <link rel="shortcut icon" th:href="@{/assets/images/album.png}">-->
-    <!--    <link rel="shortcut icon" th:href="@{/assets/images/chart.png}">-->
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/styles/common.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/styles/index.album.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/styles/index.artist.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/styles/index.home.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/styles/index.loading.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/styles/index.recoverDialog.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/styles/index.css}">
+    <script defer type="text/javascript" th:src="@{/assets/scripts/common.js}"></script>
+    <script defer type="text/javascript" th:src="@{/assets/scripts/index.cover.js}"></script>
+    <script defer type="text/javascript" th:src="@{/assets/scripts/index.js}"></script>
+    <script defer type="text/javascript" th:src="@{/assets/scripts/index.loading.js}"></script>
+    <script defer type="text/javascript" th:src="@{/assets/scripts/index.loginForm.js}"></script>
+    <script defer type="text/javascript" th:src="@{/assets/scripts/index.recoverDialog.js}"></script>
+    <script defer type="text/javascript" th:src="@{/assets/scripts/index.registerForm.js}"></script>
 </head>
 <body>
+<th:block th:replace="~{fragments/index/loginForm.html :: loginForm}"></th:block>
+<th:block th:replace="~{fragments/index/registerForm.html :: registerForm}"></th:block>
+<th:block th:replace="~{fragments/index/recoverDialog.html :: recoverDialog}"></th:block>
+<div id="cover"></div>
 <nav id="nav">
     <div class="logo-image">
         <a target="_blank" th:src="@{/assets/images/soundstoryicon.png}" href="#"></a>
@@ -73,7 +86,7 @@
                 </li>
                 <li class="spring"></li>
                 <li class="item">
-                    <a class="login-button" href="#">로그인 하기</a>
+                    <a class="login-button" href="#" rel="showLoginCaller" id="show">로그인 하기</a>
                 </li>
             </ul>
             <ul class="button">

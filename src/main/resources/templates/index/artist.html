@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>artist</title>
+    <script src="https://kit.fontawesome.com/6dee20ad07.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/styles/index.artist.css}">
+    <link rel="shortcut icon" th:href="@{/assets/images/soundstoryicon.png}">
+
+</head>
+<body>
+
+<nav id="nav">
+    <div class="logo-image">
+        <a target="_blank" th:src="@{/assets/images/soundstoryicon.png}" href="#"></a>
+        <img th:src="@{/assets/images/soundstoryicon.png}" alt="홈 로고" class="image">
+        <a href="#" class="title" type="text">Sound Story</a>
+    </div>
+    <ul class="primary">
+        <li>
+            <a href="#" class="item-image">
+                <img th:src="@{/assets/images/singer.png}" alt="아티스트" class="image"></a>
+            <a href="#" class="text" type="text">인기 아티스트</a>
+        </li>
+        <li>
+            <a href="#" class="item-image">
+                <img th:src="@{/assets/images/album.png}" alt="앨범" class="image"></a>
+            <a href="#" class="text" type="text">인기 앨범</a>
+        </li>
+        <li>
+            <a href="#" class="item-image">
+                <img th:src="@{/assets/images/chart.png}" alt="차트" class="image"></a>
+            <a href="#" class="text" type="text">인기 차트</a>
+        </li>
+        <li>
+            <a href="#" class="item-image">
+                <img th:src="@{/assets/images/recommend.png}" alt="차트" class="image"></a>
+            <a href="#genre" class="text" type="text">장르별 추천</a>
+        </li>
+    </ul>
+    <!--    </div>-->
+    <div class="playlist">
+        <div class="playlist-container">----플레이리스트----</div>
+        <!--            <div class="spring"></div>-->
+        <button class="add-button" >
+            <i class="icon fa-solid fa-plus"></i>
+        </button>
+        <div class="playlist-text">
+            <span class="text">나만의 플레이리스트틀 추가해 보세요 !</span>
+        </div>
+
+    </div>
+
+</nav>
+<main class="main">
+    <header id="header">
+        <ul class="menu">
+            <li class="item">
+                <label class="label">
+                    <input class="input" placeholder="아티스트 및 음악 검색" type="search">
+
+                </label>
+            </li>
+            <li class="item">
+                <a class="search-button" href="" type="submit">검색</a>
+            </li>
+            <li class="spring"></li>
+            <li class="item">
+                <a class="login-button" href="#">로그인 하기</a>
+            </li>
+
+        </ul>
+        <ul class="button">
+            <li class="album-button">
+                <button class="item">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="item">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </li>
+        </ul>
+    </header>
+    <div class="artist_section">
+        <div class="artist_wrap">
+            <div class="artist_thumb">
+                <a href="#">
+                    <img alt="정국" class="artist_thumb_image"
+                         src="https://musicmeta-phinf.pstatic.net/artist/000/274/274327.jpg?type=ff300_300&v=20240122180120">
+                </a>
+            </div>
+            <div class="artist_text">
+                <div class="artist_title">정국</div>
+                <div class="artist_info">
+                    <span class="artist_info_title">장르</span>
+                    <span class="artist_info_content">랩/힙합</span>
+                </div>
+                <div class="artist_info">
+                    <span class="artist_info_title">소속</span>
+                    <span class="artist_info_content">빅히트 뮤직</span>
+                </div>
+                <div class="artist_info">
+                    <span class="artist_info_title">활동</span>
+                    <span class="artist_info_content">방탄소년단</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="song_section">
+        <div class="section_title">앨범
+            <a href="#" class="section_more">더보기</a>
+        </div>
+        <div class="trackList">
+            <table class="table">
+                <thead>
+                <tr hidden="hidden">
+                    <th scope="col" class="song_thumb"></th>
+                    <th scope="col" class="song_title"></th>
+                    <th scope="col" class="song_artist"></th>
+                    <th scope="col" class="song_album"></th>
+                    <th scope="col" class="song_option"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="song_thumb">
+                        <div class="inner">
+                            <img class="img_thumb"
+                                 src="https://musicmeta-phinf.pstatic.net/album/010/048/10048448.jpg?type=r120Fll&v=20240226072013"
+                                 alt="Seven (feat. Latto) - Clean Ver. 앨범 커버">
+                            <a href="#" role="button"></a>
+                        </div>
+                    </td>
+                    <td class="song_title">
+                        <div class="inner">
+                            <a href="#" title="Seven (feat. Latto) - Clean.Ver." class="link_text">
+                                <span>Seven (feat. Latto) - Clean Ver.</span>
+                            </a>
+                        </div>
+                    </td>
+                    <td class="song_artist">
+                        <div class="inner">
+                            <a href="#" title="정국" class="link_text">
+                                <span>정국</span>
+                            </a>
+                        </div>
+                    </td>
+                    <td class="song_album">
+                        <div class="inner">
+                            <a href="#" title="Seven (feat. Latto) - Clean.Ver." class="link_text">
+                                Seven (feat. Latto) - Clean Ver.</a>
+                        </div>
+                    </td>
+                    <td class="song_option">
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="song_thumb">
+                        <div class="inner">
+                            <img class="img_thumb"
+                                 src="https://musicmeta-phinf.pstatic.net/album/008/349/8349954.jpg?type=r120Fll&v=20240223083515"
+                                 alt="Dreamers [Music from the FIFA World Cup Qatar 2022 Official Soundtrack] 앨범 커버">
+                            <a href="#" role="button"></a>
+                        </div>
+                    </td>
+                    <td class="song_title">
+                        <div class="inner">
+                            <a href="#"
+                               title="Dreamers [Music from the FIFA World Cup Qatar 2022 Official Soundtrack] (Feat. FIFA Sound)"
+                               class="link_text">
+                                <span>Dreamers [Music from the FIFA World Cup Qatar 2022 Official Soundtrack] (Feat. FIFA Sound)</span>
+                            </a>
+                        </div>
+                    </td>
+                    <td class="song_artist">
+                        <div class="inner">
+                            <a href="#" title="정국" class="link_text">
+                                <span>정국</span>
+                            </a>
+                        </div>
+                    </td>
+                    <td class="song_album">
+                        <div class="inner">
+                            <a href="#" title="Dreamers [Music from the FIFA World Cup Qatar 2022 Official Soundtrack]"
+                               class="link_text">
+                                Dreamers [Music from the FIFA World Cup Qatar 2022 Official Soundtrack]</a>
+                        </div>
+                    </td>
+                    <td class="song_option">
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="song_thumb">
+                        <div class="inner">
+                            <img class="img_thumb"
+                                 src="https://musicmeta-phinf.pstatic.net/album/007/616/7616403.jpg?type=r120Fll&v=20240220185017"
+                                 alt="Left and Right (Feat. Jung Kook of BTS) 앨범 커버">
+                            <a href="#" role="button"></a>
+                        </div>
+                    </td>
+                    <td class="song_title">
+                        <div class="inner">
+                            <a href="#" title="Left and Right (Feat. Jung Kook of BTS)" class="link_text">
+                                <span>Left and Right (Feat. Jung Kook of BTS)</span>
+                            </a>
+                        </div>
+                    </td>
+                    <td class="song_artist">
+                        <div class="inner">
+                            <a href="#" title="정국" class="link_text">
+                                <span>정국</span>
+                            </a>
+                        </div>
+                    </td>
+                    <td class="song_album">
+                        <div class="inner">
+                            <a href="#" title="Left and Right (Feat. Jung Kook of BTS)" class="link_text">
+                                Left and Right (Feat. Jung Kook of BTS)</a>
+                        </div>
+                    </td>
+                    <td class="song_option">
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="song_thumb">
+                        <div class="inner">
+                            <img class="img_thumb"
+                                 src="https://musicmeta-phinf.pstatic.net/album/007/616/7616403.jpg?type=r120Fll&v=20240220185017"
+                                 alt="Left and Right (Feat. Jung Kook of BTS) 앨범 커버">
+                            <a href="#" role="button"></a>
+                        </div>
+                    </td>
+                    <td class="song_title">
+                        <div class="inner">
+                            <a href="#" title="Left and Right (Feat. Jung Kook of BTS)" class="link_text">
+                                <span>Left and Right (Feat. Jung Kook of BTS)</span>
+                            </a>
+                        </div>
+                    </td>
+                    <td class="song_artist">
+                        <div class="inner">
+                            <a href="#" title="정국" class="link_text">
+                                <span>정국</span>
+                            </a>
+                        </div>
+                    </td>
+                    <td class="song_album">
+                        <div class="inner">
+                            <a href="#" title="Left and Right (Feat. Jung Kook of BTS)" class="link_text">
+                                Left and Right (Feat. Jung Kook of BTS)</a>
+                        </div>
+                    </td>
+                    <td class="song_option">
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="song_thumb">
+                        <div class="inner">
+                            <img class="img_thumb"
+                                 src="https://musicmeta-phinf.pstatic.net/album/007/616/7616403.jpg?type=r120Fll&v=20240220185017"
+                                 alt="Left and Right (Feat. Jung Kook of BTS) 앨범 커버">
+                            <a href="#" role="button"></a>
+                        </div>
+                    </td>
+                    <td class="song_title">
+                        <div class="inner">
+                            <a href="#" title="Left and Right (Feat. Jung Kook of BTS)" class="link_text">
+                                <span>Left and Right (Feat. Jung Kook of BTS)</span>
+                            </a>
+                        </div>
+                    </td>
+                    <td class="song_artist">
+                        <div class="inner">
+                            <a href="#" title="정국" class="link_text">
+                                <span>정국</span>
+                            </a>
+                        </div>
+                    </td>
+                    <td class="song_album">
+                        <div class="inner">
+                            <a href="#" title="Left and Right (Feat. Jung Kook of BTS)" class="link_text">
+                                Left and Right (Feat. Jung Kook of BTS)</a>
+                        </div>
+                    </td>
+                    <td class="song_option">
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="comment_section">
+        <div class="comment_head">
+            <div class="comment_title">댓글</div>
+            <span class="comment_count">0</span>
+        </div>
+        <div class="comment_content">
+            <div class="comment_profile">닉네임</div>
+            <div class="comment_write">
+                <textarea title="댓글" class="comment_textarea" maxlength="400" minlength="1" rows="3" cols="30"
+                          placeholder="과도한 비방과 욕설은 삭제될 수 있습니다."></textarea>
+                <input type="submit" class="comment_submit" value="등록하기">
+            </div>
+        </div>
+    </div>
+</main>
+<footer id="footer">
+    <ul class="menu">
+        <li class="item">
+            <a class="link" href="">사운드 스토리 이용약관</a>
+        </li>
+        <li class="item">
+            <a class="link" href="">안전 및 개인정보 보호 센터</a>
+        </li>
+        <li class="item">
+            <a class="link" href=""> 개인정보 처리방침</a>
+        </li>
+        <li class="item">
+            <a class="link" href="">&copy; SoundStory Corp.</a>
+        </li>
+
+    </ul>
+</footer>
+
+</body>
+</html>

@@ -46,7 +46,7 @@ recoverDialog.emailRecoverForm.onsubmit = (e) => {
         const responseObject = JSON.parse(xhr.responseText);
         const [dTitle, dContent, dOnclick] = {
             failure: ['경고', '해당 닉네임을 회원 정보를 찾을 수 없습니다. 다시 확인해 주세요.', () => loginForm['email'].focus()],
-            success: ['알림', `해당 닉네임으로 찾은 회원의 이메일은 <b>${responseObject['email']}</b>입니다. 확인을 클릭하면 로그인 페이지로 돌아갑니다.`, () => showLogin()]
+            success: ['알림', `해당 닉네임으로 찾은 회원의 이메일은 <b>${responseObject['email']}</b>입니다. <br>확인을 클릭하면 로그인 페이지로 돌아갑니다.`, () => showLogin()]
         }[responseObject.result] || ['경고', '서버가 예상치 못한 응답을 반환하였습니다. 잠시 후 다시 시도해 주세요.'];
         DialogObj.createSimpleOk(dTitle, dContent, dOnclick).show();
     }

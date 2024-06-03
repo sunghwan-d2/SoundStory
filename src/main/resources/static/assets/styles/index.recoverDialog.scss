@@ -26,6 +26,11 @@
         text-align: justify;
       }
 
+      > .title {
+        font-weight: 0;
+        color: #5c5c5c; // 2
+      }
+
       > .input {
         display: none;
       }

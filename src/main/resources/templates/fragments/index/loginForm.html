@@ -3,7 +3,10 @@
 <form novalidate class="dialog" id="loginForm"
       th:fragment="loginForm"
       th:with="userRegex=${T(com.ksh.soundstory.regexes.UserRegex)}">
-    <h2 class="title">로그인</h2>
+    <div class="image-container">
+        <img th:src="@{/assets/images/soundstoryicon.png}" alt="홈 로고" class="image">
+        <span class="title">SoundStory</span>
+    </div>
     <label class="_obj-label label" rel="emailLabel">
         <span class="__text">이메일</span>
         <input required autocomplete="email" class="_obj-input __field input" maxlength="50" minlength="5" name="email"
@@ -25,14 +28,12 @@
         <i class="__icon"></i>
         <span class="__text">로그인</span>
     </button>
-    <ul class="menu">
+    <ul class="recover-menu">
         <li class="item">
-            <span class="text">아직 계정이 없으신가요?</span>
             <a class="link" href="#" rel="showRegisterCaller">회원가입</a>
         </li>
         <li class="item">
-            <span class="text">계정 정보를 분실하셨나요?</span>
-            <a class="link" href="#" rel="showRecoverCaller">계정 찾기</a>
+            <a class="link" href="#" rel="showRecoverCaller">계정찾기</a>
         </li>
     </ul>
 </form>

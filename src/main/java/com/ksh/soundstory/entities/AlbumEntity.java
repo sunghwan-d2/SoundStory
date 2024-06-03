@@ -1,4 +1,4 @@
-package com.ksh.soundstory.entites;
+package com.ksh.soundstory.entities;
 
 import lombok.Builder;
 import lombok.EqualsAndHashCode;

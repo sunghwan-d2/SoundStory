@@ -20,18 +20,26 @@ a:link, a:visited {
 //  margin: initial;
 //}
 //
-//h1, h2, h3, h4, h5, h6 {
-//  font: inherit;
-//  margin-block: initial;
-//  margin-inline: initial;
-//}
-//
+h1, h2, h3, h4, h5, h6 {
+  font: inherit;
+  margin-block: initial;
+  margin-inline: initial;
+}
+
 //ol, ul {
 //  list-style-type: none;
 //  margin-block: initial;
 //  margin-inline: initial;
 //  padding-inline: initial;
 //}
+
+.menu.item {
+  list-style-type: none;
+  margin-block: initial;
+  margin-inline: initial;
+  padding: initial;
+
+}
 
 ._obj-button {
   $background_color: #757575;

@@ -7,6 +7,10 @@ public class Regex {
         this.expression = expression;
     }
 
+    public boolean tests(String input){
+        return this.tests(input,false);
+    }
+
     public boolean tests(String input, boolean allowNullOrEmpty) {
         if (input == null || input.isEmpty()) {
             return allowNullOrEmpty;

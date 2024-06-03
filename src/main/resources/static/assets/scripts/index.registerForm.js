@@ -42,7 +42,7 @@ registerForm['emailSend'].onclick = () => {
         const responseObject = JSON.parse(xhr.responseText);
         const [dTitle, dContent,dOnclick] = {
             failure: ['경고', '알 수 없는 이유로 인증번호를 전송하지 못하였습니다. 잠시 후 다시 시도해 주세요.'],
-            failure_duplicate_email: ['경고', `입력하신 이메일 <b>${registerForm['email'.value]}</b>은 이미 사용 중입니다.`,() => registerForm['email'].focus()],
+            failure_duplicate_email: ['경고', `입력하신 이메일 <b>${registerForm['email'].value}</b>은 이미 사용 중입니다.`,() => registerForm['email'].focus()],
             success: ['알림','입력하신 이메일로 인증번호를 전송하였습니다. 인증번호는 5분간만 유효하니 유의해 주세요.',() => {
                 registerForm['emailSalt'].value = responseObject.salt;
                 registerForm['email'].disable();

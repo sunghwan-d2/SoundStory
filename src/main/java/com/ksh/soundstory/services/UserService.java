@@ -210,7 +210,7 @@ public class UserService {
         context.setVariable("code", emailAuth.getCode());
         new MailSender(this.mailSender)
                 .setFrom("ghktkf789@gmail.com")
-                .setSubject("[맛집] 회원가입 인증번호")
+                .setSubject("[사운드스토리] 회원가입 인증번호")
                 .setText(this.templateEngine.process("user/registerEmail", context), true)
                 .setTo(emailAuth.getEmail())
                 .send();

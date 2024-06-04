@@ -19,6 +19,8 @@
     <link rel="stylesheet" type="text/css" th:href="@{/assets/styles/index.css}">
     <link rel="shortcut icon" th:href="@{/assets/images/soundstoryicon.png}">
     <script defer type="text/javascript" th:src="@{/assets/scripts/common.js}"></script>
+    <script defer type="text/javascript" th:src="@{/assets/scripts/defaulthome.js}"></script>
+    <script defer type="text/javascript" th:src="@{/assets/scripts/index.album.js}"></script>
     <script defer type="text/javascript" th:src="@{/assets/scripts/index.cover.js}"></script>
     <script defer type="text/javascript" th:src="@{/assets/scripts/index.js}"></script>
     <script defer type="text/javascript" th:src="@{/assets/scripts/index.loading.js}"></script>
@@ -34,15 +36,15 @@
 <th:block th:replace="~{fragments/index/registerForm.html :: registerForm}"></th:block>
 <nav id="nav">
     <div class="logo-image">
-        <a target="_blank" th:src="@{/assets/images/soundstoryicon.png}" href="#"></a>
+        <a target="_self" th:src="@{/assets/images/soundstoryicon.png}" th:href="@{/}"></a>
         <img th:src="@{/assets/images/soundstoryicon.png}" alt="홈 로고" class="image">
-        <a href="#" class="title" type="text">Sound Story</a>
+        <a th:href="@{/}" class="title" type="text">Sound Story</a>
     </div>
     <ul class="primary">
         <li>
             <a href="#" class="item-image">
                 <img th:src="@{/assets/images/singer.png}" alt="아티스트" class="image"></a>
-            <a href="#artist" class="text" type="text">인기 아티스트</a>
+            <a th:href="@{/}" class="text" type="text">인기 아티스트</a>
         </li>
         <li>
             <a href="#" class="item-image">
@@ -88,7 +90,13 @@
                 </li>
                 <li class="spring"></li>
                 <li class="item">
-                    <a class="login-button" href="#" rel="showLoginCaller" id="show">로그인 하기</a>
+                    <div th:if="${session.get('user') != null}">
+                        <b th:text="${session.get('user').getNickname()}"></b>님 환영합니다.
+                    </div>
+                </li>
+                <li class="item">
+                    <a class="login-button" th:if="${session.user == null}" href="#" rel="showLoginCaller" id="show">로그인</a>
+                    <a class="login-button" th:if="${session.user != null}" th:href="@{/user/logout}">로그아웃</a>
                 </li>
             </ul>
             <ul class="button">
@@ -109,17 +117,18 @@
             </div>
             <ul class="list">
                 <li class="item">
-                    <a href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d" class="image-wrapper">
+                    <a th:href="@{/artist}" class="image-wrapper">
                         <img alt class="image" src="https://i.scdn.co/image/ab67616100005174f5d2200231e6ad75e8485476">
                     </a>
                     <div class="bottom">
                         <div class="title-container">
-                            <a class="artist-name" href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">뉴진스</a>
+                            <a th:href="@{/artist}" class="artist-name">뉴진스</a>
                         </div>
                         <div class="subtitle-container">
-                            <a class="job-name" href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">아티스트</a>
+                            <a th:href="@{/artist}" class="job-name">아티스트</a>
                         </div>
                     </div>
+
                 </li>
                 <li class="item">
                     <a href="https://open.spotify.com/artist/36cgvBn0aadzOijnjjwqMN" class="image-wrapper">
@@ -128,10 +137,10 @@
                     <div class="bottom">
                         <div class="title-container">
                             <a class="artist-name"
-                               href="https://open.spotify.com/artist/36cgvBn0aadzOijnjjwqMN">ILLIT</a>
+                               th:href="@{/artist}">ILLIT</a>
                         </div>
                         <div class="subtitle-container">
-                            <a class="job-name" href="https://open.spotify.com/artist/36cgvBn0aadzOijnjjwqMN">아티스트</a>
+                            <a class="job-name" th:href="@{/artist}">아티스트</a>
                         </div>
                     </div>
                 </li>
@@ -142,10 +151,10 @@
                     <div class="bottom">
                         <div class="title-container">
                             <a class="artist-name"
-                               href="https://open.spotify.com/artist/4SpbR6yFEvexJuaBpgAU5p">르세라핌</a>
+                               th:href="@{/artist}">르세라핌</a>
                         </div>
                         <div class="subtitle-container">
-                            <a class="job-name" href="https://open.spotify.com/artist/4SpbR6yFEvexJuaBpgAU5p">아티스트</a>
+                            <a class="job-name" th:href="@{/artist}">아티스트</a>
                         </div>
                     </div>
                 </li>

@@ -15,14 +15,14 @@
 
 <nav id="nav">
     <div class="logo-image">
-        <a target="_blank" th:src="@{/assets/images/soundstoryicon.png}" href="#"></a>
+        <a target="_blank" th:src="@{/assets/images/soundstoryicon.png}" th:href="@{/}"></a>
         <img th:src="@{/assets/images/soundstoryicon.png}" alt="홈 로고" class="image">
-        <a href="#" class="title" type="text">Sound Story</a>
+        <a th:href="@{/}" class="title" type="text">Sound Story</a>
     </div>
     <ul class="primary">
         <li>
             <a href="#" class="item-image">
-                <img th:src="@{/assets/images/singer.png}" alt="아티스트" class="image"></a>
+                <img th:src="@{/assets/images/singer.png}"  alt="아티스트" class="image"></a>
             <a href="#" class="text" type="text">인기 아티스트</a>
         </li>
         <li>
@@ -38,13 +38,12 @@
         <li>
             <a href="#" class="item-image">
                 <img th:src="@{/assets/images/recommend.png}" alt="차트" class="image"></a>
-            <a href="#genre" class="text" type="text">장르별 추천</a>
+            <a href="#" class="text" type="text">장르별 추천</a>
         </li>
     </ul>
     <!--    </div>-->
     <div class="playlist">
         <div class="playlist-container">----플레이리스트----</div>
-        <!--            <div class="spring"></div>-->
         <button class="add-button" >
             <i class="icon fa-solid fa-plus"></i>
         </button>

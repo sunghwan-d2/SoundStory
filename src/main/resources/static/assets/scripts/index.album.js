@@ -1,5 +1,5 @@
-const apiKey = 'AIzaSyAF_lPBRV2FoLiK4tLdACk8C1NCrv_6DU8';
-const videoId = 'Dk9L4P1qP2g';
+const apiKey = '';
+const videoId = '';
 
 
 fetch(`https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=${apiKey}&part=snippet,contentDetails,statistics`)

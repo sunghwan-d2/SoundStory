@@ -8,6 +8,8 @@
     <title>artist</title>
     <script src="https://kit.fontawesome.com/6dee20ad07.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" th:href="@{/assets/styles/index.artist.css}">
+    <script defer type="text/javascript" th:src="@{/assets/scripts/read.js}"></script>
+
     <link rel="shortcut icon" th:href="@{/assets/images/soundstoryicon.png}">
 
 </head>
@@ -22,7 +24,7 @@
     <ul class="primary">
         <li>
             <a href="#" class="item-image">
-                <img th:src="@{/assets/images/singer.png}"  alt="아티스트" class="image"></a>
+                <img th:src="@{/assets/images/singer.png}" alt="아티스트" class="image"></a>
             <a href="#" class="text" type="text">인기 아티스트</a>
         </li>
         <li>
@@ -44,7 +46,7 @@
     <!--    </div>-->
     <div class="playlist">
         <div class="playlist-container">----플레이리스트----</div>
-        <button class="add-button" >
+        <button class="add-button">
             <i class="icon fa-solid fa-plus"></i>
         </button>
         <div class="playlist-text">
@@ -68,7 +70,13 @@
             </li>
             <li class="spring"></li>
             <li class="item">
-                <a class="login-button" href="#">로그인 하기</a>
+                <div th:if="${session.get('user') != null}">
+                    <b th:text="${session.get('user').getNickname()}"></b>님 환영합니다.
+                </div>
+            </li>
+            <li class="item">
+                <a class="login-button" th:if="${session.user == null}" href="#" rel="showLoginCaller" id="show">로그인</a>
+                <a class="login-button" th:if="${session.user != null}" th:href="@{/user/logout}">로그아웃</a>
             </li>
 
         </ul>
@@ -296,20 +304,38 @@
             </table>
         </div>
     </div>
-    <div class="comment_section">
-        <div class="comment_head">
-            <div class="comment_title">댓글</div>
-            <span class="comment_count">0</span>
-        </div>
-        <div class="comment_content">
-            <div class="comment_profile">닉네임</div>
-            <div class="comment_write">
+    <form id="commentForm" method="post" action="/article/write">
+        <div class="comment_section">
+            <div class="comment_head">
+                <div class="comment_title">댓글</div>
+                <span class="comment_count">0</span>
+            </div>
+            <div class="comment_content">
+                <!--            <div class="comment_profile">닉네임</div>-->
+                <div class="comment_write" id="comment_write">
                 <textarea title="댓글" class="comment_textarea" maxlength="400" minlength="1" rows="3" cols="30"
                           placeholder="과도한 비방과 욕설은 삭제될 수 있습니다."></textarea>
-                <input type="submit" class="comment_submit" value="등록하기">
+                    <input type="submit" class="comment_submit" value="등록하기">
+                </div>
             </div>
         </div>
-    </div>
+    </form>
+        <div id="comment-container" >
+            <div rel="comment">
+                <div>
+                    <span>[1]</span>
+                    <span>작성자 자리</span>
+                    <span>2024-01-01 00:00:00</span>
+                </div>
+                <div>내용자리</div>
+                <div>
+                    <button rel="modify">수정</button>
+                    <button rel="delete">삭제</button>
+                </div>
+            </div>
+        </div>
+
+
 </main>
 <footer id="footer">
     <ul class="menu">

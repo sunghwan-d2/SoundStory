@@ -383,7 +383,7 @@ body a {
   color: gray;
 }
 
-.main > .comment_section {
+.main > #commentForm >.comment_section {
   left: 10rem;
   width: 70rem;
   height: 15rem;
@@ -394,7 +394,7 @@ body a {
   gap: 1rem;
 }
 
-.main > .comment_section > .comment_head {
+.main > #commentForm > .comment_section > .comment_head {
   color: white;
   font-size: 1.5rem;
   font-weight: 600;
@@ -403,13 +403,13 @@ body a {
   gap: 0.7rem;
 }
 
-.main > .comment_section > .comment_content {
+.main > #commentForm > .comment_section > .comment_content {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-.main > .comment_section > .comment_content > .comment_write {
+.main > #commentForm > .comment_section > .comment_content > .comment_write {
   width: 70rem;
   height: 10rem;
   display: flex;
@@ -417,7 +417,7 @@ body a {
   gap: 1rem;
 }
 
-.main > .comment_section > .comment_content > .comment_write > .comment_textarea {
+.main > #commentForm > .comment_section > .comment_content > .comment_write > .comment_textarea {
   display: block;
   position: relative;
   padding: 20px 10px 18px;
@@ -432,7 +432,7 @@ body a {
   resize: none;
 }
 
-.main > .comment_section > .comment_content > .comment_write > .comment_submit {
+.main > #commentForm > .comment_section > .comment_content > .comment_write > .comment_submit {
   left: 65rem;
   width: 5rem;
   height: 3.5rem;
@@ -446,11 +446,11 @@ body a {
   text-align: center;
 }
 
-.main > .comment_section > .comment_content > .comment_write > .comment_submit:hover {
+.main >  #commentForm > .comment_section > .comment_content > .comment_write > .comment_submit:hover {
   background-color: dimgray;
 }
 
-.main > .comment_section > .comment_content > .comment_write > .comment_submit:active {
+.main > #commentForm .comment_section > .comment_content > .comment_write > .comment_submit:active {
   background-color: #313131;
 }
 

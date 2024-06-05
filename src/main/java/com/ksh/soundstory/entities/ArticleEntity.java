@@ -19,6 +19,7 @@ public class ArticleEntity {
     private boolean liked = false;
     private LocalDateTime createdAt;
     private int songId;
+    private String userEmail;
 
     public ArticleEntity() {
         this.liked = false;

@@ -9,7 +9,6 @@
     <script src="https://kit.fontawesome.com/6dee20ad07.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" th:href="@{/assets/styles/index.artist.css}">
     <script defer type="text/javascript" th:src="@{/assets/scripts/read.js}"></script>
-
     <link rel="shortcut icon" th:href="@{/assets/images/soundstoryicon.png}">
 
 </head>
@@ -304,7 +303,7 @@
             </table>
         </div>
     </div>
-    <form id="commentForm" method="post" action="/article/write">
+    <form id="commentForm">
         <div class="comment_section">
             <div class="comment_head">
                 <div class="comment_title">댓글</div>
@@ -320,20 +319,21 @@
             </div>
         </div>
     </form>
-        <div id="comment-container" >
-            <div rel="comment">
-                <div>
-                    <span>[1]</span>
-                    <span>작성자 자리</span>
-                    <span>2024-01-01 00:00:00</span>
-                </div>
-                <div>내용자리</div>
-                <div>
-                    <button rel="modify">수정</button>
-                    <button rel="delete">삭제</button>
-                </div>
+    <div id="comment-container">
+        <div rel="comment">
+            <div>
+                <span>[1]</span>
+                <span th:text="${session.get('user').getNickname()}" class="userNickname"></span>
+                <span th:text="${#dates.format(#dates.createNow(), 'yyyy-MM-dd HH:mm:ss')}"></span>
+            </div>
+            <div th:text="${content}"></div>
+            <div>
+                <button rel="modify">수정</button>
+                <button rel="delete">삭제</button>
             </div>
         </div>
+    </div>
+
 
 
 </main>

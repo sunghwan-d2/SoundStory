@@ -24,7 +24,7 @@ public class ArticleController {
 
     @RequestMapping(value = "read", method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
     public ModelAndView getRead(@RequestParam("index") int index) {
-        ArticleEntity article = this.articleService.getArticle(index);
+        ArticleEntity[] article = this.articleService.getArticle(index);
         ModelAndView modelAndView = new ModelAndView("index/artist");
         modelAndView.addObject("article", article);
         return modelAndView;

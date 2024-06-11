@@ -18,25 +18,16 @@ public class ArticleService {
         this.articleMapper = articleMapper;
     }
 
-    public ArticleEntity getArticle(int index) {
-        ArticleEntity article = this.articleMapper.selectArticleByIndex(index);
-        this.articleMapper.updateArticle(article);
-        return article;
-    }
-
     public Result<?> write(ArticleEntity article) {
-        // nickname이 null인지 확인
-        if (article.getNickname() == null) {
-            // 예외 발생
-            throw new IllegalArgumentException("닉네임을 작성하세요");
-        }
-
-        // createdAt 설정
-        article.setCreatedAt(LocalDateTime.now());
-
-        // article 삽입 시도 및 결과 반환
+        article.setCreatedAt(LocalDateTime.now()); // createdAt 설정
         return this.articleMapper.insertArticle(article) > 0
                 ? CommonResult.SUCCESS
                 : CommonResult.FAILURE;
     }
+
+    public ArticleEntity[] getArticle(int index) {
+        return this.articleMapper.selectArticleByIndex(index);
+    }
+
+
 }

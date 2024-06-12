@@ -5,10 +5,13 @@ import lombok.Setter;
 
 import java.util.Objects;
 
-@Getter
-@Setter
+
 public class BoardEntity {
+    @Setter
+    @Getter
     private String code;
+    @Setter
+    @Getter
     private String text;
     private boolean isAdminOnly;
 

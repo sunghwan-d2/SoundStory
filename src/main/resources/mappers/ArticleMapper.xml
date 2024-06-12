@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ksh.soundstory.mappers.ArticleMapper">
+    <insert id="insertArticle"
+    useGeneratedKeys="true"
+    keyProperty="index"
+    parameterType="com.ksh.soundstory.entities.ArticleEntity">
+        INSERT INTO `ss`.`articles`(`user_email`, `content`, `created_at`, `nickname`)
+        VALUES ( #{userEmail}, #{content}, #{createdAt}, #{nickname})
+    </insert>
+    <select id="selectArticleByIndex" resultType="com.ksh.soundstory.entities.ArticleEntity">
+        SELECT `index`      AS `index`,
+               `user_email` AS `userEmail`,
+               `content`    AS `content`,
+               `created_at` AS `createdAt`
+        FROM `ss`.`articles`
+        WHERE `index` = #{index}
+        LIMIT 1
+    </select>
+    <update id="updateArticle" parameterType="com.ksh.soundstory.entities.ArticleEntity">
+        UPDATE `ss`.`articles`
+        SET `user_email` = #{userEmail},
+            `content`    = #{content},
+            `created_at` = #{createdAt}
+        WHERE `index` = #{index}
+        LIMIT 1
+    </update>
+
+</mapper>

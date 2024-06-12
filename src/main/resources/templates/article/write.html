@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script th:if="${session.get('user') == null }">
+        alert('로그인 후 이용하실 수 있는 서비스 입니다. 먼저 로그인해 주세요');
+        location.href='/';
+    </script>
+</head>
+<body th:if="${session.get('user') != null && result == null}">
+<form method="post">
+    <label>
+        <span>내용</span>
+        <span th:each="board : ${boards}"
+              th:text="${board.getText()}">내용</span>
+        <textarea name="content"></textarea>
+    </label>
+    <br>
+    <input type="reset" value="다시 쓰기">
+    <input type="submit" value="글쓰기">
+</form>
+</body>
+</html>

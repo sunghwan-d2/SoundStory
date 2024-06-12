@@ -1,22 +1,32 @@
 package com.ksh.soundstory.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
+import org.springframework.cglib.core.Local;
 
 import java.time.LocalDateTime;
+import java.util.Date;
+import java.util.Objects;
 
-
-@Data
-@EqualsAndHashCode(of = "index")
+@Setter
+@Getter
 public class ArticleEntity {
     private int index;
-    private String nickname;
+    private String userEmail;
+    private String title;
     private String content;
     private LocalDateTime createdAt;
-    private String userEmail;
+    private String nickname;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ArticleEntity that = (ArticleEntity) o;
+        return index == that.index;
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(index);
+    }
 }
-

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Service
 public class ArticleService {
@@ -19,13 +20,14 @@ public class ArticleService {
     }
 
     public Result<?> write(ArticleEntity article) {
+
         article.setCreatedAt(LocalDateTime.now()); // createdAt 설정
         return this.articleMapper.insertArticle(article) > 0
                 ? CommonResult.SUCCESS
                 : CommonResult.FAILURE;
     }
 
-    public ArticleEntity[] getArticle(int index) {
+    public ArticleEntity getArticle(int index) {
         return this.articleMapper.selectArticleByIndex(index);
     }
 

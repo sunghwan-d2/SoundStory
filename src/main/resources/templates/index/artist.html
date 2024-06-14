@@ -10,14 +10,14 @@
     <link rel="stylesheet" type="text/css" th:href="@{/assets/styles/index.artist.css}">
     <script src="https://kit.fontawesome.com/6dee20ad07.js" crossorigin="anonymous"></script>
     <script defer type="text/javascript" th:src="@{/assets/scripts/read.js}"></script>
-        <script th:if="${session.get('user') == null}">
-            alert('로그인 후 이용하실 수 있는 서비스 입니다. 먼저 로그인을 해 주세요');
-            history.back();
-        </script>
-        <script th:if="${result != null && result.equals('FAILURE')}">
-            alert('알 수 없는 이유로 게시글을 작성하지 못하였습니다. 잠시 후 다시 시도해 주세요.');
-            history.back();
-        </script>
+    <script th:if="${session.get('user') == null}">
+        alert('로그인 후 이용하실 수 있는 서비스 입니다. 먼저 로그인을 해 주세요');
+        history.back();
+    </script>
+    <script th:if="${result != null && result.equals('FAILURE')}">
+        alert('알 수 없는 이유로 게시글을 작성하지 못하였습니다. 잠시 후 다시 시도해 주세요.');
+        history.back();
+    </script>
 
 
 </head>
@@ -311,7 +311,7 @@
             </table>
         </div>
     </div>
-    <form id="commentForm">
+    <form id="commentForm" action="/artist/write" method="post">
         <div class="comment_section">
             <div class="comment_head">
                 <div class="comment_title">댓글</div>
@@ -320,26 +320,54 @@
             <div class="comment_content">
                 <!--            <div class="comment_profile">닉네임</div>-->
                 <div class="comment_write" id="comment_write">
-                <textarea title="댓글" class="comment_textarea" maxlength="400" minlength="1" rows="3" cols="30"
-                          placeholder="과도한 비방과 욕설은 삭제될 수 있습니다."></textarea>
-<!--                    <input class="comment_reset" type="reset" value="다시 쓰기">-->
+            <span th:each="article : ${article}"
+                  th:text="${article.getContent()}"></span>
+                    <textarea name="content" title="댓글" class="comment_textarea" maxlength="400" minlength="1" rows="3"
+                              cols="30"
+                              placeholder="과도한 비방과 욕설은 삭제될 수 있습니다."></textarea>
+                    <!--                    <input class="comment_reset" type="reset" value="다시 쓰기">-->
                     <input type="submit" class="comment_submit" value="등록하기">
                 </div>
             </div>
         </div>
     </form>
-    <form method="post">
-        <label>
-            <span>내용</span>
-            <span th:each="board : ${boards}"
-                  th:text="${board.getText()}">내용</span>
-            <textarea name="content"></textarea>
-        </label>
-        <br>
-        <input type="reset" value="다시 쓰기">
-        <input type="submit" value="글쓰기">
-    </form>
 
+<!--    <form id="writeForm" action="/artist/write" method="post">-->
+<!--        <label>-->
+<!--            <span>내용</span>-->
+<!--            <textarea name="content" style="display: none;"></textarea>-->
+<!--        </label>-->
+<!--        <br>-->
+<!--        <input type="reset" value="다시 쓰기">-->
+<!--        <input type="submit" value="글쓰기">-->
+<!--    </form>-->
+
+    <form id="readForm" action="/artist/read" method="get">
+        <table border="1">
+            <thead>
+            <tr>
+                <th>순번</th>
+                <th>작성자</th>
+                <th>내용</th>
+                <th>작성일</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${article == null}">
+                <td colspan="4">댓글이 존재하지 않습니다.</td>
+            </tr>
+            <tr th:if="${article != null}" th:each="article : ${article}">
+                <th class="index" th:text="${article.getIndex()}"></th>
+                <td th:text="${article.getNickname()}"></td>
+                <td th:text="${article.getContent()}"></td>
+                <td th:text="${#dates.format(article.getCreatedAt(), 'yyyy-MM-dd HH:mm:ss')}"></td>
+                <td>
+                    <button class="deleteButton" type="button">삭제</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
 
 </main>
 <footer id="footer">

@@ -16,6 +16,7 @@ public class ArticleEntity {
     private String content;
     private LocalDateTime createdAt;
     private String nickname;
+    private int artistId;
 
     @Override
     public boolean equals(Object o) {

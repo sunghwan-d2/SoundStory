@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<form id="readForm" action="/artist/read" method="post">
+    <table border="1">
+        <thead>
+        <tr>
+            <th>순번</th>
+            <th>작성자</th>
+            <th>내용</th>
+            <th>작성일</th>
+        </tr>
+        </thead>
+        <tbody>
+<!--        <tr th:if="${article == null}">-->
+<!--            <td colspan="4">댓글이 존재하지 않습니다.</td>-->
+<!--        </tr>-->
+        <tr th:if="${articles != null}" th:each="articleItem : ${articles}">
+            <td th:value="${articleItem.index}"></td>
+            <td th:value="${articleItem.nickname}"></td>
+            <td th:value="${articleItem.content}"></td>
+            <td th:text="${#temporals.format(articleItem.createdAt, 'yyyy-MM-dd HH:mm:ss')}"></td>
+            <td>
+                <button class="deleteButton" type="button">삭제</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+</body>
+</html>

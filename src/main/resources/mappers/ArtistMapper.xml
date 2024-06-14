@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ksh.soundstory.mappers.ArtistMapper">
+
+    <select id="selectArtistByIndex" resultType="com.ksh.soundstory.entities.ArtistEntity">
+        SELECT `artist_id` AS `artistId`,
+               `name`      AS `name`
+        FROM `ss`.`artist`
+        WHERE `artist_id` = #{artistId}
+    </select>
+</mapper>

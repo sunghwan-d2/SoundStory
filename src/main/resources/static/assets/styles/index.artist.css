@@ -445,6 +445,19 @@ body a {
   position: relative;
   text-align: center;
 }
+/*.main > #commentForm > .comment_section > .comment_content > .comment_write > .comment_reset{*/
+/*  left: 65rem;*/
+/*  width: 5rem;*/
+/*  height: 2.5rem;*/
+/*  padding: 0.5rem;*/
+/*  background-color: gray;*/
+/*  color: #ffffff;*/
+/*  border: 0.05rem;*/
+/*  border-radius: 4px;*/
+/*  display: block;*/
+/*  position: relative;*/
+/*  text-align: center;*/
+/*}*/
 
 .main >  #commentForm > .comment_section > .comment_content > .comment_write > .comment_submit:hover {
   background-color: dimgray;

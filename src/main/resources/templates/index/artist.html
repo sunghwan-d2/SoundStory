@@ -332,17 +332,8 @@
         </div>
     </form>
 
-<!--    <form id="writeForm" action="/artist/write" method="post">-->
-<!--        <label>-->
-<!--            <span>내용</span>-->
-<!--            <textarea name="content" style="display: none;"></textarea>-->
-<!--        </label>-->
-<!--        <br>-->
-<!--        <input type="reset" value="다시 쓰기">-->
-<!--        <input type="submit" value="글쓰기">-->
-<!--    </form>-->
+    <form action="/artist/read" id="readForm" method="get">
 
-    <form id="readForm" action="/artist/read" method="get">
         <table border="1">
             <thead>
             <tr>
@@ -353,21 +344,18 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:if="${article == null}">
-                <td colspan="4">댓글이 존재하지 않습니다.</td>
-            </tr>
             <tr th:if="${article != null}" th:each="article : ${article}">
-                <th class="index" th:text="${article.getIndex()}"></th>
-                <td th:text="${article.getNickname()}"></td>
-                <td th:text="${article.getContent()}"></td>
-                <td th:text="${#dates.format(article.getCreatedAt(), 'yyyy-MM-dd HH:mm:ss')}"></td>
-                <td>
-                    <button class="deleteButton" type="button">삭제</button>
-                </td>
+                <td th:text="${article.getIndex()}"></td>
+                <td th:text="${article.nickname}"></td>
+                <td th:text="${article.content}"></td>
+                <td th:text="${#temporals.format(article.createdAt, 'yyyy-MM-dd HH:mm:ss')}"></td>
+
             </tr>
+
             </tbody>
         </table>
     </form>
+
 
 </main>
 <footer id="footer">

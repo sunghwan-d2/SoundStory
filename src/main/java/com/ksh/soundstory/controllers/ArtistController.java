@@ -37,17 +37,19 @@ public class ArtistController {
     }
 
     @RequestMapping(value = "/read", method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
-    public ModelAndView getRead(@RequestParam("index") int index) {
+    public ModelAndView getRead(@SessionAttribute("user") UserEntity user,
+                                @RequestParam("index") int index) {
+        if (user == null) {
+            return null;
+        }
         ModelAndView modelAndView = new ModelAndView();
-        ArticleEntity article = this.articleService.getArticle(index); // 단일 게시물을 가져옴
-        modelAndView.addObject("article", article);
+        ArticleEntity articles = this.articleService.getArticle(index); // 단일 게시물을 가져옴
+        articles.setNickname(user.getNickname());
+        modelAndView.addObject("articles", articles);
         return modelAndView;
     }
 
 
-
-
-    //
     @RequestMapping(value = "write", method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
     public ModelAndView getWrite() {
         ModelAndView modelAndView = new ModelAndView();
@@ -66,7 +68,7 @@ public class ArtistController {
         modelAndView.addObject("article", article);
         modelAndView.addObject("result", result.name());
         if (result == CommonResult.SUCCESS) {
-            modelAndView.setViewName("redirect:/artist/read?index=" + article.getIndex()); // 이 부분 수정
+            modelAndView.setViewName("redirect:/artist/read?index=" + article.getIndex()); // 이 부분 수정// 이 부분 수정
         } else {
             modelAndView.setViewName("index/artist");
         }

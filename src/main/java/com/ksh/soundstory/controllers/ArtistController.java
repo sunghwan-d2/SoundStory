@@ -49,6 +49,14 @@ public class ArtistController {
         return modelAndView;
     }
 
+//    @RequestMapping(value="/read",method = RequestMethod.POST,produces = MediaType.TEXT_HTML_VALUE)
+//    public ModelAndView postRead(@SessionAttribute("user")UserEntity user,
+//                                 @RequestParam("index")int index){
+//        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.addObject("articles",dbArticle);
+//        return modelAndView;
+//    }
+
 
     @RequestMapping(value = "write", method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
     public ModelAndView getWrite() {
@@ -67,8 +75,9 @@ public class ArtistController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("article", article);
         modelAndView.addObject("result", result.name());
+
         if (result == CommonResult.SUCCESS) {
-            modelAndView.setViewName("redirect:/artist/read?index=" + article.getIndex()); // 이 부분 수정// 이 부분 수정
+            modelAndView.setViewName("redirect:/artist/read?index=" + article.getIndex()); // 이 부분 수정
         } else {
             modelAndView.setViewName("index/artist");
         }

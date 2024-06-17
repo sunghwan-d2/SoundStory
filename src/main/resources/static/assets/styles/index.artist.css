@@ -383,7 +383,7 @@ body a {
   color: gray;
 }
 
-.main > #commentForm >.comment_section {
+.main > #commentForm > .comment_section {
   left: 10rem;
   width: 70rem;
   height: 15rem;
@@ -445,30 +445,50 @@ body a {
   position: relative;
   text-align: center;
 }
-/*.main > #commentForm > .comment_section > .comment_content > .comment_write > .comment_reset{*/
-/*  left: 65rem;*/
-/*  width: 5rem;*/
-/*  height: 2.5rem;*/
-/*  padding: 0.5rem;*/
-/*  background-color: gray;*/
-/*  color: #ffffff;*/
-/*  border: 0.05rem;*/
-/*  border-radius: 4px;*/
-/*  display: block;*/
-/*  position: relative;*/
-/*  text-align: center;*/
-/*}*/
 
-.main >  #commentForm > .comment_section > .comment_content > .comment_write > .comment_submit:hover {
+.main > #commentForm > .comment_section > .comment_content > .comment_write > .comment_submit:hover {
   background-color: dimgray;
 }
 
-.main > #commentForm .comment_section > .comment_content > .comment_write > .comment_submit:active {
+.main > #commentForm > .comment_section > .comment_content > .comment_write > .comment_submit:active {
   background-color: #313131;
 }
 
 textarea::placeholder {
   color: white;
+}
+
+.main > #readForm {
+  left: 10rem;
+  width: 70rem;
+  height: 15rem;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 1rem;
+}
+.main > #readForm table {
+  border: none;
+  border-radius: 1rem;
+}
+.main > #readForm th {
+  color: inherit;
+  font: inherit;
+  text-decoration: underline;
+}
+.main > #readForm td {
+  text-align: center;
+  font: inherit;
+}
+.main > #readForm td > .modify {
+  border: 1px solid #ffffff;
+  background-color: black;
+  color: white;
+  font: inherit;
+}
+.main > #readForm td > .modify:hover {
+  background-color: gray;
 }
 
 #footer {

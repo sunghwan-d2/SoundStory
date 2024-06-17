@@ -20,7 +20,6 @@ public class ArticleService {
     }
 
     public Result<?> write(ArticleEntity article) {
-
         article.setCreatedAt(LocalDateTime.now()); // createdAt 설정
         return this.articleMapper.insertArticle(article) > 0
                 ? CommonResult.SUCCESS
@@ -28,8 +27,12 @@ public class ArticleService {
     }
 
     public ArticleEntity getArticle(int index) {
+
         return this.articleMapper.selectArticleByIndex(index);
     }
 
+    public ArticleEntity[] selectArticle(){
+        return this.articleMapper.selectArticle();
+    }
 
 }

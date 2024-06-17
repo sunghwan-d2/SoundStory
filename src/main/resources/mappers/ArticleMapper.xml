@@ -10,6 +10,14 @@
         INSERT INTO `ss`.`articles`(`user_email`, `content`, `created_at`, `nickname`)
         VALUES ( #{userEmail}, #{content}, #{createdAt}, #{nickname})
     </insert>
+    <select id="selectArticle" resultType="com.ksh.soundstory.entities.ArticleEntity">
+        SELECT `index`      AS `index`,
+               `user_email` AS `userEmail`,
+               `content`    AS `content`,
+               `created_at` AS `createdAt`,
+               `nickname`   AS `nickname`
+        FROM `ss`.`articles`
+    </select>
     <select id="selectArticleByIndex" resultType="com.ksh.soundstory.entities.ArticleEntity">
         SELECT `index`      AS `index`,
                `user_email` AS `userEmail`,

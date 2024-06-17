@@ -15,8 +15,8 @@
         history.back();
     </script>
     <script th:if="${result != null && result.equals('FAILURE')}">
-        alert('알 수 없는 이유로 게시글을 작성하지 못하였습니다. 잠시 후 다시 시도해 주세요.');
-        history.back();
+    alert('알 수 없는 이유로 게시글을 작성하지 못하였습니다. 잠시 후 다시 시도해 주세요.');
+    history.back();
     </script>
 
 
@@ -341,6 +341,7 @@
                 <th>작성자</th>
                 <th>내용</th>
                 <th>작성일</th>
+                <th>수정</th>
             </tr>
             </thead>
             <tbody>
@@ -349,12 +350,37 @@
                 <td th:text="${article.nickname}"></td>
                 <td th:text="${article.content}"></td>
                 <td th:text="${#temporals.format(article.createdAt, 'yyyy-MM-dd HH:mm:ss')}"></td>
+                <td>
+                    <button class="modify" type="submit">수정</button>
+                </td>
 
             </tr>
-
             </tbody>
         </table>
     </form>
+
+<!--    <form action="/artist/read" method="post">-->
+<!--        <table border="1">-->
+<!--            <thead>-->
+<!--            <tr>-->
+<!--                <th>순번</th>-->
+<!--                <th>작성자</th>-->
+<!--                <th>내용</th>-->
+<!--                <th>작성일</th>-->
+<!--            </tr>-->
+<!--            </thead>-->
+<!--            <tbody>-->
+<!--            <tr th:if="${article != null}" th:each="article : ${articles}">-->
+<!--                <td th:text="${article.getIndex()}"></td>-->
+<!--                <td th:text="${article.nickname}"></td>-->
+<!--                <td th:text="${article.content}"></td>-->
+<!--                <td th:text="${#temporals.format(article.createdAt, 'yyyy-MM-dd HH:mm:ss')}"></td>-->
+
+<!--            </tr>-->
+<!--            </tbody>-->
+<!--        </table>-->
+
+<!--    </form>-->
 
 
 </main>

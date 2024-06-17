@@ -14,4 +14,6 @@ public class ArtistService {
     public ArtistEntity getArtist(int artistId){
         return this.artistMapper.selectArtistByIndex(artistId);
     }
+
+
 }

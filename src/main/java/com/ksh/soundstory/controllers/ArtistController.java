@@ -22,67 +22,24 @@ import java.util.List;
 @RequestMapping("artist")
 public class ArtistController {
     private final ArticleService articleService;
-    private final ArtistService artistService;
 
     @Autowired
     public ArtistController(ArticleService articleService, ArtistService artistService) {
         this.articleService = articleService;
-
-        this.artistService = artistService;
     }
 
     @RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
-    public ModelAndView getArtist() {
-        return new ModelAndView("index/artist");
-    }
-
-    @RequestMapping(value = "/read", method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
-    public ModelAndView getRead(@SessionAttribute("user") UserEntity user,
-                                @RequestParam("index") int index) {
-        if (user == null) {
-            return null;
-        }
+    public ModelAndView getArtist(@SessionAttribute("user") UserEntity user) {
         ModelAndView modelAndView = new ModelAndView();
-        ArticleEntity articles = this.articleService.getArticle(index); // 단일 게시물을 가져옴
-        articles.setNickname(user.getNickname());
-        modelAndView.addObject("articles", articles);
-        return modelAndView;
-    }
-
-//    @RequestMapping(value="/read",method = RequestMethod.POST,produces = MediaType.TEXT_HTML_VALUE)
-//    public ModelAndView postRead(@SessionAttribute("user")UserEntity user,
-//                                 @RequestParam("index")int index){
-//        ModelAndView modelAndView = new ModelAndView();
-//        modelAndView.addObject("articles",dbArticle);
-//        return modelAndView;
-//    }
-
-
-    @RequestMapping(value = "write", method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
-    public ModelAndView getWrite() {
-        ModelAndView modelAndView = new ModelAndView();
+        ArticleEntity[] article = this.articleService.selectArticle();
+        modelAndView.addObject("article", article);
         modelAndView.setViewName("index/artist");
         return modelAndView;
+//        return new ModelAndView("index/artist");
     }
 
-    @RequestMapping(value = "write", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody
-    public ModelAndView postWrite(@SessionAttribute("user") UserEntity user, @ModelAttribute ArticleEntity article) {
-        article.setUserEmail(user.getEmail());
-        article.setNickname(user.getNickname());
-        article.setCreatedAt(LocalDateTime.now());
-        Result<?> result = this.articleService.write(article);
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("article", article);
-        modelAndView.addObject("result", result.name());
+// artist 홈페이지만.
 
-        if (result == CommonResult.SUCCESS) {
-            modelAndView.setViewName("redirect:/artist/read?index=" + article.getIndex()); // 이 부분 수정
-        } else {
-            modelAndView.setViewName("index/artist");
-        }
-        return modelAndView;
-    }
 
 
 }

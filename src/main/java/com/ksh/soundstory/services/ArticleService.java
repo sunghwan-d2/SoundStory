@@ -32,7 +32,7 @@ public class ArticleService {
     }
 
     public ArticleEntity[] selectArticle(){
-        return this.articleMapper.selectArticle();
+        return this.articleMapper.selectArticleAll();
     }
 
 }

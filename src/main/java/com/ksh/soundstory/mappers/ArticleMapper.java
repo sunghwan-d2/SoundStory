@@ -11,6 +11,6 @@ public interface ArticleMapper {
     ArticleEntity selectArticleByIndex(@Param("index") int index);
     int updateArticle(ArticleEntity article);
 
-    ArticleEntity[] selectArticle();
+    ArticleEntity[] selectArticleAll();
 
 }

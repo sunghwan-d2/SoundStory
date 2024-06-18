@@ -580,11 +580,17 @@ textarea::placeholder {
 
     > .modify {
       border: 1px solid #ffffff;
+      border-radius: 2rem ;
       background-color: black;
       color: white;
       font: inherit;
+      font-size: 1rem;
     }
     > .modify:hover {
+      background-color: dimgray;
+    }
+
+    > .modify:active {
       background-color: gray;
     }
 

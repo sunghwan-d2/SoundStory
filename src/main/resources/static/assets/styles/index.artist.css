@@ -483,11 +483,16 @@ textarea::placeholder {
 }
 .main > #readForm td > .modify {
   border: 1px solid #ffffff;
+  border-radius: 2rem;
   background-color: black;
   color: white;
   font: inherit;
+  font-size: 1rem;
 }
 .main > #readForm td > .modify:hover {
+  background-color: dimgray;
+}
+.main > #readForm td > .modify:active {
   background-color: gray;
 }
 

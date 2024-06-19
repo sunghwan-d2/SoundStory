@@ -324,7 +324,7 @@
                 <div class="comment_write" id="comment_write">
                     <textarea th:value="${article.getContent()}" name="content" title="댓글" class="comment_textarea" maxlength="400" minlength="1" rows="3"
                               cols="30"
-                              placeholder="과도한 비방과 욕설은 삭제될 수 있습니다."></textarea>
+                              placeholder="수정할 내용을 여기에 입력하세요."></textarea>
                     <input type="submit" class="comment_submit" value="등록하기">
                     <span th:each="article : ${article}"></span>
                 </div>

@@ -1,23 +1,18 @@
 <!doctype html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>artist</title>
-    <link rel="shortcut icon" th:href="@{/assets/images/soundstoryicon.png}">
+    <title>아이유</title>
+    <script src="https://kit.fontawesome.com/d853797a23.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" th:href="@{/assets/styles/index.artist.css}">
-    <script src="https://kit.fontawesome.com/6dee20ad07.js" crossorigin="anonymous"></script>
-    <script defer type="text/javascript" th:src="@{/assets/scripts/read.js}"></script>
-
-    <script th:if="${session.get('user') == null}">
-        alert('로그인 후 이용하실 수 있는 서비스 입니다. 먼저 로그인을 해 주세요');
-        history.back();
-    </script>
-
+    <link rel="shortcut icon" th:href="@{/assets/images/soundstoryicon.png}">
+    <script defer th:src="@{/assets/scripts/comment.js}"></script>
 </head>
-<body th:if="${session.get('user') != null && result == null}">
+<body>
+
 <nav id="nav">
     <div class="logo-image">
         <a target="_blank" th:src="@{/assets/images/soundstoryicon.png}" th:href="@{/}"></a>
@@ -27,7 +22,7 @@
     <ul class="primary">
         <li>
             <a href="#" class="item-image">
-                <img th:src="@{/assets/images/singer.png}" alt="아티스트" class="image"></a>
+                <img th:src="@{/assets/images/singer.png}"  alt="아티스트" class="image"></a>
             <a href="#" class="text" type="text">인기 아티스트</a>
         </li>
         <li>
@@ -49,7 +44,7 @@
     <!--    </div>-->
     <div class="playlist">
         <div class="playlist-container">----플레이리스트----</div>
-        <button class="add-button">
+        <button class="add-button" >
             <i class="icon fa-solid fa-plus"></i>
         </button>
         <div class="playlist-text">
@@ -73,13 +68,7 @@
             </li>
             <li class="spring"></li>
             <li class="item">
-                <div th:if="${session.get('user') != null}">
-                    <b th:text="${session.get('user').getNickname()}"></b>님 환영합니다.
-                </div>
-            </li>
-            <li class="item">
-                <a class="login-button" th:if="${session.user == null}" href="#" rel="showLoginCaller" id="show">로그인</a>
-                <a class="login-button" th:if="${session.user != null}" th:href="@{/user/logout}">로그아웃</a>
+                <a class="login-button" href="#">로그인 하기</a>
             </li>
 
         </ul>
@@ -94,32 +83,39 @@
             </li>
         </ul>
     </header>
-    <div class="artist_section">
+    <div class="artist_section" id="artist" th:fragment="artist" style="background-image: url(https://musicmeta-phinf.pstatic.net/artist/000/112/112579.jpg?type=f720_720_b24&v=20240513194659);">
         <div class="artist_wrap">
             <div class="artist_thumb">
                 <a href="#">
-                    <img alt="정국" class="artist_thumb_image"
-                         src="https://musicmeta-phinf.pstatic.net/artist/000/274/274327.jpg?type=ff300_300&v=20240122180120">
+                    <img alt="IU" class="artist_thumb_image"
+                         src="https://musicmeta-phinf.pstatic.net/artist/000/112/112579.jpg?type=ff300_300&v=20240513194659">
                 </a>
+                <span class="like_container">
+                     <button class="button_like">
+                    <i class="fa-regular fa-heart"></i>
+                     </button>
+                     <button  class="button_unlike">
+                    <i class="fa-regular fa-heart" style="color: #ff0000;"></i>
+                     </button>
+                </span>
             </div>
             <div class="artist_text">
-                <div class="artist_title">정국</div>
+                <div class="artist_title">아이유</div>
                 <div class="artist_info">
                     <span class="artist_info_title">장르</span>
-                    <span class="artist_info_content">랩/힙합</span>
+                    <span class="artist_info_content">발라드, 댄스, 팝락</span>
                 </div>
                 <div class="artist_info">
                     <span class="artist_info_title">소속</span>
-                    <span class="artist_info_content">빅히트 뮤직</span>
+                    <span class="artist_info_content">EDAM 엔터테인먼트</span>
                 </div>
                 <div class="artist_info">
-                    <span class="artist_info_title">활동</span>
-                    <span class="artist_info_content">방탄소년단</span>
+                    <span class="artist_info_title"></span>
+                    <span class="artist_info_content"></span>
                 </div>
             </div>
         </div>
     </div>
-
     <div class="song_section">
         <div class="section_title">앨범
             <a href="#" class="section_more">더보기</a>
@@ -154,8 +150,8 @@
                     </td>
                     <td class="song_artist">
                         <div class="inner">
-                            <a href="#" title="정국" class="link_text">
-                                <span>정국</span>
+                            <a href="#" title="NewJeans" class="link_text">
+                                <span>NewJeans</span>
                             </a>
                         </div>
                     </td>
@@ -189,8 +185,8 @@
                     </td>
                     <td class="song_artist">
                         <div class="inner">
-                            <a href="#" title="정국" class="link_text">
-                                <span>정국</span>
+                            <a href="#" title="NewJeans" class="link_text">
+                                <span>NewJeans</span>
                             </a>
                         </div>
                     </td>
@@ -223,8 +219,8 @@
                     </td>
                     <td class="song_artist">
                         <div class="inner">
-                            <a href="#" title="정국" class="link_text">
-                                <span>정국</span>
+                            <a href="#" title="NewJeans" class="link_text">
+                                <span>NewJeans</span>
                             </a>
                         </div>
                     </td>
@@ -256,8 +252,8 @@
                     </td>
                     <td class="song_artist">
                         <div class="inner">
-                            <a href="#" title="정국" class="link_text">
-                                <span>정국</span>
+                            <a href="#" title="NewJeans" class="link_text">
+                                <span>NewJeans</span>
                             </a>
                         </div>
                     </td>
@@ -289,8 +285,8 @@
                     </td>
                     <td class="song_artist">
                         <div class="inner">
-                            <a href="#" title="정국" class="link_text">
-                                <span>정국</span>
+                            <a href="#" title="NewJeans" class="link_text">
+                                <span>NewJeans</span>
                             </a>
                         </div>
                     </td>
@@ -308,61 +304,37 @@
             </table>
         </div>
     </div>
-
-    <form action="/article/write" id="commentForm" method="post">
-        <div class="comment_section">
-            <div class="comment_head">
-                <div class="comment_title">댓글</div>
-                <span class="comment_count">--</span>
+    <form id="commentForm">
+    <div class="comment_section">
+        <div class="comment_head">
+            <div class="comment_title">댓글</div>
+            <input name="artistId" type="hidden" th:value="${artist.getArtistId()}">
+            <span class="comment_count">0</span>
+        </div>
+        <div class="comment_content">
+            <div class="comment_profile">닉네임</div>
+            <div class="comment_write">
+                <textarea title="댓글" class="comment_textarea" maxlength="400" minlength="1" rows="3" cols="30"
+                          placeholder="과도한 비방과 욕설은 삭제될 수 있습니다."></textarea>
+                <input type="submit" class="comment_submit" value="등록하기">
             </div>
-            <div class="comment_content">
-                <!--            <div class="comment_profile">닉네임</div>-->
-                <div class="comment_write" id="comment_write">
-                    <textarea name="content" title="댓글" class="comment_textarea" maxlength="400" minlength="1" rows="3"
-                              cols="30"
-                              placeholder="과도한 비방과 욕설은 삭제될 수 있습니다."></textarea>
-                    <input type="submit" class="comment_submit" value="등록하기">
-                    <span th:each="article : ${article}"></span>
+        </div>
+        <div id="comment-container">
+            <div rel="comment">
+                <div>
+                    <span>[1]</span>
+                    <span>작성자 자리</span>
+                    <span>2024-01-01 00:00:00</span>
+                </div>
+                <div>내용자리</div>
+                <div>
+                    <button rel="modify">수정</button>
+                    <button rel="delete">삭제</button>
                 </div>
             </div>
         </div>
-    </form>
-    <div th:text></div>
-    <div th:each ="article:${article}"]>
-        <span th:text="'[' + ${article.index} + ']'"></span>
-        <span th:text="${article.nickname}"></span>
-        <span th:text="${#temporals.format(article.createdAt, 'yyyy-MM-dd HH:mm:ss')}"></span>
-        <div>
-            <span th:text="${article.content}"></span>
-        </div>
-        <a th:href="@{/article/modify (index=${article.getIndex()})}">수정</a>
-        <button class="delete" type="submit">삭제</button>
     </div>
-<!--    <table>-->
-<!--        <thead>-->
-<!--        <tr>-->
-<!--            <th>순번</th>-->
-<!--            <th>작성자</th>-->
-<!--            <th>작성일</th>-->
-<!--            <th>내용</th>-->
-<!--            <th>수정</th>-->
-<!--        </tr>-->
-<!--        </thead>-->
-<!--        <tbody>-->
-<!--        <tr th:each="article : ${article}">-->
-<!--            <td th:text="${article.index}"></td>-->
-<!--            <td th:text="${article.nickname}"></td>-->
-<!--            <td th:text="${#temporals.format(article.createdAt, 'yyyy-MM-dd HH:mm:ss')}"></td>-->
-<!--            <td th:text="${article.content}"></td>-->
-<!--            <td>-->
-<!--                <button class="modify" type="submit">수정</button>-->
-<!--            </td>-->
-<!--        </tr>-->
-<!--        </tbody>-->
-<!--    </table>-->
-<!--    이 코드는 모든 댓글이 받아와져야 하는 코드 (수정 필요)
-        table 이 아닌 다른 레이아웃으로 바꿀것-->
-
+    </form>
 </main>
 <footer id="footer">
     <ul class="menu">

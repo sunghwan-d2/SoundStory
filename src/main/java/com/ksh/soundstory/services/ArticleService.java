@@ -26,13 +26,39 @@ public class ArticleService {
                 : CommonResult.FAILURE;
     }
 
-    public ArticleEntity getArticle(int index) {
+    public ArticleEntity get(int index) {
 
         return this.articleMapper.selectArticleByIndex(index);
     }
 
-    public ArticleEntity[] selectArticle(){
+    public ArticleEntity[] selectArticle() {
         return this.articleMapper.selectArticleAll();
+    } // 전체 댓글을 불러옴
+
+    public CommonResult modify(ArticleEntity article) {
+        ArticleEntity dbArticle = this.articleMapper.selectArticleByIndex(article.getIndex());
+        if (dbArticle == null) return CommonResult.FAILURE;
+        dbArticle.setNickname(article.getNickname());
+        dbArticle.setContent(article.getContent());
+        dbArticle.setCreatedAt(LocalDateTime.now());
+
+
+        return this.articleMapper.updateArticle(dbArticle) > 0
+                ? CommonResult.SUCCESS
+                : CommonResult.FAILURE;
+
     }
+
+//    public CommonResult modify(ArticleEntity article) {
+//        ArticleEntity dbArticle = this.articleMapper.selectArticle(article.getIndex());
+//        if (dbArticle == null) return CommonResult.FAILURE;
+//        dbArticle.setWriter(article.getWriter());
+//        dbArticle.setTitle(article.getTitle());
+//        dbArticle.setContent(article.getContent());
+//        dbArticle.setModifiedAt(new Date());
+//        return this.articleMapper.updateArticle(dbArticle) > 0
+//                ? CommonResult.SUCCESS
+//                : CommonResult.FAILURE;
+//    }
 
 }

@@ -6,10 +6,13 @@ import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface ArticleMapper {
+    int deleteArticle(@Param("index")int index);
+
+    int updateArticle(ArticleEntity article);
+
     int insertArticle(ArticleEntity article);
 
     ArticleEntity selectArticleByIndex(@Param("index") int index);
-    int updateArticle(ArticleEntity article);
 
     ArticleEntity[] selectArticleAll();
 

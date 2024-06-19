@@ -344,7 +344,7 @@
             <td th:text="${#temporals.format(article.createdAt, 'yyyy-MM-dd HH:mm:ss')}"></td>
             <td th:text="${article.content}"></td>
             <td>
-                <button class="modify" type="submit">수정</button>
+                <a th:href="@{/article/modify (index=${article.getIndex()})}">수정</a>
             </td>
         </tr>
         </tbody>

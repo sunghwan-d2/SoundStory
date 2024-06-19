@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.print.attribute.standard.Media;
 import java.time.LocalDateTime;
 
 // artist 홈페이지의 댓글 -> article 로 했음 - > comment?
@@ -24,6 +25,35 @@ public class ArticleController {
     public ArticleController(ArticleService articleService) {
         this.articleService = articleService;
     }
+
+    @RequestMapping(value = "/modify", method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
+    public ModelAndView getModify(@SessionAttribute("user") UserEntity user,
+                                  @RequestParam(value = "index", required = false, defaultValue = "0") int index) {
+        if (user == null) {
+            return new ModelAndView("index/artist");
+        }
+        ArticleEntity article = this.articleService.get(index);
+        ModelAndView modelAndView = new ModelAndView("article/modify");
+        modelAndView.addObject("article", article);
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/modify", method = RequestMethod.POST, produces = MediaType.TEXT_HTML_VALUE)
+    public ModelAndView postModify(ArticleEntity article){
+        ModelAndView modelAndView= new ModelAndView();
+        CommonResult result = this.articleService.modify(article);
+        if (result == CommonResult.FAILURE){
+            modelAndView.setViewName("article/modify");
+        }else{
+            modelAndView.setViewName("redirect:/article/read?index=" + article.getIndex());
+        }
+        modelAndView.addObject("article",article);
+        modelAndView.addObject("result",result);
+        return modelAndView;
+
+    }
+
+
 
     @RequestMapping(value = "/read", method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
     public ModelAndView getRead(@SessionAttribute("user") UserEntity user) {

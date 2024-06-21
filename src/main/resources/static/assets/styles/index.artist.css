@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 body {
   font-family: "Pretendard Variable", "Pretendard", -apple-system, "BlinkMacSystemFont", "system-ui", "Roboto", "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
@@ -494,6 +495,20 @@ textarea::placeholder {
 }
 .main > #readForm td > .modify:active {
   background-color: gray;
+}
+
+#responseTable {
+  width: 70%;
+  margin-left: 10rem;
+  border-collapse: collapse;
+  overflow: hidden;
+}
+
+#responseTable th,
+#responseTable td {
+  padding: 12px 15px; /* 셀 여백 설정 */
+  text-align: center; /* 셀 내용 가운데 정렬 */
+  border-bottom: 1px solid #ddd;
 }
 
 #footer {

@@ -5,6 +5,7 @@ import com.ksh.soundstory.entities.UserEntity;
 import com.ksh.soundstory.results.CommonResult;
 import com.ksh.soundstory.results.Result;
 import com.ksh.soundstory.services.ArticleService;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -24,6 +25,15 @@ public class ArticleController {
     @Autowired
     public ArticleController(ArticleService articleService) {
         this.articleService = articleService;
+    }
+
+    @RequestMapping(value="/delete", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public String deleteArticle(@RequestParam(value = "index") int index) {
+        CommonResult result = this.articleService.delete(index);
+        JSONObject responseObject = new JSONObject();
+        responseObject.put("result", result.name().toLowerCase());
+        return responseObject.toString();
     }
 
     @RequestMapping(value = "/modify", method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)

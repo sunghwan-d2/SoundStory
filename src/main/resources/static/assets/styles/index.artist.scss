@@ -580,12 +580,13 @@ textarea::placeholder {
 
     > .modify {
       border: 1px solid #ffffff;
-      border-radius: 2rem ;
+      border-radius: 2rem;
       background-color: black;
       color: white;
       font: inherit;
       font-size: 1rem;
     }
+
     > .modify:hover {
       background-color: dimgray;
     }
@@ -597,6 +598,26 @@ textarea::placeholder {
   }
 
 }
+
+#responseTable {
+  width: 70%;
+  margin-left: 10rem;
+  border-collapse: collapse;
+  overflow: hidden;
+}
+
+#responseTable th,
+#responseTable td {
+  padding: 12px 15px; /* 셀 여백 설정 */
+  text-align: center; /* 셀 내용 가운데 정렬 */
+  border-bottom: 1px solid #ddd;
+}
+
+//#responseTable th:hover,
+//#responseTable td:hover {
+//  background-color: dimgray; /* 호버 시 배경색 변경 */
+//}
+
 
 #footer {
   margin-left: 20rem;

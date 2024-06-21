@@ -49,16 +49,17 @@ public class ArticleService {
 
     }
 
-//    public CommonResult modify(ArticleEntity article) {
-//        ArticleEntity dbArticle = this.articleMapper.selectArticle(article.getIndex());
-//        if (dbArticle == null) return CommonResult.FAILURE;
-//        dbArticle.setWriter(article.getWriter());
-//        dbArticle.setTitle(article.getTitle());
-//        dbArticle.setContent(article.getContent());
-//        dbArticle.setModifiedAt(new Date());
-//        return this.articleMapper.updateArticle(dbArticle) > 0
-//                ? CommonResult.SUCCESS
-//                : CommonResult.FAILURE;
-//    }
+    public CommonResult delete(int index) {
+        if (index < 1) {
+            return CommonResult.FAILURE;
+        }
+        ArticleEntity dbComment = this.articleMapper.selectArticleByIndex(index);
+        if (dbComment == null) {
+            return CommonResult.FAILURE;
+        }
+        return this.articleMapper.deleteArticle(index) > 0
+                ? CommonResult.SUCCESS
+                : CommonResult.FAILURE;
+    }
 
 }

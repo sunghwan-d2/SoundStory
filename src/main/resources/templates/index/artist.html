@@ -327,41 +327,30 @@
             </div>
         </div>
     </form>
-    <div th:text></div>
-    <div th:each ="article:${article}"]>
-        <span th:text="'[' + ${article.index} + ']'"></span>
-        <span th:text="${article.nickname}"></span>
-        <span th:text="${#temporals.format(article.createdAt, 'yyyy-MM-dd HH:mm:ss')}"></span>
-        <div>
-            <span th:text="${article.content}"></span>
-        </div>
-        <a th:href="@{/article/modify (index=${article.getIndex()})}">수정</a>
-        <button class="delete" type="submit">삭제</button>
-    </div>
-<!--    <table>-->
-<!--        <thead>-->
-<!--        <tr>-->
-<!--            <th>순번</th>-->
-<!--            <th>작성자</th>-->
-<!--            <th>작성일</th>-->
-<!--            <th>내용</th>-->
-<!--            <th>수정</th>-->
-<!--        </tr>-->
-<!--        </thead>-->
-<!--        <tbody>-->
-<!--        <tr th:each="article : ${article}">-->
-<!--            <td th:text="${article.index}"></td>-->
-<!--            <td th:text="${article.nickname}"></td>-->
-<!--            <td th:text="${#temporals.format(article.createdAt, 'yyyy-MM-dd HH:mm:ss')}"></td>-->
-<!--            <td th:text="${article.content}"></td>-->
-<!--            <td>-->
-<!--                <button class="modify" type="submit">수정</button>-->
-<!--            </td>-->
-<!--        </tr>-->
-<!--        </tbody>-->
-<!--    </table>-->
-<!--    이 코드는 모든 댓글이 받아와져야 하는 코드 (수정 필요)
-        table 이 아닌 다른 레이아웃으로 바꿀것-->
+
+    <table id="responseTable">
+        <thead>
+        <tr>
+            <th>순번</th>
+            <th>작성자</th>
+            <th>작성일</th>
+            <th>내용</th>
+            <th>수정</th>
+            <th>삭제</th>
+        </tr>
+        </thead>
+        <tr th:each="article:${article}">
+            <td th:text="'[' + ${article.index} + ']'"></td>
+            <td th:text="${article.nickname}"></td>
+            <td th:text="${#temporals.format(article.createdAt, 'yyyy-MM-dd HH:mm:ss')}"></td>
+            <td th:text="${article.content}"></td>
+            <td>
+                <a target="_self" th:href="@{/article/modify (index=${article.getIndex()})}">수정</a></td>
+            <td>
+                <button class="deleteButton" data-index="${article.index}" type="button">삭제</button>
+            <td>
+        </tr>
+    </table>
 
 </main>
 <footer id="footer">

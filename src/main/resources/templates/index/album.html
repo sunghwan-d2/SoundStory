@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/assets/styles/index.album.css}">
     <link rel="shortcut icon" th:href="@{/assets/images/soundstoryicon.png}">
     <script defer type="text/javascript" th:src="@{/assets/scripts/index.album.js}"></script>
-    <script  src="https://www.youtube.com/iframe_api"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
 </head>
 <body>
 
@@ -109,285 +109,113 @@
         </div>
     </div>
 
-    <div class="album_list_section">
-        <div class="album_list_head">
-            <div class="album_list_head_1">
-                <div class="album_list_head_text">#</div>
-            </div>
-            <div class="album_list_head_2">
-                <div class="album_list_head_text">제목</div>
-            </div>
-            <div class="album_list_head_3">
-                <div class="album_list_head_text">아티스트</div>
-            </div>
-            <div class="album_list_head_4">
-                <div class="album_list_head_text">
-                    <i class="fa-regular fa-clock"></i>
+    <div class="music-player">
+        <div class="curr-music">
+            <div class="music_info">
+                <div class="video">
+                    <div class="container">
+                        <iframe id="player" type="text/html" width="560" height="315"
+                                src="https://www.youtube.com/embed/?enablejsapi=1"
+                                frameborder="0"></iframe>
+                    </div>
+                </div>
+                <div class="title" id="songTitle">Ditto – 250 Remix</div>
+                <div class="channel" id="songArtist">New Jeans</div>
+                <div class="progress">
+                    <div class="times">
+                        <div class="curr-time" id="currentTimeDisplay">0:00</div>
+                        <div class="total-time" id="durationDisplay">0:00</div>
+                    </div>
+                    <div class="slider-progress-bar">
+                        <input class="progress-bar" id="progressBar" type="range" min="0" max="1000" step="1" value="0">
+                    </div>
+                    <div class="controls">
+                        <img class="play" id="playPauseButton" alt="play" th:src="@{/assets/images/play.png}">
+                        <img class="pause" alt="pause" th:src="@{/assets/images/pause.png}" style="display: none">
+                    </div>
+                    <!--                    <div class="volume">-->
+                    <!--                        <div class="volume-sound">-->
+                    <!--                            <img class="sound" alt="mute" th:src="@{/assets/images/mute.png}" style="display: none">-->
+                    <!--                            <img class="sound" alt="mid" th:src="@{/assets/images/sound-mid.png}">-->
+                    <!--                        </div>-->
+                    <!--                        <div class="volume-bar">-->
+                    <!--                            <input class="volume-soundBar" type="range" min="0" max="100" step="1">-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+                    <div class="TextWarning">사운드 및 영상 길이 조정은 위 화면에서 해주시기 바랍니다.</div>
                 </div>
             </div>
         </div>
-
-        <div class="album_list_body" aria-rowcount="12" title="NJWMX">
-            <div aria-rowindex="1" class="album_list_body_list" data-video-id="VIDEO_ID_1">
-                <div class="album_list_body_song">
-                    <div class="album_list_body_index">
-                        <div class="album_list_body_text">1</div>
-                    </div>
-                    <div class="album_list_body_title">
-                        <div class="album_list_body_text">
-                            <a href="#">Ditto – 250 Remix</a>
-                        </div>
-                    </div>
-                    <div class="album_list_body_artist">
-                        <div class="album_list_body_text">
-                            <a href="#">NewJeans</a>
-                        </div>
-                    </div>
-                    <div class="album_list_body_time">
-                        <div class="album_list_body_text">3:21</div>
-                    </div>
+        <div class="music-list">
+            <h2 class="list-title">Play List</h2>
+            <p class="desc">유튜브로 재생되기 때문에 유튜브 프리미엄이 있어야 광고가 들리지 않습니다.</p>
+            <div class="music-item" data-video-id="Dk9L4P1qP2g">
+                <div class="thumbnail">
+                    <img src="https://img.youtube.com/vi/Dk9L4P1qP2g/mqdefault.jpg" alt="thumbnail"
+                         class="ImgThumbnail">
                 </div>
-                <div class="player-container" id="player-container">
-                    <div id="player"></div>
-                    <div class="player-controls">
-                        <button id="prevButton">⏮</button>
-                        <button id="playPauseButton">⏯</button>
-                        <button id="next-button">⏭</button>
-                    </div>
-                    <div class="progressBar">
-                        <input type="range" id="progressBar" value="0" min="0" max="100">
-                    </div>
-                    <div class="time-display">
-                        <span id="currentTimeDisplay">0:00</span> / <span id="durationDisplay">0:00</span>
-                    </div>
-                    <div class="current-song-info">
-                        <span id="songTitle"></span> - <span id="songArtist"></span>
-                    </div>
+                <div class="text">
+                    <div class="title">Ditto – 250 Remix</div>
+                    <div class="channel">NewJeans</div>
                 </div>
+                <div class="duration">3:21</div>
             </div>
-            <div aria-rowindex="2" class="album_list_body_list">
-                <div class="album_list_body_song">
-                    <div class="album_list_body_index">
-                        <div class="album_list_body_text">2</div>
-                    </div>
-                    <div class="album_list_body_title">
-                        <div class="album_list_body_text">
-                            <a href="#">OMG – FRNK Remix</a>
-                        </div>
-                    </div>
-                    <div class="album_list_body_artist">
-                        <div class="album_list_body_text">
-                            <a href="#">NewJeans</a>
-                        </div>
-                    </div>
-                    <div class="album_list_body_time">
-                        <div class="album_list_body_text">3:30</div>
-                    </div>
+            <div class="music-item" data-video-id="MEAfAviN1Ms">
+                <div class="thumbnail">
+                    <img src="https://img.youtube.com/vi/Dk9L4P1qP2g/mqdefault.jpg" alt="thumbnail"
+                         class="ImgThumbnail">
                 </div>
+                <div class="text">
+                    <div class="title">OMG (FPNK Remix)</div>
+                    <div class="channel">NewJeans</div>
+                </div>
+                <div class="duration">3:30</div>
             </div>
-            <div aria-rowindex="3" class="album_list_body_list">
-                <div class="album_list_body_song">
-                    <div class="album_list_body_index">
-                        <div class="album_list_body_text">3</div>
-                    </div>
-                    <div class="album_list_body_title">
-                        <div class="album_list_body_text">
-                            <a href="#">Attention – 250 Remix</a>
-                        </div>
-                    </div>
-                    <div class="album_list_body_artist">
-                        <div class="album_list_body_text">
-                            <a href="#">NewJeans</a>
-                        </div>
-                    </div>
-                    <div class="album_list_body_time">
-                        <div class="album_list_body_text">3:01</div>
-                    </div>
+            <div class="music-item" data-video-id="gIwcxYidIA8">
+                <div class="thumbnail">
+                    <img src="https://img.youtube.com/vi/Dk9L4P1qP2g/mqdefault.jpg" alt="thumbnail"
+                         class="ImgThumbnail">
                 </div>
+                <div class="text">
+                    <div class="title">Attention (250 Remix)</div>
+                    <div class="channel">NewJeans</div>
+                </div>
+                <div class="duration">3:02</div>
             </div>
-            <div aria-rowindex="4" class="album_list_body_list">
-                <div class="album_list_body_song">
-                    <div class="album_list_body_index">
-                        <div class="album_list_body_text">4</div>
-                    </div>
-                    <div class="album_list_body_title">
-                        <div class="album_list_body_text">
-                            <a href="#">Hype Boy – 250 Remix</a>
-                        </div>
-                    </div>
-                    <div class="album_list_body_artist">
-                        <div class="album_list_body_text">
-                            <a href="#">NewJeans</a>
-                        </div>
-                    </div>
-                    <div class="album_list_body_time">
-                        <div class="album_list_body_text">4:11</div>
-                    </div>
+            <div class="music-item" data-video-id="zfCXPtfCNkU">
+                <div class="thumbnail">
+                    <img src="https://img.youtube.com/vi/Dk9L4P1qP2g/mqdefault.jpg" alt="thumbnail"
+                         class="ImgThumbnail">
                 </div>
+                <div class="text">
+                    <div class="title">Hype Boy (250 Remix)</div>
+                    <div class="channel">NewJeans</div>
+                </div>
+                <div class="duration">4:11</div>
             </div>
-            <div aria-rowindex="5" class="album_list_body_list">
-                <div class="album_list_body_song">
-                    <div class="album_list_body_index">
-                        <div class="album_list_body_text">5</div>
-                    </div>
-                    <div class="album_list_body_title">
-                        <div class="album_list_body_text">
-                            <a href="#">Cookie – FRNK Remix</a>
-                        </div>
-                    </div>
-                    <div class="album_list_body_artist">
-                        <div class="album_list_body_text">
-                            <a href="#">NewJeans</a>
-                        </div>
-                    </div>
-                    <div class="album_list_body_time">
-                        <div class="album_list_body_text">3:32</div>
-                    </div>
+            <div class="music-item" data-video-id="Tca6jgfhn4A">
+                <div class="thumbnail">
+                    <img src="https://img.youtube.com/vi/Dk9L4P1qP2g/mqdefault.jpg" alt="thumbnail"
+                         class="ImgThumbnail">
                 </div>
+                <div class="text">
+                    <div class="title">Cookie (FRNK Remix)</div>
+                    <div class="channel">NewJeans</div>
+                </div>
+                <div class="duration">3:32</div>
             </div>
-            <div aria-rowindex="6" class="album_list_body_list">
-                <div class="album_list_body_song">
-                    <div class="album_list_body_index">
-                        <div class="album_list_body_text">6</div>
-                    </div>
-                    <div class="album_list_body_title">
-                        <div class="album_list_body_text">
-                            <a href="#">Hurt - 250 Remix</a>
-                        </div>
-                    </div>
-                    <div class="album_list_body_artist">
-                        <div class="album_list_body_text">
-                            <a href="#">NewJeans</a>
-                        </div>
-                    </div>
-                    <div class="album_list_body_time">
-                        <div class="album_list_body_text">3:44</div>
-                    </div>
+            <div class="music-item" data-video-id="uONSk48LW1A">
+                <div class="thumbnail">
+                    <img src="https://img.youtube.com/vi/uONSk48LW1A/mqdefault.jpg" alt="thumbnail"
+                         class="ImgThumbnail">
                 </div>
-            </div>
-            <div aria-rowindex="7" class="album_list_body_list">
-                <div class="album_list_body_song">
-                    <div class="album_list_body_index">
-                        <div class="album_list_body_text">7</div>
-                    </div>
-                    <div class="album_list_body_title">
-                        <div class="album_list_body_text">
-                            <a href="#">Ditto - 250 Remix (Instrumental)</a>
-                        </div>
-                    </div>
-                    <div class="album_list_body_artist">
-                        <div class="album_list_body_text">
-                            <a href="#">NewJeans</a>
-                        </div>
-                    </div>
-                    <div class="album_list_body_time">
-                        <div class="album_list_body_text">3:21</div>
-                    </div>
+                <div class="text">
+                    <div class="title">NewJeans (뉴진스) 'Hurt (250 Remix)' Special Video</div>
+                    <div class="channel">NewJeans</div>
                 </div>
-            </div>
-            <div aria-rowindex="8" class="album_list_body_list">
-                <div class="album_list_body_song">
-                    <div class="album_list_body_index">
-                        <div class="album_list_body_text">8</div>
-                    </div>
-                    <div class="album_list_body_title">
-                        <div class="album_list_body_text">
-                            <a href="#">OMG – FRNK Remix (Instrumental)</a>
-                        </div>
-                    </div>
-                    <div class="album_list_body_artist">
-                        <div class="album_list_body_text">
-                            <a href="#">NewJeans</a>
-                        </div>
-                    </div>
-                    <div class="album_list_body_time">
-                        <div class="album_list_body_text">3:30</div>
-                    </div>
-                </div>
-            </div>
-            <div aria-rowindex="9" class="album_list_body_list">
-                <div class="album_list_body_song">
-                    <div class="album_list_body_index">
-                        <div class="album_list_body_text">9</div>
-                    </div>
-                    <div class="album_list_body_title">
-                        <div class="album_list_body_text">
-                            <a href="#">Attention – 250 Remix (Instrumental)</a>
-                        </div>
-                    </div>
-                    <div class="album_list_body_artist">
-                        <div class="album_list_body_text">
-                            <a href="#">NewJeans</a>
-                        </div>
-                    </div>
-                    <div class="album_list_body_time">
-                        <div class="album_list_body_text">3:01</div>
-                    </div>
-                </div>
-            </div>
-            <div aria-rowindex="10" class="album_list_body_list">
-                <div class="album_list_body_song">
-                    <div class="album_list_body_index">
-                        <div class="album_list_body_text">10</div>
-                    </div>
-                    <div class="album_list_body_title">
-                        <div class="album_list_body_text">
-                            <a href="#">Hype Boy – 250 Remix (Instrumental)</a>
-                        </div>
-                    </div>
-                    <div class="album_list_body_artist">
-                        <div class="album_list_body_text">
-                            <a href="#">NewJeans</a>
-                        </div>
-                    </div>
-                    <div class="album_list_body_time">
-                        <div class="album_list_body_text">4:11</div>
-                    </div>
-                </div>
-            </div>
-            <div aria-rowindex="11" class="album_list_body_list">
-                <div class="album_list_body_song">
-                    <div class="album_list_body_index">
-                        <div class="album_list_body_text">11</div>
-                    </div>
-                    <div class="album_list_body_title">
-                        <div class="album_list_body_text">
-                            <a href="#">Cookie – FRNK Remix (Instrumental)</a>
-                        </div>
-                    </div>
-                    <div class="album_list_body_artist">
-                        <div class="album_list_body_text">
-                            <a href="#">NewJeans</a>
-                        </div>
-                    </div>
-                    <div class="album_list_body_time">
-                        <div class="album_list_body_text">3:32</div>
-                    </div>
-                </div>
-            </div>
-            <div aria-rowindex="12" class="album_list_body_list">
-                <div class="album_list_body_song">
-                    <div class="album_list_body_index">
-                        <div class="album_list_body_text">12</div>
-                    </div>
-                    <div class="album_list_body_title">
-                        <div class="album_list_body_text">
-                            <a href="#">Hurt – 250 Remix (Instrumental)</a>
-                        </div>
-                    </div>
-                    <div class="album_list_body_artist">
-                        <div class="album_list_body_text">
-                            <a href="#">NewJeans</a>
-                        </div>
-                    </div>
-                    <div class="album_list_body_time">
-                        <div class="album_list_body_text">3:36</div>
-                    </div>
-                </div>
+                <div class="duration">3:45</div>
             </div>
         </div>
-        <div class="album_list_footer"></div>
-
     </div>
 </main>
 <footer id="footer">

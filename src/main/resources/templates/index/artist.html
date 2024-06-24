@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -309,48 +309,84 @@
         </div>
     </div>
 
-    <form action="/article/write" id="commentForm" method="post">
-        <div class="comment_section">
-            <div class="comment_head">
-                <div class="comment_title">댓글</div>
-                <span class="comment_count">--</span>
-            </div>
-            <div class="comment_content">
-                <!--            <div class="comment_profile">닉네임</div>-->
-                <div class="comment_write" id="comment_write">
-                    <textarea name="content" title="댓글" class="comment_textarea" maxlength="400" minlength="1" rows="3"
-                              cols="30"
-                              placeholder="과도한 비방과 욕설은 삭제될 수 있습니다."></textarea>
-                    <input type="submit" class="comment_submit" value="등록하기">
-                    <span th:each="article : ${article}"></span>
-                </div>
-            </div>
-        </div>
-    </form>
 
-    <table id="responseTable">
+    <form novalidate name="commentForm">
+        <h2>댓글 작성</h2>
+        <label>
+            <span>내용</span>
+            <input required maxlength="1000" minlength="1" name="content" type="text">
+        </label>
+        <button type="submit">작성</button>
+    </form>
+    <table border="1">
         <thead>
         <tr>
             <th>순번</th>
             <th>작성자</th>
-            <th>작성일</th>
             <th>내용</th>
-            <th>수정</th>
-            <th>삭제</th>
+            <th>작성일</th>
+            <th>동작</th>
         </tr>
         </thead>
-        <tr th:each="article:${article}">
-            <td th:text="'[' + ${article.index} + ']'"></td>
-            <td th:text="${article.nickname}"></td>
-            <td th:text="${#temporals.format(article.createdAt, 'yyyy-MM-dd HH:mm:ss')}"></td>
-            <td th:text="${article.content}"></td>
-            <td>
-                <a target="_self" th:href="@{/article/modify (index=${article.getIndex()})}">수정</a></td>
-            <td>
-                <button class="deleteButton" data-index="${article.index}" type="button">삭제</button>
-            <td>
+        <tbody>
+        <tr th:if="${comments == null or comments.length == 0}">
+            <td colspan="5">댓글이 존재하지 않습니다.</td>
         </tr>
+        <tr th:if="${comments != null && comments.length > 0}"
+            th:each="comment : ${comments}">
+            <td class="index" th:text="${comment.getIndex()}"></td>
+            <td th:text="${comment.nickname}"></td>
+            <td th:text="${comment.content}"></td>
+            <td th:text="${#temporals.format(comment.createdAt, 'yyyy-MM-dd HH:mm:ss')}"></td>
+            <td>
+                <button class="deleteButton" type="button">삭제</button>
+            </td>
+        </tr>
+        </tbody>
     </table>
+
+    <!--    <form action="/article/write" id="commentForm" method="post">-->
+    <!--        <div class="comment_section">-->
+    <!--            <div class="comment_head">-->
+    <!--                <div class="comment_title">댓글</div>-->
+    <!--                <span class="comment_count">&#45;&#45;</span>-->
+    <!--            </div>-->
+    <!--            <div class="comment_content">-->
+    <!--                &lt;!&ndash;            <div class="comment_profile">닉네임</div>&ndash;&gt;-->
+    <!--                <div class="comment_write" id="comment_write">-->
+    <!--                    <textarea name="content" title="댓글" class="comment_textarea" maxlength="400" minlength="1" rows="3"-->
+    <!--                              cols="30"-->
+    <!--                              placeholder="과도한 비방과 욕설은 삭제될 수 있습니다."></textarea>-->
+    <!--                    <input type="submit" class="comment_submit" value="등록하기">-->
+    <!--                    <span th:each="article : ${article}"></span>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </form>-->
+
+    <!--    <table id="responseTable">-->
+    <!--        <thead>-->
+    <!--        <tr>-->
+    <!--            <th>순번</th>-->
+    <!--            <th>작성자</th>-->
+    <!--            <th>작성일</th>-->
+    <!--            <th>내용</th>-->
+    <!--            <th>수정</th>-->
+    <!--            <th>삭제</th>-->
+    <!--        </tr>-->
+    <!--        </thead>-->
+    <!--        <tr th:each="article:${article}">-->
+    <!--            <td th:text="'[' + ${article.index} + ']'"></td>-->
+    <!--            <td th:text="${article.nickname}"></td>-->
+    <!--            <td th:text="${#temporals.format(article.createdAt, 'yyyy-MM-dd HH:mm:ss')}"></td>-->
+    <!--            <td th:text="${article.content}"></td>-->
+    <!--            <td>-->
+    <!--                <a target="_self" th:href="@{/article/modify (index=${article.getIndex()})}">수정</a></td>-->
+    <!--            <td>-->
+    <!--                <button class="deleteButton" data-index="${article.index}" type="button">삭제</button>-->
+    <!--            <td>-->
+    <!--        </tr>-->
+    <!--    </table>-->
 
 </main>
 <footer id="footer">

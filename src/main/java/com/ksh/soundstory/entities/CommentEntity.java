@@ -4,6 +4,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 
@@ -12,8 +13,8 @@ import java.util.Date;
 @EqualsAndHashCode(of = "index")
 public class CommentEntity {
     private int index;
-    private int articleIndex;
+    private String nickname;
     private String userEmail;
     private String content;
-    private Date createdAt;
+    private LocalDateTime createdAt;
 }

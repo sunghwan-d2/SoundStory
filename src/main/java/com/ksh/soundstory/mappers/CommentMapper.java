@@ -9,13 +9,11 @@ public interface CommentMapper {
 
     int insertComment(CommentEntity comment);
 
-    CommentEntity[] selectCommentByArticleIndex(@Param("articleIndex") int articleIndex);
-
-    CommentEntity selectCommentByIndex(@Param("index") int index);
-
     int deleteCommentByIndex(@Param("index") int index);
 
-    int updateComment(CommentEntity comment);
+    CommentEntity selectCommentByIndex(@Param("index")int index);
+
+    CommentEntity[] selectCommentAll();
 
 }
 

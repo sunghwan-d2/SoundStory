@@ -1,3 +1,20 @@
+const commentForm = document.forms['commentForm'];
+
+commentForm.onsubmit = e => {
+    e.preventDefault();
+    if (commentForm['content'].value.trim() === ''){
+        alert('댓글을 작성해 주세요.');
+        commentForm['content'].focus();
+    }
+    else if (commentForm['content'].value.length <1 || commentForm['content'].value.length >10000){
+        alert('올바른 내용을 입력해 주세요.');
+        commentForm['content'].focus();
+    }
+    else{
+        commentForm.submit();
+    }
+}
+
 const deleteCommentButtons = document.querySelectorAll('.deleteButton');
 
 deleteCommentButtons.forEach(deleteCommentButton => {

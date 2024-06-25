@@ -25,6 +25,7 @@ public class CommentService {
             return CommonResult.FAILURE;
         }
         comment.setCreatedAt(LocalDateTime.now());
+        comment.setNickname(comment.getNickname());
         return this.commentMapper.insertComment(comment) > 0
                 ? CommonResult.SUCCESS
                 : CommonResult.FAILURE;

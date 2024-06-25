@@ -549,66 +549,17 @@ textarea::placeholder {
   color: white;
 }
 
-.main > #readForm {
-  left: 10rem;
-  width: 70rem;
-  height: 15rem;
 
-  margin-top: 2rem;
-
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  gap: 1rem;
-
-  table {
-    border: none;
-    border-radius: 1rem;
-
-
-  }
-
-  th {
-    color: inherit;
-    font: inherit;
-    text-decoration: underline;
-  }
-
-  td {
-    text-align: center;
-    font: inherit;
-
-    > .modify {
-      border: 1px solid #ffffff;
-      border-radius: 2rem;
-      background-color: black;
-      color: white;
-      font: inherit;
-      font-size: 1rem;
-    }
-
-    > .modify:hover {
-      background-color: dimgray;
-    }
-
-    > .modify:active {
-      background-color: gray;
-    }
-
-  }
-
-}
-
-#responseTable {
+.responseTable {
   width: 70%;
   margin-left: 10rem;
   border-collapse: collapse;
   overflow: hidden;
 }
 
-#responseTable th,
-#responseTable td {
-  padding: 12px 15px; /* 셀 여백 설정 */
+.responseTable th,
+.responseTable td {
+  padding: 10px 10px; /* 셀 여백 설정 */
   text-align: center; /* 셀 내용 가운데 정렬 */
   border-bottom: 1px solid #ddd;
 }

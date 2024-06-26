@@ -8,20 +8,31 @@
             keyColumn="index"
             keyProperty="index"
             parameterType="com.ksh.soundstory.entities.CommentEntity">
-        INSERT INTO `ss`.`comments`(`user_email`, `content`,`created_at`,`nickname`)
-        VALUES (#{userEmail},#{content},#{createdAt},#{nickname})
+        INSERT INTO `ss`.`comments`(`user_email`, `content`, `created_at`, `nickname`)
+        VALUES (#{userEmail}, #{content}, #{createdAt}, #{nickname})
     </insert>
 
 
     <select id="selectCommentByIndex" resultType="com.ksh.soundstory.entities.CommentEntity">
-        SELECT  `index`         AS  `index`,
-                `user_email`    AS  `userEmail`,
-                `content`       AS  `content`,
-                `created_at`    AS  `createdAt`,
-                `nickname`      AS  `nickname`
+        SELECT `index`      AS `index`,
+               `user_email` AS `userEmail`,
+               `content`    AS `content`,
+               `created_at` AS `createdAt`,
+               `nickname`   AS `nickname`
         FROM `ss`.`comments`
         WHERE `index` = #{index}
         LIMIT 1
+    </select>
+
+    <select id="selectCommentsByPage" parameterType="com.ksh.soundstory.vos.PageVo" resultType="com.ksh.soundstory.entities.CommentEntity">
+        SELECT `index`      AS `index`,
+               `user_email` AS `userEmail`,
+               `content`    AS `content`,
+               `created_at` AS `createdAt`,
+               `nickname`   AS `nickname`
+        FROM `ss`.`comments`
+        ORDER BY comments.`index` DESC
+        LIMIT #{countPerPage} OFFSET #{selectOffset}
     </select>
 
     <select id="selectCommentAll" resultType="com.ksh.soundstory.entities.CommentEntity">
@@ -30,6 +41,11 @@
                `content`    AS `content`,
                `created_at` AS `createdAt`,
                `nickname`   AS `nickname`
+        FROM `ss`.`comments`
+    </select>
+
+    <select id="getCommentCount" resultType="int">
+        SELECT COUNT(*)
         FROM `ss`.`comments`
     </select>
 

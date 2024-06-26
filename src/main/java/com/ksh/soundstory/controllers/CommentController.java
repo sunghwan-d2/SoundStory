@@ -5,6 +5,7 @@ import com.ksh.soundstory.entities.UserEntity;
 import com.ksh.soundstory.results.CommonResult;
 import com.ksh.soundstory.results.Result;
 import com.ksh.soundstory.services.CommentService;
+import com.ksh.soundstory.vos.PageVo;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -35,6 +36,9 @@ public class CommentController {
 
         return modelAndView;
     }
+
+
+
 
     @RequestMapping(value = "/write",method = RequestMethod.GET,produces = MediaType.TEXT_HTML_VALUE)
     public ModelAndView getWrite(@SessionAttribute("user")UserEntity user){

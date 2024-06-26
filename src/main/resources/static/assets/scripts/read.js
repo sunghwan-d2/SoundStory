@@ -53,4 +53,9 @@ deleteCommentButtons.forEach(deleteCommentButton => {
     });
 });
 
+const CommentCountText = document.forms['commentForm'].querySelector('[rel=CommentCountText]');
+
+
+
+
 

@@ -3,6 +3,7 @@ package com.ksh.soundstory.services;
 import com.ksh.soundstory.entities.CommentEntity;
 import com.ksh.soundstory.mappers.CommentMapper;
 import com.ksh.soundstory.results.CommonResult;
+import com.ksh.soundstory.vos.PageVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,12 @@ public class CommentService {
     public CommentService(CommentMapper commentMapper) {
         this.commentMapper = commentMapper;
     }
+
+    public CommentEntity[] getAll(PageVo page){
+        page.setTotalCount(this.commentMapper.getCommentCount());
+        return this.commentMapper.selectCommentsByPage(page);
+    }
+//    페이지네이션
 
     public CommonResult put(CommentEntity comment) {
         if (comment.getNickname() == null || comment.getContent() == null ||

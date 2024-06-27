@@ -1,7 +1,7 @@
 package com.ksh.soundstory.vos;
 
 public class PageVo {
-    private final int countPerPage = 5;
+    private final int countPerPage = 10;
     private int totalCount;
     private int maxPage;
     private int minPage = 1;

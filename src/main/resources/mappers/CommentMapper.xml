@@ -44,8 +44,8 @@
         FROM `ss`.`comments`
     </select>
 
-    <select id="getCommentCount" resultType="int">
-        SELECT COUNT(*)
+    <select id="getCommentCount" resultType="_int">
+        SELECT COUNT(0)
         FROM `ss`.`comments`
     </select>
 

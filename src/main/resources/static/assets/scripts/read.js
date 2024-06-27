@@ -2,15 +2,13 @@ const commentForm = document.forms['commentForm'];
 
 commentForm.onsubmit = e => {
     e.preventDefault();
-    if (commentForm['content'].value.trim() === ''){
+    if (commentForm['content'].value.trim() === '') {
         alert('댓글을 작성해 주세요.');
         commentForm['content'].focus();
-    }
-    else if (commentForm['content'].value.length <1 || commentForm['content'].value.length >10000){
+    } else if (commentForm['content'].value.length < 1 || commentForm['content'].value.length > 10000) {
         alert('올바른 내용을 입력해 주세요.');
         commentForm['content'].focus();
-    }
-    else{
+    } else {
         commentForm.submit();
     }
 }
@@ -53,9 +51,33 @@ deleteCommentButtons.forEach(deleteCommentButton => {
     });
 });
 
-const CommentCountText = document.forms['commentForm'].querySelector('[rel=CommentCountText]');
+// const CommentCountText = document.forms['commentForm'].querySelector('[rel=CommentCountText]');
 
 
+document.addEventListener('DOMContentLoaded', function () {
+    // CommentCountText 요소가 올바르게 선택되는지 확인
+    const CommentCountText = document.querySelector('[rel=CommentCountText]');
+    if (CommentCountText) {
+        fetch('/comment/count') // 예시: 적절한 API 엔드포인트로 변경
+            .then(response => response.json())
+            .then(data => {
+                const initialCommentCount = parseInt(data.count);
+                updateCommentCount(initialCommentCount);
+            })
+            .catch(error => {
+                console.error('Error fetching comment count:', error);
+            });
+    } else {
+        console.error('CommentCountText element not found.');
+    }
+});
 
-
-
+// 댓글 수 업데이트 함수
+function updateCommentCount(count) {
+    const commentCountElement = document.getElementById('commentCount');
+    if (commentCountElement) {
+        commentCountElement.textContent = count;
+    } else {
+        console.error('commentCountElement with id "commentCount" not found.');
+    }
+}

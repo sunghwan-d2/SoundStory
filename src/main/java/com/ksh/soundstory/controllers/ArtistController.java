@@ -22,33 +22,16 @@ public class ArtistController {
 
 
     @RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
-    public ModelAndView getArtist() {
+    public ModelAndView getArtist(@RequestParam(value = "page", required = false, defaultValue ="1") int _page) {
+        PageVo page = new PageVo(_page);
         ModelAndView modelAndView = new ModelAndView();
-        CommentEntity[] comment = this.commentService.selectCommentAll();
+        CommentEntity[] comments = this.commentService.getAll(page);
 
-        modelAndView.addObject("comments", comment);
+        modelAndView.addObject("comments", comments);
+        modelAndView.addObject("page", page);
         modelAndView.setViewName("index/artist");
         return modelAndView;
     }
-
-//    @RequestMapping(value = "/read", method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
-//    public ModelAndView getRead(@SessionAttribute("user") UserEntity user,
-//                                @RequestParam(value = "page", required = false, defaultValue = "1") int _page) {
-//        if (user == null) {
-//            return new ModelAndView("index/artist");
-//        }
-//        PageVo page = new PageVo(_page);
-//        CommentEntity[] comments = this.commentService.selectCommentAll();
-//        CommentEntity[] articles = this.commentService.getAll(page);
-//        ModelAndView modelAndView = new ModelAndView("index/artist");
-//        modelAndView.addObject("comments", comments);
-//        modelAndView.addObject("articles", articles);
-//        modelAndView.addObject("page", page);
-//
-//        return modelAndView;
-//    }
-
-
 
 
 

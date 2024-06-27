@@ -26,23 +26,23 @@ public class CommentController {
     }
 
     @RequestMapping(value = "/read", method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
-    public ModelAndView getRead(@SessionAttribute("user") UserEntity user) {
+    public ModelAndView getRead(@SessionAttribute("user") UserEntity user,
+                                @RequestParam(value = "page", defaultValue = "1") int _page) {
+        PageVo page = new PageVo(_page);
         if (user == null) {
             return new ModelAndView("index/artist");
         }
-        CommentEntity[] comments = this.commentService.selectCommentAll();
+        CommentEntity[] comments = this.commentService.getAll(page);
         ModelAndView modelAndView = new ModelAndView("index/artist");
         modelAndView.addObject("comments", comments);
-
+        modelAndView.addObject("page", page);
         return modelAndView;
     }
 
 
-
-
-    @RequestMapping(value = "/write",method = RequestMethod.GET,produces = MediaType.TEXT_HTML_VALUE)
-    public ModelAndView getWrite(@SessionAttribute("user")UserEntity user){
-        if (user==null){
+    @RequestMapping(value = "/write", method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
+    public ModelAndView getWrite(@SessionAttribute("user") UserEntity user) {
+        if (user == null) {
             return new ModelAndView("index/artist");
         }
         CommentEntity[] comments = this.commentService.selectCommentAll();

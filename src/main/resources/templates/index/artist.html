@@ -313,7 +313,7 @@
     <form action="/comment/write" method="post" novalidate name="commentForm" class="responseTable">
         <div class="comment-container">
             <div class="comment_title">댓글 작성</div>
-            <textarea name="content" title="댓글" class="comment_textarea" maxlength="400" minlength="1" rows="3"
+            <textarea name="content" title="댓글" class="comment_textarea" maxlength="10000" minlength="1" rows="3"
                       cols="30"
                       placeholder="과도한 비방과 욕설은 삭제될 수 있습니다."></textarea>
             <button class="comment_submit" type="submit">작성</button>
@@ -321,7 +321,7 @@
     </form>
     <div class="comment-count">
         <span class="comment_title">댓글</span>
-        <span class="comment_count" id="commentCount" rel="CommentCountText" ></span>
+        <span class="comment_count" id="commentCount" rel="CommentCountText"></span>
     </div>
     <table class="commentTable">
         <thead>
@@ -348,16 +348,37 @@
             </td>
         </tr>
         </tbody>
-        <tfoot th:if="${articles != null && articles.length > 0}">
+        <tfoot th:if="${article != null && article.length > 0}">
         <tr>
             <td colspan="5">
                 <a th:each="pageNum : ${#numbers.sequence(page.getMinPage(), page.getMaxPage())}"
-                   th:href="@{/index/artist.html (page=${pageNum})}"
+                   th:href="@{/index/artist (page=${pageNum})}"
                    th:text="${pageNum}"></a>
             </td>
         </tr>
         </tfoot>
     </table>
+    <div class="pagination">
+            <ul>
+                <li th:if="${page.requestPage>1}">
+                    <a th:href="@{/artist(page=1)}">처음</a>
+                </li>
+                <li th:if="${page.requestPage > 1}">
+                    <a th:href="@{/artist(page=${page.requestPage - 1})}">이전</a>
+                </li>
+                <li th:each="pageNum : ${#numbers.sequence(page.minPage, page.maxPage)}">
+                    <a th:href="@{/artist(page=${pageNum})}" th:text="${pageNum}"
+                       th:class="${pageNum == page.requestPage ? 'active' : ''}"></a>
+                </li>
+                <li th:if="${page.requestPage < page.maxPage}">
+                    <a th:href="@{/artist(page=${page.requestPage + 1})}">다음</a>
+                </li>
+                <li th:if="${page.maxPage > 1}">
+                    <a th:href="@{/artist(page=${page.maxPage})}">마지막</a>
+                </li>
+            </ul>
+    </div>
+
 
     <!--    -->
 

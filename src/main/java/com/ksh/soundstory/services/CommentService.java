@@ -19,8 +19,9 @@ public class CommentService {
     }
 
     public CommentEntity[] getAll(PageVo page){
-        page.setTotalCount(this.commentMapper.getCommentCount());
-        return this.commentMapper.selectCommentsByPage(page);
+        int totalCount = commentMapper.getCommentCount();
+        page.setTotalCount(totalCount);
+        return commentMapper.selectCommentsByPage(page);
     }
 //    페이지네이션
 

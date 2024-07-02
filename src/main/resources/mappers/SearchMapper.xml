@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ksh.soundstory.mappers.SearchMapper">
+    <select id="selectArtistBySearch"
+            parameterType="com.ksh.soundstory.dtos.SearchDto"
+            resultType="com.ksh.soundstory.entities.ArtistEntity">
+        SELECT `artist`.`artist_id` AS `artistId`,
+        `artist`.`name` AS `name`
+        FROM `ss`.`artist`
+        WHERE `artist`.`name` LIKE CONCAT('%', #{keyword}, '%')
+    </select>
+
+    <select id="selectSongBySearch"
+            parameterType="com.ksh.soundstory.dtos.SearchDto"
+            resultMap="SongResultMap">
+        SELECT `song`.`song_id`   AS `songId`,
+               `song`.`title`     AS `title`,
+               `song`.`artist_id` AS `artistId`,
+               `song`.`album_id`  AS `albumId`,
+               `album`.`name`     AS `albumName`
+        FROM `ss`.`song`
+                 JOIN `ss`.`album` ON `song`.`album_id` = `album`.`album_id`
+            AND `song`.`title` LIKE CONCAT('%', #{keyword}, '%')
+    </select>
+
+    <resultMap id="SongResultMap" type="com.ksh.soundstory.entities.SongEntity">
+        <result property="songId" column="songId"/>
+        <result property="title" column="title"/>
+        <result property="artistId" column="artistId"/>
+        <result property="albumId" column="albumId"/>
+        <association property="album" javaType="com.ksh.soundstory.entities.AlbumEntity">
+            <result property="id" column="albumId"/>
+            <result property="name" column="albumName"/>
+        </association>
+    </resultMap>
+</mapper>

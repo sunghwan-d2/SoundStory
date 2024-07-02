@@ -12,7 +12,7 @@ public class ArtistService {
         this.artistMapper = artistMapper;
     }
     public ArtistEntity getArtist(int artistId){
-        return this.artistMapper.selectArtistByIndex(artistId);
+        return this.artistMapper.selectArtistByArtistId(artistId);
     }
 
 

@@ -20,7 +20,7 @@
 <body th:if="${session.get('user') != null && result == null}">
 <nav id="nav">
     <div class="logo-image">
-        <a target="_blank" th:src="@{/assets/images/soundstoryicon.png}" th:href="@{/}"></a>
+        <a target="_blank" th:src="@{/assets/images/soundstoryicon.png}" ></a>
         <img th:src="@{/assets/images/soundstoryicon.png}" alt="홈 로고" class="image">
         <a th:href="@{/}" class="title" type="text">Sound Story</a>
     </div>
@@ -62,12 +62,12 @@
 <main class="main">
     <header id="header">
         <ul class="menu">
-            <li class="item">
-                <label class="label">
-                    <input class="input" placeholder="아티스트 및 음악 검색" type="search">
+            <!--            <li class="item">-->
+            <!--                <label class="label">-->
+            <!--                    <input class="input" placeholder="아티스트 및 음악 검색" type="search">-->
 
-                </label>
-            </li>
+            <!--                </label>-->
+            <!--            </li>-->
             <li class="item">
                 <a class="search-button" href="" type="submit">검색</a>
             </li>
@@ -83,46 +83,33 @@
             </li>
 
         </ul>
-        <ul class="button">
-            <li class="album-button">
-                <button class="item">
-                    <i class="fa-solid fa-chevron-left"></i>
-                </button>
-                <button class="item">
-                    <i class="fa-solid fa-chevron-right"></i>
-                </button>
-            </li>
-        </ul>
+
     </header>
     <div class="artist_section">
         <div class="artist_wrap">
             <div class="artist_thumb">
-                <a href="#">
-                    <img alt="정국" class="artist_thumb_image"
-                         src="https://musicmeta-phinf.pstatic.net/artist/000/274/274327.jpg?type=ff300_300&v=20240122180120">
-                </a>
+                <img th:alt="${artist.getName()}" class="artist_thumb_image">
             </div>
             <div class="artist_text">
-                <div class="artist_title">정국</div>
+                <div class="artist_title" th:text="${artist.getName()}"></div>
                 <div class="artist_info">
                     <span class="artist_info_title">장르</span>
-                    <span class="artist_info_content">랩/힙합</span>
+                    <span class="artist_info_content" th:text="${artist.getGenre()}"></span>
                 </div>
                 <div class="artist_info">
                     <span class="artist_info_title">소속</span>
-                    <span class="artist_info_content">빅히트 뮤직</span>
+                    <span class="artist_info_content" th:text="${artist.getEnt()}"></span>
                 </div>
                 <div class="artist_info">
                     <span class="artist_info_title">활동</span>
-                    <span class="artist_info_content">방탄소년단</span>
+                    <span class="artist_info_content" th:text="${artist.getGrp()}"></span>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="song_section">
-        <div class="section_title">앨범
-            <a href="#" class="section_more">더보기</a>
+        <div class="section_title">인기 노래
         </div>
         <div class="trackList">
             <table class="table">
@@ -308,79 +295,126 @@
             </table>
         </div>
     </div>
-
-
-    <form action="/comment/write" method="post" novalidate name="commentForm" class="responseTable">
-        <div class="comment-container">
-            <div class="comment_title">댓글 작성</div>
-            <textarea name="content" title="댓글" class="comment_textarea" maxlength="10000" minlength="1" rows="3"
-                      cols="30"
-                      placeholder="과도한 비방과 욕설은 삭제될 수 있습니다."></textarea>
-            <button class="comment_submit" type="submit">작성</button>
+    <section class="album_section">
+        <div class="section_title">앨범 및 EP
         </div>
-    </form>
-    <div class="comment-count">
-        <span class="comment_title">댓글</span>
-        <span class="comment_count" id="commentCount" rel="CommentCountText"></span>
-    </div>
-    <table class="commentTable">
-        <thead>
-        <tr>
-            <th>댓글 번호</th>
-            <th>작성자</th>
-            <th>내용</th>
-            <th>작성일</th>
-            <th>삭제</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:if="${comments == null or comments.length == 0}">
-            <td colspan="5">댓글이 존재하지 않습니다.</td>
-        </tr>
-        <tr th:if="${comments != null && comments.length > 0}"
-            th:each="comment : ${comments}">
-            <td class="index" th:text="${comment.getIndex()}"></td>
-            <td th:text="${comment.getNickname()}"></td>
-            <td th:text="${comment.getContent()}"></td>
-            <td th:text="${#temporals.format(comment.createdAt, 'yyyy-MM-dd HH:mm')}"></td>
-            <td>
-                <button class="deleteButton" type="button">삭제</button>
-            </td>
-        </tr>
-        </tbody>
-        <tfoot th:if="${article != null && article.length > 0}">
-        <tr>
-            <td colspan="5">
-                <a th:each="pageNum : ${#numbers.sequence(page.getMinPage(), page.getMaxPage())}"
-                   th:href="@{/index/artist (page=${pageNum})}"
-                   th:text="${pageNum}"></a>
-            </td>
-        </tr>
-        </tfoot>
-    </table>
-    <div class="pagination">
-            <ul>
-                <li th:if="${page.requestPage>1}">
-                    <a th:href="@{/artist(page=1)}">처음</a>
-                </li>
-                <li th:if="${page.requestPage > 1}">
-                    <a th:href="@{/artist(page=${page.requestPage - 1})}">이전</a>
-                </li>
-                <li th:each="pageNum : ${#numbers.sequence(page.minPage, page.maxPage)}">
-                    <a th:href="@{/artist(page=${pageNum})}" th:text="${pageNum}"
-                       th:class="${pageNum == page.requestPage ? 'active' : ''}"></a>
-                </li>
-                <li th:if="${page.requestPage < page.maxPage}">
-                    <a th:href="@{/artist(page=${page.requestPage + 1})}">다음</a>
-                </li>
-                <li th:if="${page.maxPage > 1}">
-                    <a th:href="@{/artist(page=${page.maxPage})}">마지막</a>
-                </li>
-            </ul>
-    </div>
+        <ul class="album_list">
+            <li class="item">
+                <a href="/static" class="album_item">
+                    <img alt="GOLDEN 앨범 커버" class="image"
+                         src="https://musicmeta-phinf.pstatic.net/album/030/154/30154015.jpg?type=r120Fll&v=20240227081516">
+                    <div class="bottom">
+                        <div class="album_name">GOLDEN</div>
+                        <div class="artist_name">2023 • 앨범</div>
+                    </div>
+                </a>
+            </li>
+            <li class="item">
+                <a href="/static" class="album_item">
+                    <img alt="Seven (feat. Latto) 앨범 커버" class="image"
+                         src="https://musicmeta-phinf.pstatic.net/album/010/048/10048448.jpg?type=r120Fll&v=20240226072013">
+                    <div class="bottom">
+                        <div class="album_name">Seven (feat. Latto)</div>
+                        <div class="artist_name">2023 • 싱글</div>
+                    </div>
+                </a>
+            </li>
+            <li class="item">
+                <a href="/static" class="album_item">
+                    <img alt="Dreamers [Music from the FIFA World Cup Qatar 2022 Official Soundtrack] 앨범 커버"
+                         class="image"
+                         src="https://musicmeta-phinf.pstatic.net/album/008/349/8349954.jpg?type=r120Fll&v=20240223083515">
+                    <div class="bottom">
+                        <div class="album_name">Dreamers [Music from the FIFA World Cup Qatar 2022 Official
+                            Soundtrack]
+                        </div>
+                        <div class="artist_name">2022 • 싱글</div>
+                    </div>
+                </a>
+            </li>
+            <li class="item">
+                <a href="/static" class="album_item">
+                    <img alt="Still With You' 앨범 커버" class="image"
+                         src="https://musicmeta-phinf.pstatic.net/album/009/983/9983157.jpg?type=r360Fll&v=20230630171340">
+                    <div class="bottom">
+                        <div class="album_name">Still With You</div>
+                        <div class="artist_name">2020 • 싱글</div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </section>
 
 
-    <!--    -->
+    <!--    <form action="/comment/write" method="post" novalidate name="commentForm" class="responseTable">-->
+    <!--        <div class="comment-container">-->
+    <!--            <div class="comment_title">댓글 작성</div>-->
+    <!--            <textarea name="content" title="댓글" class="comment_textarea" maxlength="10000" minlength="1" rows="3"-->
+    <!--                      cols="30"-->
+    <!--                      placeholder="과도한 비방과 욕설은 삭제될 수 있습니다."></textarea>-->
+    <!--            <button class="comment_submit" type="submit">작성</button>-->
+    <!--        </div>-->
+    <!--    </form>-->
+    <!--    <div class="comment-count">-->
+    <!--        <span class="comment_title">댓글</span>-->
+    <!--        <span class="comment_count" id="commentCount" rel="CommentCountText"></span>-->
+    <!--    </div>-->
+    <!--    <table class="commentTable">-->
+    <!--        <thead>-->
+    <!--        <tr>-->
+    <!--            <th>댓글 번호</th>-->
+    <!--            <th>작성자</th>-->
+    <!--            <th>내용</th>-->
+    <!--            <th>작성일</th>-->
+    <!--            <th>삭제</th>-->
+    <!--        </tr>-->
+    <!--        </thead>-->
+    <!--        <tbody>-->
+    <!--        <tr th:if="${comments == null or comments.length == 0}">-->
+    <!--            <td colspan="5">댓글이 존재하지 않습니다.</td>-->
+    <!--        </tr>-->
+    <!--        <tr th:if="${comments != null && comments.length > 0}"-->
+    <!--            th:each="comment : ${comments}">-->
+    <!--            <td class="index" th:text="${comment.getIndex()}"></td>-->
+    <!--            <td th:text="${comment.getNickname()}"></td>-->
+    <!--            <td th:text="${comment.getContent()}"></td>-->
+    <!--            <td th:text="${#temporals.format(comment.createdAt, 'yyyy-MM-dd HH:mm')}"></td>-->
+    <!--            <td>-->
+    <!--                <button class="deleteButton" type="button">삭제</button>-->
+    <!--            </td>-->
+    <!--        </tr>-->
+    <!--        </tbody>-->
+    <!--        <tfoot th:if="${article != null && article.length > 0}">-->
+    <!--        <tr>-->
+    <!--            <td colspan="5">-->
+    <!--                <a th:each="pageNum : ${#numbers.sequence(page.getMinPage(), page.getMaxPage())}"-->
+    <!--                   th:href="@{/index/artist (page=${pageNum})}"-->
+    <!--                   th:text="${pageNum}"></a>-->
+    <!--            </td>-->
+    <!--        </tr>-->
+    <!--        </tfoot>-->
+    <!--    </table>-->
+    <!--    <div class="pagination">-->
+    <!--        <ul>-->
+    <!--            <li th:if="${page.requestPage>1}">-->
+    <!--                <a th:href="@{/artist(page=1)}">처음</a>-->
+    <!--            </li>-->
+    <!--            <li th:if="${page.requestPage > 1}">-->
+    <!--                <a th:href="@{/artist(page=${page.requestPage - 1})}">이전</a>-->
+    <!--            </li>-->
+    <!--            <li th:each="pageNum : ${#numbers.sequence(page.minPage, page.maxPage)}">-->
+    <!--                <a th:href="@{/artist(page=${pageNum})}" th:text="${pageNum}"-->
+    <!--                   th:class="${pageNum == page.requestPage ? 'active' : ''}"></a>-->
+    <!--            </li>-->
+    <!--            <li th:if="${page.requestPage < page.maxPage}">-->
+    <!--                <a th:href="@{/artist(page=${page.requestPage + 1})}">다음</a>-->
+    <!--            </li>-->
+    <!--            <li th:if="${page.maxPage > 1}">-->
+    <!--                <a th:href="@{/artist(page=${page.maxPage})}">마지막</a>-->
+    <!--            </li>-->
+    <!--        </ul>-->
+    <!--    </div>-->
+
 
 </main>
 <footer id="footer">

@@ -7,6 +7,8 @@ body {
   height: 100%;
   background-color: black;
   color: white;
+  margin-top: 0;
+  overflow-x: hidden;
 }
 body a {
   text-decoration: none;
@@ -142,10 +144,17 @@ body a {
 
 .main {
   margin-left: 20rem;
+  width: 81.5%;
+  height: 100%;
 }
 
 #header {
-  background-color: black;
+  border: 10px solid black;
+  background-color: #111111;
+  position: sticky;
+  border-radius: 20px;
+  top: 0;
+  z-index: 3;
 }
 #header > .menu {
   list-style-type: none;
@@ -226,16 +235,16 @@ body a {
 }
 
 .main > .artist_section {
-  background-image: url(https://musicmeta-phinf.pstatic.net/artist/000/274/274327.jpg?type=f720_720_b24&v=20240122180120&quot;);
-  background-size: cover;
   top: 0;
-  left: 10rem;
-  width: 70rem;
-  height: 20rem;
-  margin-top: 50px;
+  left: 5rem;
+  width: 85rem;
+  height: 22rem;
+  margin-top: 1rem;
   position: relative;
   align-items: stretch;
   display: flex;
+  background: #111 no-repeat 50%/1830px;
+  z-index: 1;
 }
 
 .main > .artist_section > .artist_wrap {
@@ -248,6 +257,12 @@ body a {
   transform: translate(-50%, -50%);
   width: 50rem;
   height: 15rem;
+}
+.main > .artist_section > .artist_wrap .like_container {
+  display: flex;
+  position: relative;
+  top: 1.5rem;
+  left: 6.4rem;
 }
 
 .main .artist_section .artist_wrap .artist_thumb .artist_thumb_image {
@@ -286,9 +301,9 @@ body a {
 }
 
 .main .song_section {
-  background-color: black;
-  left: 10rem;
-  width: 70rem;
+  background-color: transparent;
+  padding-left: 7rem;
+  width: 85rem;
   border-radius: 8px;
   display: flex;
   margin-top: 8px;
@@ -297,10 +312,10 @@ body a {
 }
 
 .main > .song_section .section_title {
-  width: 70rem;
-  height: 2rem;
+  width: 100%;
+  height: 2.5rem;
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   font-weight: 600;
   display: flex;
   justify-content: space-between;
@@ -322,7 +337,7 @@ body a {
   position: relative;
   text-align: center;
   table-layout: fixed;
-  font-size: 1rem;
+  font-size: 1.1rem;
   display: flex;
   gap: 1rem;
 }
@@ -335,8 +350,16 @@ body a {
   padding: 10px;
 }
 
+.table tr {
+  border-radius: 10px;
+}
+
 .table tr:hover {
-  background-color: #313131;
+  background-color: #111111;
+}
+
+.table .song_option:hover i {
+  color: white;
 }
 
 .main .trackList .tbody {
@@ -358,6 +381,7 @@ body a {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 8px;
 }
 
 .song_title, .song_artist, .song_album {
@@ -366,8 +390,14 @@ body a {
   text-align: left;
 }
 
-.song_artist, .song_album {
+.song_artist .link_text {
   color: gray;
+  font-size: 1rem;
+}
+
+.song_album .link_text {
+  color: gray;
+  font-size: 1rem;
 }
 
 .song_title .inner, .song_artist .inner, .song_album .inner {
@@ -383,9 +413,75 @@ body a {
   color: gray;
 }
 
-.main > .responseTable > .comment-container {
-  margin-left: 10rem;
+.main > .album_section {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  padding-left: 7rem;
+  width: 85rem;
+}
+.main > .album_section .section_title {
   width: 70rem;
+  height: 2rem;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+  display: flex;
+  margin: 10px 0 10px 0;
+}
+.main > .album_section .album_list {
+  display: flex;
+  list-style: none;
+  flex-direction: row;
+  gap: 0.5rem;
+  margin: unset;
+  padding: 0;
+}
+.main > .album_section .album_list :hover {
+  background-color: #111111;
+}
+.main > .album_section .album_list .item {
+  width: 10.3rem;
+  height: 13.5rem;
+  border-radius: 10px;
+  border-collapse: collapse;
+  gap: 0.5rem;
+  padding: 8px;
+}
+.main > .album_section .album_list .item .album_item {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+.main > .album_section .album_list .item .album_item .image {
+  padding: 10px;
+  width: 9rem;
+  height: 9rem;
+  border-radius: 15px;
+}
+.main > .album_section .album_list .item .album_item .bottom {
+  padding-left: 10px;
+}
+.main > .album_section .album_list .item .album_item .bottom .album_name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.main > .album_section .album_list .item .album_item .bottom .artist_name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding-top: 5px;
+  color: #6a6a6a;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.main > .responseTable > .comment-container {
+  margin-left: 7rem;
+  width: 75rem;
   height: 15rem;
   margin-top: 2rem;
   display: flex;
@@ -419,7 +515,7 @@ body a {
   resize: none;
 }
 .main > .responseTable > .comment-container > .comment_submit {
-  left: 68rem;
+  left: 73rem;
   width: 5rem;
   height: 3.5rem;
   padding: 0.5rem;
@@ -439,7 +535,7 @@ body a {
 }
 
 .comment-count {
-  margin-left: 10rem;
+  margin-left: 7rem;
   width: 70rem;
   margin-top: 2rem;
   margin-bottom: 1rem;
@@ -465,7 +561,7 @@ body a {
 }
 
 .commentTable {
-  margin-left: 10rem;
+  margin-left: 7rem;
   border-collapse: collapse;
   margin-bottom: 20px;
 }

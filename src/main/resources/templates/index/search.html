@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>search</title>
+    <script src="https://kit.fontawesome.com/6dee20ad07.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/styles/index.search.css}">
+    <link rel="shortcut icon" th:href="@{/assets/images/soundstoryicon.png}">
+</head>
+<body>
+<nav id="nav">
+    <div class="logo-image">
+        <a target="_blank" th:src="@{/assets/images/soundstoryicon.png}" th:href="@{/}"></a>
+        <img th:src="@{/assets/images/soundstoryicon.png}" alt="홈 로고" class="image">
+        <a th:href="@{/}" class="title" type="text">Sound Story</a>
+    </div>
+    <ul class="primary">
+        <li>
+            <a href="#" class="item-image">
+                <img th:src="@{/assets/images/singer.png}" alt="아티스트" class="image"></a>
+            <a href="#artist" class="text" type="text">인기 아티스트</a>
+        </li>
+        <li>
+            <a href="#" class="item-image">
+                <img th:src="@{/assets/images/album.png}" alt="앨범" class="image"></a>
+            <a href="#album" class="text" type="text">인기 앨범</a>
+        </li>
+        <li>
+            <a href="#" class="item-image">
+                <img th:src="@{/assets/images/chart.png}" alt="차트" class="image"></a>
+            <a href="#chart" class="text" type="text">인기 차트</a>
+        </li>
+        <li>
+            <a href="#" class="item-image">
+                <img th:src="@{/assets/images/recommend.png}" alt="차트" class="image"></a>
+            <a href="" class="text" type="text">장르별 추천</a>
+        </li>
+    </ul>
+    <div class="playlist">
+        <div class="playlist-container">----플레이리스트----</div>
+        <button class="add-button">
+            <i class="icon fa-solid fa-plus"></i>
+        </button>
+        <div class="playlist-text">
+            <span class="text">나만의 플레이리스트틀 추가해 보세요 !</span>
+        </div>
+    </div>
+</nav>
+<main class="main">
+    <header id="header">
+        <ul class="menu">
+            <li class="spring"></li>
+            <li class="item">
+                <a class="login-button" href="#">로그인 하기</a>
+            </li>
+        </ul>
+        <ul class="button">
+            <li class="album-button">
+                <button class="item">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="item">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </li>
+        </ul>
+    </header>
+    <form action="/search" method="post" class="search-form">
+        <div class="search">
+            <input type="text" name="keyword" placeholder="검색어를 입력하세요">
+            <button type="submit">검색</button>
+        </div>
+        <div class="search-results" th:if="${artists != null or songs != null}">
+            <div th:if="${not #lists.isEmpty(artists)}">
+                <h2>아티스트 검색 결과</h2>
+                <ul>
+                    <li th:each="artist : ${artists}">
+                        <a th:href="@{/artist/{id}(id=${artist.artistId})}" th:text="${artist.name}"></a>
+                    </li>
+                </ul>
+            </div>
+            <div th:if="${not #lists.isEmpty(songs)}">
+                <h2>노래 검색 결과</h2>
+                <ul>
+                    <li th:each="song : ${songs}">
+                        <a th:href="@{/album/{id}(id=${song.albumId})}" th:text="${song.title}"></a>
+                    </li>
+                </ul>
+            </div>
+            <div th:if="${#lists.isEmpty(artists) and #lists.isEmpty(songs)}">
+                <p>검색 결과가 없습니다.</p>
+            </div>
+        </div>
+    </form>
+    <footer id="footer">
+        <ul class="menu">
+            <li class="item">
+                <a class="link" href="">사운드 스토리 이용약관</a>
+            </li>
+            <li class="item">
+                <a class="link" href="">안전 및 개인정보 보호 센터</a>
+            </li>
+            <li class="item">
+                <a class="link" href=""> 개인정보 처리방침</a>
+            </li>
+            <li class="item">
+                <a class="link" href="">&copy; SoundStory Corp.</a>
+            </li>
+        </ul>
+    </footer>
+</main>
+</body>
+</html>

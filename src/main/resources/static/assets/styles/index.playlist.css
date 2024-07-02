@@ -1,4 +1,8 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+html {
+  height: 100%;
+}
+
 body {
   font-family: "Pretendard Variable", "Pretendard", -apple-system, "BlinkMacSystemFont", "system-ui", "Roboto", "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
   top: 0;
@@ -7,26 +11,16 @@ body {
   height: 100%;
   background-color: black;
   color: white;
+  margin-top: 0;
   overflow-x: hidden;
-  display: block;
+}
+body a {
+  text-decoration: none;
+  color: white;
 }
 
 * {
   scroll-behavior: smooth;
-  list-style-type: none;
-}
-* body::-webkit-scrollbar {
-  width: 10px;
-}
-* body::-webkit-scrollbar-track {
-  background-color: #212121;
-}
-* body::-webkit-scrollbar-thumb {
-  background-color: gray;
-  border-radius: 8px;
-}
-* body::-webkit-scrollbar-button {
-  display: none;
 }
 
 #nav {
@@ -48,12 +42,12 @@ body {
 }
 #nav .logo-image {
   display: flex;
-  position: relative;
   align-items: center;
-  margin-top: 0.78rem;
   background-color: #1e1e1e;
   border: 0.0625rem solid #333333;
   border-radius: 0.85rem;
+  padding: 1.5rem 0.5rem;
+  margin: 1.5rem 0.5rem;
 }
 #nav .logo-image .logo-image:hover {
   cursor: pointer;
@@ -153,7 +147,8 @@ body {
 }
 
 #main {
-  margin-left: 20rem;
+  position: relative;
+  left: 30rem;
   width: 81.5%;
   height: 100%;
 }
@@ -245,242 +240,86 @@ body {
   border: 0.0625rem solid #333333;
   border-radius: 0.85rem;
 }
-#main section {
-  display: block;
-  background-color: #1e1e1e;
-  padding: 2.5rem 1.5rem;
-  margin-left: 1rem;
-}
-#main .artist .artist-container {
-  display: flex;
-}
-#main .artist .subtitle-container {
-  font-size: 0.7rem;
-  gap: 0.3rem;
-}
-#main .artist .title {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  font-size: 2.5rem;
-  text-decoration: none;
-  align-items: center;
-  justify-content: center;
-  color: white;
-}
-#main .artist .title:hover {
-  pointer-events: none;
-}
-#main .artist .list {
-  display: grid;
-  gap: 1.75rem;
-  grid-template-columns: repeat(6, minmax(200px, 1fr));
-  list-style-type: none;
-  margin-block: 0;
-  margin-inline: 0;
-  margin-top: 0.75rem;
-  padding-inline: 0;
-}
-#main .artist .list .item {
-  width: 11rem;
-  height: 15rem;
-}
-#main .artist .list .image {
-  width: 12rem;
-  height: 12rem;
-  border-radius: 50%;
-}
-#main .artist .bottom {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-#main .artist .bottom .artist-name {
-  text-decoration: none;
-  color: white;
-  cursor: pointer;
-}
-#main .artist .bottom .artist-name:hover {
-  text-decoration: underline;
-}
-#main .artist .bottom .job-name {
-  text-decoration: none;
-  color: white;
-}
-#main .album .album-container {
-  display: flex;
-}
-#main .artist .title-container .artist-name {
-  font-size: 1rem;
-  font-weight: 500;
-}
-#main .artist .subtitle-container .job-name {
-  font-size: 0.8rem;
-  color: #9e9e9e;
-  font-weight: 600;
-}
-#main .album .title {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  font-size: 2.5rem;
-  text-decoration: none;
-  align-items: center;
-  justify-content: center;
-  color: white;
-}
-#main .album .title:hover {
-  pointer-events: none;
-}
-#main .album .list {
-  display: grid;
-  gap: 0.75rem;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  list-style-type: none;
-  margin-block: 0;
-  margin-inline: 0;
-  margin-top: 0.75rem;
-  padding-inline: 0;
-}
-#main .album .list .album {
-  width: 9.5rem;
-  height: 10rem;
-}
-#main .album .bottom {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-#main .album .bottom .album-name {
-  text-decoration: none;
-  color: white;
-  cursor: pointer;
-}
-#main .album .bottom .album-name:hover {
-  text-decoration: underline;
-}
-#main .album .bottom .artist-name {
-  text-decoration: none;
-  color: white;
-  cursor: pointer;
-}
-#main .album .bottom .artist-name:hover {
-  text-decoration: underline;
-}
-#main .chart {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
-#main .chart .chart-container {
+#main .playlist_section {
   position: relative;
   width: 100%;
-  margin: 0 auto;
-  overflow: hidden;
+  height: auto;
+  min-height: 100%;
 }
-#main .chart .title {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  font-size: 2.5rem;
-  text-decoration: none;
-  align-items: center;
-  justify-content: center;
-  color: white;
-}
-#main .chart .chart-content {
-  scrollbar-width: none;
-  white-space: nowrap;
-  padding: 0;
-  height: 100%;
-}
-#main .chart .chart-content .list-item {
-  width: 33.33%;
-  box-sizing: border-box;
-  display: inline-block;
-  position: relative;
-  padding: 0 10px 0 10px;
-  margin: 0;
-  vertical-align: top;
-}
-@media (max-width: 1300px) {
-  #main .chart .chart-content .list-item {
-    width: 50%;
-  }
-}
-#main .chart .chart-content .list-item-content {
-  padding: 0;
-  transition: transform 0.5s ease-in-out;
-}
-#main .chart .chart-content .list-item-row {
-  display: table;
+#main .table {
   width: 100%;
-  height: 50px;
-  padding: 10px 0;
-  vertical-align: middle;
+  align-items: center;
+  border-collapse: collapse;
+  position: relative;
+  text-align: center;
   table-layout: fixed;
-  border-bottom: 1px solid #313131;
+  font-size: 1.1rem;
+  display: flex;
+  gap: 1rem;
 }
-#main .chart .chart-content .chart-thumb {
-  white-space: normal;
-  display: table-cell;
+#main .table thead {
+  display: none;
+}
+#main .table th, #main .table td {
+  padding: 10px;
+}
+#main .table tr {
+  border-radius: 10px;
+}
+#main .table tr:hover {
+  background-color: #111111;
+}
+#main .table .song_option:hover i {
+  color: white;
+}
+#main .main .trackList .tbody {
+  display: table-row-group;
+  width: 100%;
+}
+#main .song_thumb {
+  width: 50px;
+}
+#main .song_thumb .inner {
   width: 50px;
   height: 50px;
-  vertical-align: middle;
+  overflow: hidden;
 }
-#main .chart .chart-content .chart-thumb .chart-image {
+#main .song_thumb .img_thumb {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
 }
-#main .chart .chart-content .chart-rank {
-  display: table-cell;
-  width: 30px;
-  padding: 5px 0 0 10px;
-  text-align: center;
-  font-weight: 700;
-  font-size: 16px;
+#main .song_title, #main .song_artist, #main .song_album {
+  width: 23rem;
+  max-width: 23rem;
+  text-align: left;
 }
-#main .chart .chart-content .chart-area {
-  padding-left: 10px;
-}
-#main .chart .chart-content .chart-area .chart-song .chart-title {
-  color: white;
-  font-weight: 600;
-  font-size: 17px;
-}
-#main .chart .chart-content .chart-area .chart-name {
-  margin-top: 4px;
-}
-#main .chart .chart-content .chart-area .chart-name .chart-artist {
+#main .song_artist .link_text {
   color: gray;
-  font-size: 16px;
+  font-size: 1rem;
 }
-#main .chart .chart-button {
-  background-color: transparent;
-  top: 16.5rem;
-  width: 100%;
-  height: 0;
-  display: flex;
-  position: relative;
-  padding: 0;
-  justify-content: space-between;
-  z-index: 3;
+#main .song_album .link_text {
+  color: gray;
+  font-size: 1rem;
 }
-#main .chart .chart-button button {
-  background-color: black;
-  width: 40px;
-  height: 40px;
-  border: none;
-  border-radius: 50%;
-  color: white;
+#main .song_title .inner, #main .song_artist .inner, #main .song_album .inner {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#main .song_option {
+  width: 50px;
+  text-align: center;
   cursor: pointer;
-  font-size: 20px;
-}
-#main .chart .chart-button button :focus {
-  outline: none;
+  color: gray;
 }
 
 #footer {
-  margin-left: 20rem;
+  position: relative;
+  height: 5rem;
+  transform: translateY(-100%);
+  align-items: center;
   color: white;
 }
 #footer .menu {
@@ -507,4 +346,4 @@ body {
   filter: brightness(70%);
 }
 
-/*# sourceMappingURL=index.home.css.map */
+/*# sourceMappingURL=index.playlist.css.map */

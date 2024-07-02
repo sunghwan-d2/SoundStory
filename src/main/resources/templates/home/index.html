@@ -6,35 +6,37 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sound Story</title>
-    <script src="https://kit.fontawesome.com/6dee20ad07.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/d853797a23.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/styles/index.home.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/assets/styles/common.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/assets/styles/index._global.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/assets/styles/index.album.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/assets/styles/index.artist.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/assets/styles/index.cover.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/assets/styles/index.home.css}">
+
     <link rel="stylesheet" type="text/css" th:href="@{/assets/styles/index.loading.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/assets/styles/index.recoverDialog.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/assets/styles/index.registerForm.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/assets/styles/index.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/styles/index.search.css}">
     <link rel="shortcut icon" th:href="@{/assets/images/soundstoryicon.png}">
+    <script defer type="text/javascript" th:src="@{/assets/scripts/index.home.js}"></script>
     <script defer type="text/javascript" th:src="@{/assets/scripts/common.js}"></script>
     <script defer type="text/javascript" th:src="@{/assets/scripts/defaulthome.js}"></script>
-    <script defer type="text/javascript" th:src="@{/assets/scripts/index.album.js}"></script>
     <script defer type="text/javascript" th:src="@{/assets/scripts/index.cover.js}"></script>
     <script defer type="text/javascript" th:src="@{/assets/scripts/index.js}"></script>
+
     <script defer type="text/javascript" th:src="@{/assets/scripts/index.loading.js}"></script>
     <script defer type="text/javascript" th:src="@{/assets/scripts/index.loginForm.js}"></script>
     <script defer type="text/javascript" th:src="@{/assets/scripts/index.recoverDialog.js}"></script>
     <script defer type="text/javascript" th:src="@{/assets/scripts/index.registerForm.js}"></script>
-    <script defer type="text/javascript" th:src="@{/assets/scripts/read.js}"></script>
 </head>
 <body>
-    <th:block th:replace="~{fragments/index/cover.html :: cover}"></th:block>
-    <th:block th:replace="~{fragments/index/loading.html :: loading}"></th:block>
-    <th:block th:replace="~{fragments/index/loginForm.html :: loginForm}"></th:block>
-    <th:block th:replace="~{fragments/index/recoverDialog.html :: recoverDialog}"></th:block>
-    <th:block th:replace="~{fragments/index/registerForm.html :: registerForm}"></th:block>
+<th:block th:replace="~{fragments/index/cover.html :: cover}"></th:block>
+<th:block th:replace="~{fragments/index/loading.html :: loading}"></th:block>
+<th:block th:replace="~{fragments/index/loginForm.html :: loginForm}"></th:block>
+<th:block th:replace="~{fragments/index/recoverDialog.html :: recoverDialog}"></th:block>
+<th:block th:replace="~{fragments/index/registerForm.html :: registerForm}"></th:block>
 <nav id="nav">
     <div class="logo-image">
         <a target="_self" th:src="@{/assets/images/soundstoryicon.png}" th:href="@{/}"></a>
@@ -78,14 +80,15 @@
 </nav>
 <main id="main">
     <div class="main-div">
+
         <header id="header">
             <ul class="menu">
-                <li class="item">
-                    <label class="label">
-                        <input class="input" placeholder="아티스트 및 음악 검색" type="search">
+<!--                <li class="item">-->
+<!--                    <label class="label">-->
+<!--                        <input class="input" placeholder="아티스트 및 음악 검색" type="search">-->
 
-                    </label>
-                </li>
+<!--                    </label>-->
+<!--                </li>-->
                 <li class="item">
                     <a class="search-button" href="" type="submit">검색</a>
                 </li>
@@ -100,126 +103,112 @@
                     <a class="login-button" th:if="${session.user != null}" th:href="@{/user/logout}">로그아웃</a>
                 </li>
             </ul>
-            <ul class="button">
-                <li class="album-button">
-                    <button class="item">
-                        <i class="fa-solid fa-chevron-left"></i>
-                    </button>
-                    <button class="item">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </button>
-                </li>
-            </ul>
         </header>
 
         <section class="artist">
             <div class="artist-container">
-                <a href="#" class="title" name="artist">인기 아티스트</a>
+                <div class="title">인기 아티스트</div>
             </div>
             <ul class="list">
                 <li class="item">
                     <a th:href="@{/artist}" class="image-wrapper">
-                        <img alt class="image" src="https://i.scdn.co/image/ab67616100005174f5d2200231e6ad75e8485476">
+                        <img alt class="image" src="https://musicmeta-phinf.pstatic.net/artist/005/615/5615371.jpg?type=ff300_300&v=20240524125902">
                     </a>
                     <div class="bottom">
                         <div class="title-container">
-                            <a th:href="@{/artist}" class="artist-name">뉴진스</a>
+                            <a th:href="@{/artist}" class="artist-name" value="1">뉴진스</a>
                         </div>
                         <div class="subtitle-container">
-                            <a th:href="@{/artist}" class="job-name">아티스트</a>
+                            <div class="job-name">아티스트</div>
                         </div>
                     </div>
 
                 </li>
                 <li class="item">
-                    <a href="https://open.spotify.com/artist/36cgvBn0aadzOijnjjwqMN" class="image-wrapper">
-                        <img alt class="image" src="https://i.scdn.co/image/ab676161000051745884b5e3bdc71d42b62bfcfd">
+                    <a th:href="@{/artist/3}" class="image-wrapper">
+                        <img alt class="image" src="https://musicmeta-phinf.pstatic.net/artist/008/462/8462145.jpg?type=ff300_300&v=20240513042750">
                     </a>
                     <div class="bottom">
                         <div class="title-container">
-                            <a class="artist-name"
-                               th:href="@{/artist}">ILLIT</a>
+                            <a class="artist-name" th:href="@{/artist/3}">ILLIT</a>
                         </div>
                         <div class="subtitle-container">
-                            <a class="job-name" th:href="@{/artist}">아티스트</a>
+                            <div class="job-name">아티스트</div>
                         </div>
                     </div>
                 </li>
                 <li class="item">
-                    <a href="https://open.spotify.com/artist/4SpbR6yFEvexJuaBpgAU5p" class="image-wrapper">
+                    <a th:href="@{/artist/5}" class="image-wrapper">
                         <img alt class="image" src="https://i.scdn.co/image/ab6761610000517473f96bdf146d008680149954">
                     </a>
                     <div class="bottom">
                         <div class="title-container">
-                            <a class="artist-name"
-                               th:href="@{/artist}">르세라핌</a>
+                            <a class="artist-name"  th:href="@{/artist/5}">LE SSERAFIM</a>
                         </div>
                         <div class="subtitle-container">
-                            <a class="job-name" th:href="@{/artist}">아티스트</a>
+                            <div class="job-name">아티스트</div>
                         </div>
                     </div>
                 </li>
                 <li class="item">
-                    <a href="https://open.spotify.com/artist/4XpUIb8uuNlIWVKmgKZXC0" class="image-wrapper">
+                    <a th:href="@{/artist/7}" class="image-wrapper">
                         <img alt class="image" src="https://i.scdn.co/image/ab67616100005174bc333412dcb39d8ef2bd91cc">
                     </a>
                     <div class="bottom">
                         <div class="title-container">
-                            <a class="artist-name" href="https://open.spotify.com/artist/4XpUIb8uuNlIWVKmgKZXC0">지코</a>
+                            <a class="artist-name" th:href="@{/artist/7}">지코</a>
                         </div>
                         <div class="subtitle-container">
-                            <a class="job-name" href="https://open.spotify.com/artist/4XpUIb8uuNlIWVKmgKZXC0">아티스트</a>
+                            <div class="job-name">아티스트</div>
                         </div>
                     </div>
                 </li>
                 <li class="item">
-                    <a href="https://open.spotify.com/artist/3HqSLMAZ3g3d5poNaI7GOU" class="image-wrapper">
+                    <a th:href="@{/artist/8}" class="image-wrapper">
                         <img alt class="image" src="https://i.scdn.co/image/ab67616100005174bd0642ff425698afac5caffd">
                     </a>
                     <div class="bottom">
                         <div class="title-container">
-                            <a class="artist-name" href="https://open.spotify.com/artist/3HqSLMAZ3g3d5poNaI7GOU">아이유</a>
+                            <a class="artist-name" th:href="@{/artist/8}">아이유</a>
                         </div>
                         <div class="subtitle-container">
-                            <a class="job-name" href="https://open.spotify.com/artist/3HqSLMAZ3g3d5poNaI7GOU">아티스트</a>
+                            <div class="job-name" >아티스트</div>
                         </div>
                     </div>
                 </li>
                 <li class="item">
-                    <a href="https://open.spotify.com/artist/06HL4z0CvFAxyc27GXpf02" class="image-wrapper">
-                        <img alt class="image" src="https://i.scdn.co/image/ab67616100005174e672b5f553298dcdccb0e676">
+                    <a th:href="@{/artist/12}" class="image-wrapper">
+                        <img alt class="image" src="https://musicmeta-phinf.pstatic.net/artist/006/923/6923142.jpg?type=ff300_300&v=20240417153045">
                     </a>
                     <div class="bottom">
                         <div class="title-container">
-                            <a class="artist-name" href="https://open.spotify.com/artist/06HL4z0CvFAxyc27GXpf02">Taylor
-                                Swift</a>
+                            <a class="artist-name" th:href="@{/artist/12}">RIIZE</a>
                         </div>
                         <div class="subtitle-container">
-                            <a class="job-name" href="https://open.spotify.com/artist/06HL4z0CvFAxyc27GXpf02">아티스트</a>
+                            <div class="job-name">아티스트</div>
                         </div>
                     </div>
                 </li>
                 <li class="item">
-                    <a href="https://open.spotify.com/artist/6HaGTQPmzraVmaVxvz6EUc" class="image-wrapper">
+                    <a th:href="@{/artist/1}" class="image-wrapper">
                         <img alt class="image" src="https://i.scdn.co/image/ab6761610000517440a7268dd742e5f63759b960">
                     </a>
                     <div class="bottom">
                         <div class="title-container">
-                            <a class="artist-name" href="https://open.spotify.com/artist/6HaGTQPmzraVmaVxvz6EUc">정국</a>
+                            <a class="artist-name" th:href="@{/artist/1}">정국</a>
                         </div>
                         <div class="subtitle-container">
-                            <a class="job-name" href="https://open.spotify.com/artist/6HaGTQPmzraVmaVxvz6EUc">아티스트</a>
+                            <div class="job-name">아티스트</div>
                         </div>
                     </div>
                 </li>
                 <li class="item">
-                    <a href="https://open.spotify.com/artist/6VuMaDnrHyPL1p4EHjYLi7" class="image-wrapper">
-                        <img alt class="image" src="https://i.scdn.co/image/ab67616100005174f83823555da55fd07555fbd0">
+                    <a th:href="@{/artist/4}" class="image-wrapper">
+                        <img alt class="image" src="https://i.scdn.co/image/ab676161000051748939960e5144b51d7903899f">
                     </a>
                     <div class="bottom">
                         <div class="title-container">
-                            <a class="artist-name" href="https://open.spotify.com/artist/6VuMaDnrHyPL1p4EHjYLi7">Charlie
-                                Puth</a>
+                            <a class="artist-name" th:href="@{/artist/4}">IVE</a>
                         </div>
                         <div class="subtitle-container">
                             <a class="job-name" href="https://open.spotify.com/artist/6VuMaDnrHyPL1p4EHjYLi7">아티스트</a>
@@ -227,56 +216,55 @@
                     </div>
                 </li>
                 <li class="item">
-                    <a href="https://open.spotify.com/artist/6VuMaDnrHyPL1p4EHjYLi7" class="image-wrapper">
+                    <a th:href="@{/artist/6}" class="image-wrapper">
                         <img alt class="image" src="https://i.scdn.co/image/ab67616100005174573935eb61a1897aeb43c531">
                     </a>
                     <div class="bottom">
                         <div class="title-container">
-                            <a class="artist-name" href="https://open.spotify.com/artist/6VuMaDnrHyPL1p4EHjYLi7">
-                                aespa</a>
+                            <a class="artist-name" th:href="@{/artist/6}">aespa</a>
                         </div>
                         <div class="subtitle-container">
-                            <a class="job-name" href="https://open.spotify.com/artist/6VuMaDnrHyPL1p4EHjYLi7">아티스트</a>
+                            <div class="job-name">아티스트</div>
                         </div>
                     </div>
                 </li>
                 <li class="item">
-                    <a href="https://open.spotify.com/artist/6VuMaDnrHyPL1p4EHjYLi7" class="image-wrapper">
-                        <img alt class="image" src="https://i.scdn.co/image/ab676161000051748ae7f2aaa9817a704a87ea36">
+                    <a th:href="@{/artist/9}" class="image-wrapper">
+                        <img alt class="image" src="https://musicmeta-phinf.pstatic.net/artist/000/274/274326.jpg?type=ff300_300&v=20240315125901">
                     </a>
                     <div class="bottom">
                         <div class="title-container">
-                            <a class="artist-name" href="https://open.spotify.com/artist/6VuMaDnrHyPL1p4EHjYLi7">
-                                Justin Bieber</a>
+                            <a class="artist-name" th:href="@{/artist/9}">
+                                V</a>
                         </div>
                         <div class="subtitle-container">
-                            <a class="job-name" href="https://open.spotify.com/artist/6VuMaDnrHyPL1p4EHjYLi7">아티스트</a>
+                            <div class="job-name">아티스트</div>
                         </div>
                     </div>
                 </li>
                 <li class="item">
-                    <a href="https://open.spotify.com/artist/6VuMaDnrHyPL1p4EHjYLi7" class="image-wrapper">
-                        <img alt class="image" src="https://i.scdn.co/image/ab676161000051744a21b4760d2ecb7b0dcdc8da">
+                    <a th:href="@{/artist/10}" class="image-wrapper">
+                        <img alt class="image" src="https://musicmeta-phinf.pstatic.net/artist/002/388/2388740.jpg?type=ff300_300&v=20240513180946">
                     </a>
                     <div class="bottom">
                         <div class="title-container">
-                            <a class="artist-name" href="https://open.spotify.com/artist/6VuMaDnrHyPL1p4EHjYLi7">Billie Eilish</a>
+                            <a class="artist-name" th:href="@{/artist/10}">(여자)아이들</a>
                         </div>
                         <div class="subtitle-container">
-                            <a class="job-name" href="https://open.spotify.com/artist/6VuMaDnrHyPL1p4EHjYLi7">아티스트</a>
+                            <div class="job-name">아티스트</div>
                         </div>
                     </div>
                 </li>
                 <li class="item">
-                    <a href="https://open.spotify.com/artist/6VuMaDnrHyPL1p4EHjYLi7" class="image-wrapper">
-                        <img alt class="image" src="https://i.scdn.co/image/ab67616100005174e17c0aa1714a03d62b5ce4e0">
+                    <a th:href="@{/artist/11}" class="image-wrapper">
+                        <img alt class="image" src="https://musicmeta-phinf.pstatic.net/artist/000/134/134431.jpg?type=ff300_300&v=20240425175900">
                     </a>
                     <div class="bottom">
                         <div class="title-container">
-                            <a class="artist-name" href="https://open.spotify.com/artist/6VuMaDnrHyPL1p4EHjYLi7">Post Malone</a>
+                            <a class="artist-name" th:href="@{/artist/11}">10CM</a>
                         </div>
                         <div class="subtitle-container">
-                            <a class="job-name" href="https://open.spotify.com/artist/6VuMaDnrHyPL1p4EHjYLi7">아티스트</a>
+                            <div class="job-name">아티스트</div>
                         </div>
                     </div>
                 </li>
@@ -284,7 +272,7 @@
         </section>
         <section class="album">
             <div class="album-container">
-                <a href="#" class="title" name="album">인기 앨범</a>
+                <div class="title">인기 앨범</div>
             </div>
             <ul class="list">
                 <li class="item">
@@ -362,165 +350,464 @@
         </section>
         <section class="chart">
             <div class="chart-container">
-                <a href="#" class="title" name="chart">인기 차트</a>
-            </div>
-            <ul class="list">
-                <li class="item">
-                    <a href="https://charts-images.scdn.co/assets_generated/locale_ko/regional/weekly/region_global_default.jpg"
-                       class="chart-wrapper">
-                        <img alt class="chart"
-                             src="https://charts-images.scdn.co/assets_generated/locale_ko/regional/weekly/region_global_default.jpg">
-                    </a>
-                    <div class="bottom">
-                        <div class="title-container">
-                            <a class="chart-name" href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">인기 곡 -
-                                글로벌</a>
-                        </div>
-                        <div class="subtitle-container">
-                            <a class="chart-description" href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">현재
-                                가장 많이 재생된 트랙의 주간 업데이트 입니다.</a>
-                        </div>
-                    </div>
-                </li>
-                <li class="item">
-                    <a href="https://charts-images.scdn.co/assets_generated/locale_ko/regional/weekly/region_us_default.jpg"
-                       class="chart-wrapper">
-                        <img alt class="chart"
-                             src="https://charts-images.scdn.co/assets_generated/locale_ko/regional/weekly/region_us_default.jpg">
-                    </a>
-                    <div class="bottom">
-                        <div class="title-container">
-                            <a class="chart-name" href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">인기 곡 -
-                                미국</a>
-                        </div>
-                        <div class="subtitle-container">
-                            <a class="chart-description" href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">현재
-                                가장 많이 재생된 트랙의 주간 업데이트 입니다.</a>
-                        </div>
-                    </div>
-                </li>
-                <li class="item">
-                    <a href="https://charts-images.scdn.co/assets/locale_en/regional/daily/region_global_default.jpg"
-                       class="chart-wrapper">
-                        <img alt class="chart"
-                             src="https://charts-images.scdn.co/assets/locale_en/regional/daily/region_global_default.jpg">
-                    </a>
-                    <div class="bottom">
-                        <div class="title-container">
-                            <a class="chart-name" href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">TOP 50 -
-                                글로벌</a>
-                        </div>
-                        <div class="subtitle-container">
-                            <a class="chart-description" href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">현재
-                                가장 많이 재생된 트랙의 일일 업데이트 입니다 - 글로벌</a>
-                        </div>
-                    </div>
-                </li>
-                <li class="item">
-                    <a href="https://charts-images.scdn.co/assets/locale_en/regional/daily/region_global_default.jpg"
-                       class="chart-wrapper">
-                        <img alt class="chart"
-                             src="https://charts-images.scdn.co/assets/locale_en/regional/daily/region_us_default.jpg">
-                    </a>
-                    <div class="bottom">
-                        <div class="title-container">
-                            <a class="chart-name" href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">TOP 50 -
-                                미국</a>
-                        </div>
-                        <div class="subtitle-container">
-                            <a class="chart-description" href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">현재
-                                가장 많이 재생된 트랙의 일일 업데이트 입니다 - 미국</a>
-                        </div>
-                    </div>
-                </li>
-                <li class="item">
-                    <a href="https://charts-images.scdn.co/assets/locale_en/regional/daily/region_global_default.jpg"
-                       class="chart-wrapper">
-                        <img alt class="chart"
-                             src="https://charts-images.scdn.co/assets/locale_en/viral/daily/region_global_default.jpg">
-                    </a>
-                    <div class="bottom">
-                        <div class="title-container">
-                            <a class="chart-name" href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">바이럴 50 -
-                                글로벌</a>
-                        </div>
-                        <div class="subtitle-container">
-                            <a class="chart-description" href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">현재
-                                가장 유명한 트랙의 일일 업데이트 입니다 - 글로벌</a>
-                        </div>
-                    </div>
-                </li>
+                <div class="chart-button">
+                    <button class="prevButton" id="prevButton"><i class="fa-solid fa-angle-left"></i></button>
+                    <button class="nextButton" id="nextButton"><i class="fa-solid fa-angle-right"></i></button>
+                </div>
+                <div class="title">인기 차트</div>
+                <div class="">
+                    <ul class="chart-content">
+                        <li class="list-item" id="chart-1">
+                            <ul class="list-item-content">
+                                <li class="list-item-row">
+                                    <div class="chart-thumb">
+                                        <a href="/">
+                                            <img class="chart-image" src="https://musicmeta-phinf.pstatic.net/album/031/577/31577945.jpg?type=r100Fll&v=20240527175901" alt="">
+                                        </a>
 
-            </ul>
-        </section>
-        <section class="genre">
-            <div class="genre-container">
-                <a href="#" class="title" name="genre">장르별 추천</a>
-            </div>
-            <ul class="list">
-                <li class="item">
-                    <a href="https://music.apple.com/kr/curator/apple-music-k-pop/988658197"
-                       class="genre-wrapper">
-                        <img alt class="genre"
-                             src="https://is1-ssl.mzstatic.com/image/thumb/Features221/v4/bd/23/c7/bd23c7e7-bee1-cea8-3275-48d0a390e826/e2606246-59f3-4d91-9751-0c0332533cbf.png/316x316bf.webp">
-                    </a>
-                    <div class="bottom">
-                        <div class="title-container">
-                            <a class="genre-name"
-                               href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">K-POP</a>
-                        </div>
-                    </div>
-                </li>
-                <li class="item">
-                    <a href="https://charts-images.scdn.co/assets_generated/locale_ko/regional/weekly/region_us_default.jpg"
-                       class="genre-wrapper">
-                        <img alt class="genre"
-                             src="https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/ce/c4/88/cec48846-0d6e-e797-381e-705eb4c659f4/9480d152-a8a0-4b50-b5fd-a9d3de689394.png/316x316bf.webp">
-                    </a>
-                    <div class="bottom">
-                        <div class="title-container">
-                            <a class="genre-name" href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">OST</a>
-                        </div>
-                    </div>
-                </li>
-                <li class="item">
-                    <a href="https://charts-images.scdn.co/assets_generated/locale_ko/regional/weekly/region_us_default.jpg"
-                       class="genre-wrapper">
-                        <img alt class="genre"
-                             src="https://is1-ssl.mzstatic.com/image/thumb/Features221/v4/2e/54/b5/2e54b52b-73e8-1094-ec4d-cabc1b9b8ced/a93c233c-706d-4d53-87e1-a756bc62b21b.png/316x316bf.webp">
-                    </a>
-                    <div class="bottom">
-                        <div class="title-container">
-                            <a class="genre-name" href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">R&B</a>
-                        </div>
-                    </div>
-                </li>
-                <li class="item">
-                    <a href="https://charts-images.scdn.co/assets_generated/locale_ko/regional/weekly/region_us_default.jpg"
-                       class="genre-wrapper">
-                        <img alt class="genre"
-                             src="https://is1-ssl.mzstatic.com/image/thumb/Features221/v4/73/ab/0c/73ab0c91-e854-97f5-c4e1-301a3018c99f/a3d25868-4dbe-496f-aa43-ebe219f2ddf7.png/316x316bf.webp">
-                    </a>
-                    <div class="bottom">
-                        <div class="title-container">
-                            <a class="genre-name" href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">재즈</a>
-                        </div>
-                    </div>
-                </li>
-                <li class="item">
-                    <a href="https://charts-images.scdn.co/assets_generated/locale_ko/regional/weekly/region_us_default.jpg"
-                       class="genre-wrapper">
-                        <img alt class="genre"
-                             src="https://is1-ssl.mzstatic.com/image/thumb/Features211/v4/a1/cb/d0/a1cbd09e-6f40-1552-91ce-620af93c7c3f/9b6ed36c-0bc5-4167-a127-fd0cedcaeecd.png/316x316bf.webp">
-                    </a>
-                    <div class="bottom">
-                        <div class="title-container">
-                            <a class="genre-name" href="https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d">힙합/랩</a>
-                        </div>
-                    </div>
-                </li>
+                                    </div>
+                                    <div class="chart-rank">1</div>
+                                    <div class="chart-area">
+                                        <div class="chart-song">
+                                            <a href="/" class="chart-title">Supernova</a>
+                                        </div>
+                                        <div class="chart-name">
+                                            <a href="/artist/6" class="chart-artist">aespa</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-item-row">
+                                    <div class="chart-thumb">
+                                        <img class="chart-image" src="https://musicmeta-phinf.pstatic.net/album/031/577/31577945.jpg?type=r100Fll&v=20240527175901" alt="">
+                                    </div>
+                                    <div class="chart-rank">2</div>
+                                    <div class="chart-area">
+                                        <div class="chart-song">
+                                            <a href="/" class="chart-title">Supernova</a>
+                                        </div>
+                                        <div class="chart-name">
+                                            <a href="/artist/6" class="chart-artist">aespa</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-item-row">
+                                    <div class="chart-thumb">
+                                        <img class="chart-image" src="https://musicmeta-phinf.pstatic.net/album/031/577/31577945.jpg?type=r100Fll&v=20240527175901" alt="">
+                                    </div>
+                                    <div class="chart-rank">3</div>
+                                    <div class="chart-area">
+                                        <div class="chart-song">
+                                            <a href="/" class="chart-title">Supernova</a>
+                                        </div>
+                                        <div class="chart-name">
+                                            <a href="/artist/6" class="chart-artist">aespa</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-item-row">
+                                    <div class="chart-thumb">
+                                        <img class="chart-image" src="https://musicmeta-phinf.pstatic.net/album/031/577/31577945.jpg?type=r100Fll&v=20240527175901" alt="">
+                                    </div>
+                                    <div class="chart-rank">4</div>
+                                    <div class="chart-area">
+                                        <div class="chart-song">
+                                            <a href="/" class="chart-title">Supernova</a>
+                                        </div>
+                                        <div class="chart-name">
+                                            <a href="/artist/6" class="chart-artist">aespa</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-item-row">
+                                    <div class="chart-thumb">
+                                        <img class="chart-image" src="https://musicmeta-phinf.pstatic.net/album/031/577/31577945.jpg?type=r100Fll&v=20240527175901" alt="">
+                                    </div>
+                                    <div class="chart-rank">5</div>
+                                    <div class="chart-area">
+                                        <div class="chart-song">
+                                            <a href="/" class="chart-title">Supernova</a>
+                                        </div>
+                                        <div class="chart-name">
+                                            <a href="/artist/6" class="chart-artist">aespa</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="list-item" id="chart-2">
+                            <ul class="list-item-content">
+                                <li class="list-item-row">
+                                    <div class="chart-thumb">
+                                        <img class="chart-image" src="https://musicmeta-phinf.pstatic.net/album/031/577/31577945.jpg?type=r100Fll&v=20240527175901" alt="">
+                                    </div>
+                                    <div class="chart-rank">6</div>
+                                    <div class="chart-area">
+                                        <div class="chart-song">
+                                            <a href="/" class="chart-title">Supernova</a>
+                                        </div>
+                                        <div class="chart-name">
+                                            <a href="/artist/6" class="chart-artist">aespa</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-item-row">
+                                    <div class="chart-thumb">
+                                        <img class="chart-image" src="https://musicmeta-phinf.pstatic.net/album/031/577/31577945.jpg?type=r100Fll&v=20240527175901" alt="">
+                                    </div>
+                                    <div class="chart-rank">7</div>
+                                    <div class="chart-area">
+                                        <div class="chart-song">
+                                            <a href="/" class="chart-title">Supernova</a>
+                                        </div>
+                                        <div class="chart-name">
+                                            <a href="/artist/6" class="chart-artist">aespa</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-item-row">
+                                    <div class="chart-thumb">
+                                        <img class="chart-image" src="https://musicmeta-phinf.pstatic.net/album/031/577/31577945.jpg?type=r100Fll&v=20240527175901" alt="">
+                                    </div>
+                                    <div class="chart-rank">8</div>
+                                    <div class="chart-area">
+                                        <div class="chart-song">
+                                            <a href="/" class="chart-title">Supernova</a>
+                                        </div>
+                                        <div class="chart-name">
+                                            <a href="/artist/6" class="chart-artist">aespa</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-item-row">
+                                    <div class="chart-thumb">
+                                        <img class="chart-image" src="https://musicmeta-phinf.pstatic.net/album/031/577/31577945.jpg?type=r100Fll&v=20240527175901" alt="">
+                                    </div>
+                                    <div class="chart-rank">9</div>
+                                    <div class="chart-area">
+                                        <div class="chart-song">
+                                            <a href="/" class="chart-title">Supernova</a>
+                                        </div>
+                                        <div class="chart-name">
+                                            <a href="/artist/6" class="chart-artist">aespa</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-item-row">
+                                    <div class="chart-thumb">
+                                        <img class="chart-image" src="https://musicmeta-phinf.pstatic.net/album/031/577/31577945.jpg?type=r100Fll&v=20240527175901" alt="">
+                                    </div>
+                                    <div class="chart-rank">10</div>
+                                    <div class="chart-area">
+                                        <div class="chart-song">
+                                            <a href="/" class="chart-title">Supernova</a>
+                                        </div>
+                                        <div class="chart-name">
+                                            <a href="/artist/6" class="chart-artist">aespa</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="list-item" id="chart-3">
+                            <ul class="list-item-content">
+                                <li class="list-item-row">
+                                    <div class="chart-thumb">
+                                        <img class="chart-image" src="https://musicmeta-phinf.pstatic.net/album/031/577/31577945.jpg?type=r100Fll&v=20240527175901" alt="">
+                                    </div>
+                                    <div class="chart-rank">11</div>
+                                    <div class="chart-area">
+                                        <div class="chart-song">
+                                            <a href="/" class="chart-title">Supernova</a>
+                                        </div>
+                                        <div class="chart-name">
+                                            <a href="/artist/6" class="chart-artist">aespa</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-item-row">
+                                    <div class="chart-thumb">
+                                        <img class="chart-image" src="https://musicmeta-phinf.pstatic.net/album/031/577/31577945.jpg?type=r100Fll&v=20240527175901" alt="">
+                                    </div>
+                                    <div class="chart-rank">12</div>
+                                    <div class="chart-area">
+                                        <div class="chart-song">
+                                            <a href="/" class="chart-title">Supernova</a>
+                                        </div>
+                                        <div class="chart-name">
+                                            <a href="/artist/6" class="chart-artist">aespa</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-item-row">
+                                    <div class="chart-thumb">
+                                        <img class="chart-image" src="https://musicmeta-phinf.pstatic.net/album/031/577/31577945.jpg?type=r100Fll&v=20240527175901" alt="">
+                                    </div>
+                                    <div class="chart-rank">13</div>
+                                    <div class="chart-area">
+                                        <div class="chart-song">
+                                            <a href="/" class="chart-title">Supernova</a>
+                                        </div>
+                                        <div class="chart-name">
+                                            <a href="/artist/6" class="chart-artist">aespa</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-item-row">
+                                    <div class="chart-thumb">
+                                        <img class="chart-image" src="https://musicmeta-phinf.pstatic.net/album/031/577/31577945.jpg?type=r100Fll&v=20240527175901" alt="">
+                                    </div>
+                                    <div class="chart-rank">14</div>
+                                    <div class="chart-area">
+                                        <div class="chart-song">
+                                            <a href="/" class="chart-title">Supernova</a>
+                                        </div>
+                                        <div class="chart-name">
+                                            <a href="/artist/6" class="chart-artist">aespa</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-item-row">
+                                    <div class="chart-thumb">
+                                        <img class="chart-image" src="https://musicmeta-phinf.pstatic.net/album/031/577/31577945.jpg?type=r100Fll&v=20240527175901" alt="">
+                                    </div>
+                                    <div class="chart-rank">15</div>
+                                    <div class="chart-area">
+                                        <div class="chart-song">
+                                            <a href="/" class="chart-title">Supernova</a>
+                                        </div>
+                                        <div class="chart-name">
+                                            <a href="/artist/6" class="chart-artist">aespa</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="list-item" id="chart-4">
+                            <ul class="list-item-content">
+                                <li class="list-item-row">
+                                    <div class="chart-thumb">
+                                        <img class="chart-image" src="https://musicmeta-phinf.pstatic.net/album/031/577/31577945.jpg?type=r100Fll&v=20240527175901" alt="">
+                                    </div>
+                                    <div class="chart-rank">16</div>
+                                    <div class="chart-area">
+                                        <div class="chart-song">
+                                            <a href="/" class="chart-title">Supernova</a>
+                                        </div>
+                                        <div class="chart-name">
+                                            <a href="/artist/6" class="chart-artist">aespa</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-item-row">
+                                    <div class="chart-thumb">
+                                        <img class="chart-image" src="https://musicmeta-phinf.pstatic.net/album/031/577/31577945.jpg?type=r100Fll&v=20240527175901" alt="">
+                                    </div>
+                                    <div class="chart-rank">17</div>
+                                    <div class="chart-area">
+                                        <div class="chart-song">
+                                            <a href="/" class="chart-title">Supernova</a>
+                                        </div>
+                                        <div class="chart-name">
+                                            <a href="/artist/6" class="chart-artist">aespa</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-item-row">
+                                    <div class="chart-thumb">
+                                        <img class="chart-image" src="https://musicmeta-phinf.pstatic.net/album/031/577/31577945.jpg?type=r100Fll&v=20240527175901" alt="">
+                                    </div>
+                                    <div class="chart-rank">18</div>
+                                    <div class="chart-area">
+                                        <div class="chart-song">
+                                            <a href="/" class="chart-title">Supernova</a>
+                                        </div>
+                                        <div class="chart-name">
+                                            <a href="/artist/6" class="chart-artist">aespa</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-item-row">
+                                    <div class="chart-thumb">
+                                        <img class="chart-image" src="https://musicmeta-phinf.pstatic.net/album/031/577/31577945.jpg?type=r100Fll&v=20240527175901" alt="">
+                                    </div>
+                                    <div class="chart-rank">19</div>
+                                    <div class="chart-area">
+                                        <div class="chart-song">
+                                            <a href="/" class="chart-title">Supernova</a>
+                                        </div>
+                                        <div class="chart-name">
+                                            <a href="/artist/6" class="chart-artist">aespa</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-item-row">
+                                    <div class="chart-thumb">
+                                        <img class="chart-image" src="https://musicmeta-phinf.pstatic.net/album/031/577/31577945.jpg?type=r100Fll&v=20240527175901" alt="">
+                                    </div>
+                                    <div class="chart-rank">20</div>
+                                    <div class="chart-area">
+                                        <div class="chart-song">
+                                            <a href="/" class="chart-title">Supernova</a>
+                                        </div>
+                                        <div class="chart-name">
+                                            <a href="/artist/6" class="chart-artist">aespa</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="list-item" id="chart-5">
+                            <ul class="list-item-content">
+                                <li class="list-item-row">
+                                    <div class="chart-thumb">
+                                        <img class="chart-image" src="https://musicmeta-phinf.pstatic.net/album/031/577/31577945.jpg?type=r100Fll&v=20240527175901" alt="">
+                                    </div>
+                                    <div class="chart-rank">21</div>
+                                    <div class="chart-area">
+                                        <div class="chart-song">
+                                            <a href="/" class="chart-title">Supernova</a>
+                                        </div>
+                                        <div class="chart-name">
+                                            <a href="/artist/6" class="chart-artist">aespa</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-item-row">
+                                    <div class="chart-thumb">
+                                        <img class="chart-image" src="https://musicmeta-phinf.pstatic.net/album/031/577/31577945.jpg?type=r100Fll&v=20240527175901" alt="">
+                                    </div>
+                                    <div class="chart-rank">22</div>
+                                    <div class="chart-area">
+                                        <div class="chart-song">
+                                            <a href="/" class="chart-title">Supernova</a>
+                                        </div>
+                                        <div class="chart-name">
+                                            <a href="/artist/6" class="chart-artist">aespa</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-item-row">
+                                    <div class="chart-thumb">
+                                        <img class="chart-image" src="https://musicmeta-phinf.pstatic.net/album/031/577/31577945.jpg?type=r100Fll&v=20240527175901" alt="">
+                                    </div>
+                                    <div class="chart-rank">23</div>
+                                    <div class="chart-area">
+                                        <div class="chart-song">
+                                            <a href="/" class="chart-title">Supernova</a>
+                                        </div>
+                                        <div class="chart-name">
+                                            <a href="/artist/6" class="chart-artist">aespa</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-item-row">
+                                    <div class="chart-thumb">
+                                        <img class="chart-image" src="https://musicmeta-phinf.pstatic.net/album/031/577/31577945.jpg?type=r100Fll&v=20240527175901" alt="">
+                                    </div>
+                                    <div class="chart-rank">24</div>
+                                    <div class="chart-area">
+                                        <div class="chart-song">
+                                            <a href="/" class="chart-title">Supernova</a>
+                                        </div>
+                                        <div class="chart-name">
+                                            <a href="/artist/6" class="chart-artist">aespa</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-item-row">
+                                    <div class="chart-thumb">
+                                        <img class="chart-image" src="https://musicmeta-phinf.pstatic.net/album/031/577/31577945.jpg?type=r100Fll&v=20240527175901" alt="">
+                                    </div>
+                                    <div class="chart-rank">25</div>
+                                    <div class="chart-area">
+                                        <div class="chart-song">
+                                            <a href="/" class="chart-title">Supernova</a>
+                                        </div>
+                                        <div class="chart-name">
+                                            <a href="/artist/6" class="chart-artist">aespa</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="list-item" id="chart-6">
+                            <ul class="list-item-content">
+                                <li class="list-item-row">
+                                    <div class="chart-thumb">
+                                        <img class="chart-image" src="https://musicmeta-phinf.pstatic.net/album/031/577/31577945.jpg?type=r100Fll&v=20240527175901" alt="">
+                                    </div>
+                                    <div class="chart-rank">26</div>
+                                    <div class="chart-area">
+                                        <div class="chart-song">
+                                            <a href="/" class="chart-title">Supernova</a>
+                                        </div>
+                                        <div class="chart-name">
+                                            <a href="/artist/6" class="chart-artist">aespa</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-item-row">
+                                    <div class="chart-thumb">
+                                        <img class="chart-image" src="https://musicmeta-phinf.pstatic.net/album/031/577/31577945.jpg?type=r100Fll&v=20240527175901" alt="">
+                                    </div>
+                                    <div class="chart-rank">27</div>
+                                    <div class="chart-area">
+                                        <div class="chart-song">
+                                            <a href="/" class="chart-title">Supernova</a>
+                                        </div>
+                                        <div class="chart-name">
+                                            <a href="/artist/6" class="chart-artist">aespa</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-item-row">
+                                    <div class="chart-thumb">
+                                        <img class="chart-image" src="https://musicmeta-phinf.pstatic.net/album/031/577/31577945.jpg?type=r100Fll&v=20240527175901" alt="">
+                                    </div>
+                                    <div class="chart-rank">28</div>
+                                    <div class="chart-area">
+                                        <div class="chart-song">
+                                            <a href="/" class="chart-title">Supernova</a>
+                                        </div>
+                                        <div class="chart-name">
+                                            <a href="/artist/6" class="chart-artist">aespa</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-item-row">
+                                    <div class="chart-thumb">
+                                        <img class="chart-image" src="https://musicmeta-phinf.pstatic.net/album/031/577/31577945.jpg?type=r100Fll&v=20240527175901" alt="">
+                                    </div>
+                                    <div class="chart-rank">29</div>
+                                    <div class="chart-area">
+                                        <div class="chart-song">
+                                            <a href="/" class="chart-title">Supernova</a>
+                                        </div>
+                                        <div class="chart-name">
+                                            <a href="/artist/6" class="chart-artist">aespa</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-item-row">
+                                    <div class="chart-thumb">
+                                        <img class="chart-image" src="https://musicmeta-phinf.pstatic.net/album/031/577/31577945.jpg?type=r100Fll&v=20240527175901" alt="">
+                                    </div>
+                                    <div class="chart-rank">30</div>
+                                    <div class="chart-area">
+                                        <div class="chart-song">
+                                            <a href="/" class="chart-title">Supernova</a>
+                                        </div>
+                                        <div class="chart-name">
+                                            <a href="/artist/6" class="chart-artist">aespa</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
 
-            </ul>
+            </div>
         </section>
     </div>
 </main>

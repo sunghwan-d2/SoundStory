@@ -6,6 +6,6 @@ import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface ArtistMapper {
-    ArtistEntity selectArtistByIndex(@Param("artistId") int artistId);
+    ArtistEntity selectArtistByArtistId(@Param("artistId") int artistId);
 
 }

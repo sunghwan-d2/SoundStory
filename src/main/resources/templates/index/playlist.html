@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="shortcut icon" th:href="@{/assets/images/soundstoryicon.png}">
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/styles/index.playlist.css}">
+    <script src="https://kit.fontawesome.com/6dee20ad07.js" crossorigin="anonymous"></script>
+   <!-- <script th:if="${session.get('user') == null}">
+        alert('로그인 후 이용하실 수 있는 서비스 입니다. 먼저 로그인을 해 주세요');
+        history.back();
+    </script>-->
+</head>
+<body>
+<nav id="nav">
+    <div class="logo-image">
+        <a target="_blank" th:src="@{/assets/images/soundstoryicon.png}" th:href="@{/}"></a>
+        <img th:src="@{/assets/images/soundstoryicon.png}" alt="홈 로고" class="image">
+        <a th:href="@{/}" class="title" type="text">Sound Story</a>
+    </div>
+    <ul class="primary">
+        <li>
+            <a href="#" class="item-image">
+                <img th:src="@{/assets/images/singer.png}" alt="아티스트" class="image"></a>
+            <a href="#" class="text" type="text">인기 아티스트</a>
+        </li>
+        <li>
+            <a href="#" class="item-image">
+                <img th:src="@{/assets/images/album.png}" alt="앨범" class="image"></a>
+            <a href="#" class="text" type="text">인기 앨범</a>
+        </li>
+        <li>
+            <a href="#" class="item-image">
+                <img th:src="@{/assets/images/chart.png}" alt="차트" class="image"></a>
+            <a href="#" class="text" type="text">인기 차트</a>
+        </li>
+        <li>
+            <a href="#" class="item-image">
+                <img th:src="@{/assets/images/recommend.png}" alt="차트" class="image"></a>
+            <a href="#" class="text" type="text">장르별 추천</a>
+        </li>
+    </ul>
+    <!--    </div>-->
+    <div class="playlist">
+        <div class="playlist-container">----플레이리스트----</div>
+        <button class="add-button">
+            <i class="icon fa-solid fa-plus"></i>
+        </button>
+        <div class="playlist-text">
+            <span class="text">나만의 플레이리스트틀 추가해 보세요 !</span>
+        </div>
+
+    </div>
+
+</nav>
+<main id="main">
+    <header id="header">
+        <ul class="menu">
+            <!--                <li class="item">-->
+            <!--                    <label class="label">-->
+            <!--                        <input class="input" placeholder="아티스트 및 음악 검색" type="search">-->
+
+            <!--                    </label>-->
+            <!--                </li>-->
+            <li class="item">
+                <a class="search-button" href="" type="submit">검색</a>
+            </li>
+            <li class="spring"></li>
+            <li class="item">
+                <div th:if="${session.get('user') != null}">
+                    <b th:text="${session.get('user').getNickname()}"></b>님 환영합니다.
+                </div>
+            </li>
+            <li class="item">
+                <a class="login-button" th:if="${session.user == null}" href="#" rel="showLoginCaller" id="show">로그인</a>
+                <a class="login-button" th:if="${session.user != null}" th:href="@{/user/logout}">로그아웃</a>
+            </li>
+        </ul>
+    </header>
+    <section class="playlist_section">
+        <h1 class="title">내 플레이리스트</h1>
+        <table class="table">
+            <thead>
+            <tr hidden="hidden">
+                <th scope="col" class="song_thumb"></th>
+                <th scope="col" class="song_title"></th>
+                <th scope="col" class="song_artist"></th>
+                <th scope="col" class="song_album"></th>
+                <th scope="col" class="song_option"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="song_thumb">
+                    <div class="inner">
+                        <img class="img_thumb"
+                             src="https://musicmeta-phinf.pstatic.net/album/010/048/10048448.jpg?type=r120Fll&v=20240226072013"
+                             alt="Seven (feat. Latto) - Clean Ver. 앨범 커버">
+                        <a href="#" role="button"></a>
+                    </div>
+                </td>
+                <td class="song_title">
+                    <div class="inner">
+                        <a href="#" title="Seven (feat. Latto) - Clean.Ver." class="link_text">
+                            <span>Seven (feat. Latto) - Clean Ver.</span>
+                        </a>
+                    </div>
+                </td>
+                <td class="song_artist">
+                    <div class="inner">
+                        <a href="#" title="정국" class="link_text">
+                            <span>정국</span>
+                        </a>
+                    </div>
+                </td>
+                <td class="song_album">
+                    <div class="inner">
+                        <a href="#" title="Seven (feat. Latto) - Clean.Ver." class="link_text">
+                            Seven (feat. Latto) - Clean Ver.</a>
+                    </div>
+                </td>
+                <td class="song_option">
+                    <i class="fa-solid fa-ellipsis"></i>
+                </td>
+            </tr>
+            <tr>
+                <td class="song_thumb">
+                    <div class="inner">
+                        <img class="img_thumb"
+                             src="https://musicmeta-phinf.pstatic.net/album/010/048/10048448.jpg?type=r120Fll&v=20240226072013"
+                             alt="Seven (feat. Latto) - Clean Ver. 앨범 커버">
+                        <a href="#" role="button"></a>
+                    </div>
+                </td>
+                <td class="song_title">
+                    <div class="inner">
+                        <a href="#" title="Seven (feat. Latto) - Clean.Ver." class="link_text">
+                            <span>Seven (feat. Latto) - Clean Ver.</span>
+                        </a>
+                    </div>
+                </td>
+                <td class="song_artist">
+                    <div class="inner">
+                        <a href="#" title="정국" class="link_text">
+                            <span>정국</span>
+                        </a>
+                    </div>
+                </td>
+                <td class="song_album">
+                    <div class="inner">
+                        <a href="#" title="Seven (feat. Latto) - Clean.Ver." class="link_text">
+                            Seven (feat. Latto) - Clean Ver.</a>
+                    </div>
+                </td>
+                <td class="song_option">
+                    <i class="fa-solid fa-ellipsis"></i>
+                </td>
+            </tr>
+            <tr>
+                <td class="song_thumb">
+                    <div class="inner">
+                        <img class="img_thumb"
+                             src="https://musicmeta-phinf.pstatic.net/album/010/048/10048448.jpg?type=r120Fll&v=20240226072013"
+                             alt="Seven (feat. Latto) - Clean Ver. 앨범 커버">
+                        <a href="#" role="button"></a>
+                    </div>
+                </td>
+                <td class="song_title">
+                    <div class="inner">
+                        <a href="#" title="Seven (feat. Latto) - Clean.Ver." class="link_text">
+                            <span>Seven (feat. Latto) - Clean Ver.</span>
+                        </a>
+                    </div>
+                </td>
+                <td class="song_artist">
+                    <div class="inner">
+                        <a href="#" title="정국" class="link_text">
+                            <span>정국</span>
+                        </a>
+                    </div>
+                </td>
+                <td class="song_album">
+                    <div class="inner">
+                        <a href="#" title="Seven (feat. Latto) - Clean.Ver." class="link_text">
+                            Seven (feat. Latto) - Clean Ver.</a>
+                    </div>
+                </td>
+                <td class="song_option">
+                    <i class="fa-solid fa-ellipsis"></i>
+                </td>
+            </tr>
+            <tr>
+                <td class="song_thumb">
+                    <div class="inner">
+                        <img class="img_thumb"
+                             src="https://musicmeta-phinf.pstatic.net/album/010/048/10048448.jpg?type=r120Fll&v=20240226072013"
+                             alt="Seven (feat. Latto) - Clean Ver. 앨범 커버">
+                        <a href="#" role="button"></a>
+                    </div>
+                </td>
+                <td class="song_title">
+                    <div class="inner">
+                        <a href="#" title="Seven (feat. Latto) - Clean.Ver." class="link_text">
+                            <span>Seven (feat. Latto) - Clean Ver.</span>
+                        </a>
+                    </div>
+                </td>
+                <td class="song_artist">
+                    <div class="inner">
+                        <a href="#" title="정국" class="link_text">
+                            <span>정국</span>
+                        </a>
+                    </div>
+                </td>
+                <td class="song_album">
+                    <div class="inner">
+                        <a href="#" title="Seven (feat. Latto) - Clean.Ver." class="link_text">
+                            Seven (feat. Latto) - Clean Ver.</a>
+                    </div>
+                </td>
+                <td class="song_option">
+                    <i class="fa-solid fa-ellipsis"></i>
+                </td>
+            </tr>
+            <tr>
+                <td class="song_thumb">
+                    <div class="inner">
+                        <img class="img_thumb"
+                             src="https://musicmeta-phinf.pstatic.net/album/010/048/10048448.jpg?type=r120Fll&v=20240226072013"
+                             alt="Seven (feat. Latto) - Clean Ver. 앨범 커버">
+                        <a href="#" role="button"></a>
+                    </div>
+                </td>
+                <td class="song_title">
+                    <div class="inner">
+                        <a href="#" title="Seven (feat. Latto) - Clean.Ver." class="link_text">
+                            <span>Seven (feat. Latto) - Clean Ver.</span>
+                        </a>
+                    </div>
+                </td>
+                <td class="song_artist">
+                    <div class="inner">
+                        <a href="#" title="정국" class="link_text">
+                            <span>정국</span>
+                        </a>
+                    </div>
+                </td>
+                <td class="song_album">
+                    <div class="inner">
+                        <a href="#" title="Seven (feat. Latto) - Clean.Ver." class="link_text">
+                            Seven (feat. Latto) - Clean Ver.</a>
+                    </div>
+                </td>
+                <td class="song_option">
+                    <i class="fa-solid fa-ellipsis"></i>
+                </td>
+            </tr>
+            <tr>
+                <td class="song_thumb">
+                    <div class="inner">
+                        <img class="img_thumb"
+                             src="https://musicmeta-phinf.pstatic.net/album/010/048/10048448.jpg?type=r120Fll&v=20240226072013"
+                             alt="Seven (feat. Latto) - Clean Ver. 앨범 커버">
+                        <a href="#" role="button"></a>
+                    </div>
+                </td>
+                <td class="song_title">
+                    <div class="inner">
+                        <a href="#" title="Seven (feat. Latto) - Clean.Ver." class="link_text">
+                            <span>Seven (feat. Latto) - Clean Ver.</span>
+                        </a>
+                    </div>
+                </td>
+                <td class="song_artist">
+                    <div class="inner">
+                        <a href="#" title="정국" class="link_text">
+                            <span>정국</span>
+                        </a>
+                    </div>
+                </td>
+                <td class="song_album">
+                    <div class="inner">
+                        <a href="#" title="Seven (feat. Latto) - Clean.Ver." class="link_text">
+                            Seven (feat. Latto) - Clean Ver.</a>
+                    </div>
+                </td>
+                <td class="song_option">
+                    <i class="fa-solid fa-ellipsis"></i>
+                </td>
+            </tr>
+            <tr>
+                <td class="song_thumb">
+                    <div class="inner">
+                        <img class="img_thumb"
+                             src="https://musicmeta-phinf.pstatic.net/album/010/048/10048448.jpg?type=r120Fll&v=20240226072013"
+                             alt="Seven (feat. Latto) - Clean Ver. 앨범 커버">
+                        <a href="#" role="button"></a>
+                    </div>
+                </td>
+                <td class="song_title">
+                    <div class="inner">
+                        <a href="#" title="Seven (feat. Latto) - Clean.Ver." class="link_text">
+                            <span>Seven (feat. Latto) - Clean Ver.</span>
+                        </a>
+                    </div>
+                </td>
+                <td class="song_artist">
+                    <div class="inner">
+                        <a href="#" title="정국" class="link_text">
+                            <span>정국</span>
+                        </a>
+                    </div>
+                </td>
+                <td class="song_album">
+                    <div class="inner">
+                        <a href="#" title="Seven (feat. Latto) - Clean.Ver." class="link_text">
+                            Seven (feat. Latto) - Clean Ver.</a>
+                    </div>
+                </td>
+                <td class="song_option">
+                    <i class="fa-solid fa-ellipsis"></i>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </section>
+</main>
+<footer id="footer">
+    <ul class="menu">
+        <li class="item">
+            <a class="link" href="">사운드 스토리 이용약관</a>
+        </li>
+        <li class="item">
+            <a class="link" href="">안전 및 개인정보 보호 센터</a>
+        </li>
+        <li class="item">
+            <a class="link" href=""> 개인정보 처리방침</a>
+        </li>
+        <li class="item">
+            <a class="link" href="">&copy; SoundStory Corp.</a>
+        </li>
+
+    </ul>
+</footer>
+
+</body>
+</html>

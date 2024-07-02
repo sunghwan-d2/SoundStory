@@ -1,17 +1,18 @@
 package com.ksh.soundstory.entities;
 
-import lombok.Builder;
+import lombok.Data;
 import lombok.EqualsAndHashCode;
+import java.sql.Time;
 
-import java.time.LocalDateTime;
-
-@Builder
-@EqualsAndHashCode(of = "songId")
+@Data
+@EqualsAndHashCode(of = {"songId"})
 public class SongEntity {
     private int songId;
+    private byte[] imageData;
+    private String imageContentType;
+    private String imageFileName;
     private String title;
     private int artistId;
-    private int albumId;
-    private LocalDateTime singTime;
-    private int genreId;
+    private String dataVideoId;
+    private Time duration;
 }

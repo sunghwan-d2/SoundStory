@@ -16,4 +16,6 @@
         FROM `ss`.`artist`
         WHERE `artist_id` = #{artistId}
     </select>
+
+
 </mapper>

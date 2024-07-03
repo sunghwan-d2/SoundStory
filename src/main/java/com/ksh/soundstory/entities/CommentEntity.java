@@ -13,8 +13,8 @@ import java.util.Date;
 @EqualsAndHashCode(of = "index")
 public class CommentEntity {
     private int index;
+    private int artistId;
     private String nickname;
-    private String userEmail;
     private String content;
     private LocalDateTime createdAt;
 }

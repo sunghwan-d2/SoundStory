@@ -88,7 +88,7 @@
     <div class="artist_section">
         <div class="artist_wrap">
             <div class="artist_thumb">
-                <img th:alt="${artist.getName()}" class="artist_thumb_image">
+                <img th:alt="${artist.getName()}" th:src="@{'/artist/image?artistId=' + ${artist.artistId}}" class="artist_thumb_image">
             </div>
             <div class="artist_text">
                 <div class="artist_title" th:text="${artist.getName()}"></div>
@@ -109,7 +109,7 @@
     </div>
 
     <div class="song_section">
-        <div class="section_title">인기 노래
+        <div class="section_title">인기 앨범
         </div>
         <div class="trackList">
             <table class="table">
@@ -155,13 +155,13 @@
                     <td class="song_option">
                         <i class="fa-solid fa-ellipsis"></i>
                     </td>
-                </tr>
+                </tr>                                                                                    	1
                 <tr>
                     <td class="song_thumb">
                         <div class="inner">
                             <img class="img_thumb"
-                                 src="https://musicmeta-phinf.pstatic.net/album/008/349/8349954.jpg?type=r120Fll&v=20240223083515"
-                                 alt="Dreamers [Music from the FIFA World Cup Qatar 2022 Official Soundtrack] 앨범 커버">
+                                 src="https://musicmeta-phinf.pstatic.net/album/030/154/30154015.jpg?type=r120Fll&v=20240227081516"
+                                 alt="GOLDEN 앨범 커버">
                             <a href="#" role="button"></a>
                         </div>
                     </td>
@@ -170,7 +170,7 @@
                             <a href="#"
                                title="Dreamers [Music from the FIFA World Cup Qatar 2022 Official Soundtrack] (Feat. FIFA Sound)"
                                class="link_text">
-                                <span>Dreamers [Music from the FIFA World Cup Qatar 2022 Official Soundtrack] (Feat. FIFA Sound)</span>
+                                <span>GOLDEN</span>
                             </a>
                         </div>
                     </td>
@@ -191,7 +191,7 @@
                     <td class="song_option">
                         <i class="fa-solid fa-ellipsis"></i>
                     </td>
-                </tr>
+                </tr>                                                                                    	2
                 <tr>
                     <td class="song_thumb">
                         <div class="inner">
@@ -224,7 +224,7 @@
                     <td class="song_option">
                         <i class="fa-solid fa-ellipsis"></i>
                     </td>
-                </tr>
+                </tr>                                                                                    	3
                 <tr>
                     <td class="song_thumb">
                         <div class="inner">
@@ -257,7 +257,7 @@
                     <td class="song_option">
                         <i class="fa-solid fa-ellipsis"></i>
                     </td>
-                </tr>
+                </tr>                                                                                    	4
                 <tr>
                     <td class="song_thumb">
                         <div class="inner">
@@ -295,125 +295,129 @@
             </table>
         </div>
     </div>
-    <section class="album_section">
-        <div class="section_title">앨범 및 EP
+<!--    <section class="album_section">-->
+<!--        <div class="section_title">앨범 및 EP-->
+<!--        </div>-->
+<!--        <ul class="album_list">-->
+<!--            <li class="item">-->
+<!--                <a href="/static" class="album_item">-->
+<!--                    <img alt="GOLDEN 앨범 커버" class="image"-->
+<!--                         src="https://musicmeta-phinf.pstatic.net/album/030/154/30154015.jpg?type=r120Fll&v=20240227081516">-->
+<!--                    <div class="bottom">-->
+<!--                        <div class="album_name">GOLDEN</div>-->
+<!--                        <div class="artist_name">2023 • 앨범</div>-->
+<!--                    </div>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li class="item">-->
+<!--                <a href="/static" class="album_item">-->
+<!--                    <img alt="Seven (feat. Latto) 앨범 커버" class="image"-->
+<!--                         src="https://musicmeta-phinf.pstatic.net/album/010/048/10048448.jpg?type=r120Fll&v=20240226072013">-->
+<!--                    <div class="bottom">-->
+<!--                        <div class="album_name">Seven (feat. Latto)</div>-->
+<!--                        <div class="artist_name">2023 • 싱글</div>-->
+<!--                    </div>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li class="item">-->
+<!--                <a href="/static" class="album_item">-->
+<!--                    <img alt="Dreamers [Music from the FIFA World Cup Qatar 2022 Official Soundtrack] 앨범 커버"-->
+<!--                         class="image"-->
+<!--                         src="https://musicmeta-phinf.pstatic.net/album/008/349/8349954.jpg?type=r120Fll&v=20240223083515">-->
+<!--                    <div class="bottom">-->
+<!--                        <div class="album_name">Dreamers [Music from the FIFA World Cup Qatar 2022 Official-->
+<!--                            Soundtrack]-->
+<!--                        </div>-->
+<!--                        <div class="artist_name">2022 • 싱글</div>-->
+<!--                    </div>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li class="item">-->
+<!--                <a href="/static" class="album_item">-->
+<!--                    <img alt="Still With You' 앨범 커버" class="image"-->
+<!--                         src="https://musicmeta-phinf.pstatic.net/album/009/983/9983157.jpg?type=r360Fll&v=20230630171340">-->
+<!--                    <div class="bottom">-->
+<!--                        <div class="album_name">Still With You</div>-->
+<!--                        <div class="artist_name">2020 • 싱글</div>-->
+<!--                    </div>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </section>-->
+
+
+    <form action="/comment/write" method="post" name="commentForm" class="responseTable">
+        <input type="hidden" name="artistId" th:value="${artist.artistId}" /> <!-- 아티스트 ID 전달 -->
+        <div class="comment-container">
+            <div class="comment_title">댓글 작성</div>
+            <textarea name="content" title="댓글" class="comment_textarea" maxlength="10000" minlength="1" rows="3"
+                      cols="30" placeholder="과도한 비방과 욕설은 삭제될 수 있습니다."></textarea>
+            <button class="comment_submit" type="submit">작성</button>
         </div>
-        <ul class="album_list">
-            <li class="item">
-                <a href="/static" class="album_item">
-                    <img alt="GOLDEN 앨범 커버" class="image"
-                         src="https://musicmeta-phinf.pstatic.net/album/030/154/30154015.jpg?type=r120Fll&v=20240227081516">
-                    <div class="bottom">
-                        <div class="album_name">GOLDEN</div>
-                        <div class="artist_name">2023 • 앨범</div>
-                    </div>
-                </a>
-            </li>
-            <li class="item">
-                <a href="/static" class="album_item">
-                    <img alt="Seven (feat. Latto) 앨범 커버" class="image"
-                         src="https://musicmeta-phinf.pstatic.net/album/010/048/10048448.jpg?type=r120Fll&v=20240226072013">
-                    <div class="bottom">
-                        <div class="album_name">Seven (feat. Latto)</div>
-                        <div class="artist_name">2023 • 싱글</div>
-                    </div>
-                </a>
-            </li>
-            <li class="item">
-                <a href="/static" class="album_item">
-                    <img alt="Dreamers [Music from the FIFA World Cup Qatar 2022 Official Soundtrack] 앨범 커버"
-                         class="image"
-                         src="https://musicmeta-phinf.pstatic.net/album/008/349/8349954.jpg?type=r120Fll&v=20240223083515">
-                    <div class="bottom">
-                        <div class="album_name">Dreamers [Music from the FIFA World Cup Qatar 2022 Official
-                            Soundtrack]
-                        </div>
-                        <div class="artist_name">2022 • 싱글</div>
-                    </div>
-                </a>
-            </li>
-            <li class="item">
-                <a href="/static" class="album_item">
-                    <img alt="Still With You' 앨범 커버" class="image"
-                         src="https://musicmeta-phinf.pstatic.net/album/009/983/9983157.jpg?type=r360Fll&v=20230630171340">
-                    <div class="bottom">
-                        <div class="album_name">Still With You</div>
-                        <div class="artist_name">2020 • 싱글</div>
-                    </div>
-                </a>
-            </li>
-        </ul>
-    </section>
+    </form>
+
+    <div class="comment-count">
+        <span class="comment_title">댓글</span>
+        <span class="comment_count" id="commentCount" rel="CommentCountText"></span>
+    </div>
+    <table class="commentTable">
+        <thead>
+        <tr>
+            <th>댓글 번호</th>
+            <th>작성자</th>
+            <th>내용</th>
+            <th>작성일</th>
+            <th>삭제</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${comments == null or comments.length == 0}">
+            <td colspan="5">댓글이 존재하지 않습니다.</td>
+        </tr>
+        <tr th:if="${comments != null}" th:each="comment : ${comments}">
+            <td th:text="${comment.index}"></td>
+            <td th:text="${comment.nickname}"></td>
+            <td th:text="${comment.content}"></td>
+            <td th:text="${#temporals.format(comment.createdAt, 'yyyy-MM-dd HH:mm')}"></td>
+            <td>
+                <button class="deleteButton" type="button">삭제</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 
 
-    <!--    <form action="/comment/write" method="post" novalidate name="commentForm" class="responseTable">-->
-    <!--        <div class="comment-container">-->
-    <!--            <div class="comment_title">댓글 작성</div>-->
-    <!--            <textarea name="content" title="댓글" class="comment_textarea" maxlength="10000" minlength="1" rows="3"-->
-    <!--                      cols="30"-->
-    <!--                      placeholder="과도한 비방과 욕설은 삭제될 수 있습니다."></textarea>-->
-    <!--            <button class="comment_submit" type="submit">작성</button>-->
-    <!--        </div>-->
-    <!--    </form>-->
-    <!--    <div class="comment-count">-->
-    <!--        <span class="comment_title">댓글</span>-->
-    <!--        <span class="comment_count" id="commentCount" rel="CommentCountText"></span>-->
-    <!--    </div>-->
-    <!--    <table class="commentTable">-->
-    <!--        <thead>-->
-    <!--        <tr>-->
-    <!--            <th>댓글 번호</th>-->
-    <!--            <th>작성자</th>-->
-    <!--            <th>내용</th>-->
-    <!--            <th>작성일</th>-->
-    <!--            <th>삭제</th>-->
-    <!--        </tr>-->
-    <!--        </thead>-->
-    <!--        <tbody>-->
-    <!--        <tr th:if="${comments == null or comments.length == 0}">-->
-    <!--            <td colspan="5">댓글이 존재하지 않습니다.</td>-->
-    <!--        </tr>-->
-    <!--        <tr th:if="${comments != null && comments.length > 0}"-->
-    <!--            th:each="comment : ${comments}">-->
-    <!--            <td class="index" th:text="${comment.getIndex()}"></td>-->
-    <!--            <td th:text="${comment.getNickname()}"></td>-->
-    <!--            <td th:text="${comment.getContent()}"></td>-->
-    <!--            <td th:text="${#temporals.format(comment.createdAt, 'yyyy-MM-dd HH:mm')}"></td>-->
-    <!--            <td>-->
-    <!--                <button class="deleteButton" type="button">삭제</button>-->
-    <!--            </td>-->
-    <!--        </tr>-->
-    <!--        </tbody>-->
-    <!--        <tfoot th:if="${article != null && article.length > 0}">-->
-    <!--        <tr>-->
-    <!--            <td colspan="5">-->
-    <!--                <a th:each="pageNum : ${#numbers.sequence(page.getMinPage(), page.getMaxPage())}"-->
-    <!--                   th:href="@{/index/artist (page=${pageNum})}"-->
-    <!--                   th:text="${pageNum}"></a>-->
-    <!--            </td>-->
-    <!--        </tr>-->
-    <!--        </tfoot>-->
-    <!--    </table>-->
-    <!--    <div class="pagination">-->
-    <!--        <ul>-->
-    <!--            <li th:if="${page.requestPage>1}">-->
-    <!--                <a th:href="@{/artist(page=1)}">처음</a>-->
-    <!--            </li>-->
-    <!--            <li th:if="${page.requestPage > 1}">-->
-    <!--                <a th:href="@{/artist(page=${page.requestPage - 1})}">이전</a>-->
-    <!--            </li>-->
-    <!--            <li th:each="pageNum : ${#numbers.sequence(page.minPage, page.maxPage)}">-->
-    <!--                <a th:href="@{/artist(page=${pageNum})}" th:text="${pageNum}"-->
-    <!--                   th:class="${pageNum == page.requestPage ? 'active' : ''}"></a>-->
-    <!--            </li>-->
-    <!--            <li th:if="${page.requestPage < page.maxPage}">-->
-    <!--                <a th:href="@{/artist(page=${page.requestPage + 1})}">다음</a>-->
-    <!--            </li>-->
-    <!--            <li th:if="${page.maxPage > 1}">-->
-    <!--                <a th:href="@{/artist(page=${page.maxPage})}">마지막</a>-->
-    <!--            </li>-->
-    <!--        </ul>-->
-    <!--    </div>-->
+
+    <!--            <tfoot th:if="${article != null && article.length > 0}">-->
+<!--            <tr>-->
+<!--                <td colspan="5">-->
+<!--                    <a th:each="pageNum : ${#numbers.sequence(page.getMinPage(), page.getMaxPage())}"-->
+<!--                       th:href="@{/index/artist (page=${pageNum})}"-->
+<!--                       th:text="${pageNum}"></a>-->
+<!--                </td>-->
+<!--            </tr>-->
+<!--            </tfoot>-->
+        </table>
+<!--        <div class="pagination">-->
+<!--            <ul>-->
+<!--                <li th:if="${page.requestPage>1}">-->
+<!--                    <a th:href="@{/artist(page=1)}">처음</a>-->
+<!--                </li>-->
+<!--                <li th:if="${page.requestPage > 1}">-->
+<!--                    <a th:href="@{/artist(page=${page.requestPage - 1})}">이전</a>-->
+<!--                </li>-->
+<!--                <li th:each="pageNum : ${#numbers.sequence(page.minPage, page.maxPage)}">-->
+<!--                    <a th:href="@{/artist(page=${pageNum})}" th:text="${pageNum}"-->
+<!--                       th:class="${pageNum == page.requestPage ? 'active' : ''}"></a>-->
+<!--                </li>-->
+<!--                <li th:if="${page.requestPage < page.maxPage}">-->
+<!--                    <a th:href="@{/artist(page=${page.requestPage + 1})}">다음</a>-->
+<!--                </li>-->
+<!--                <li th:if="${page.maxPage > 1}">-->
+<!--                    <a th:href="@{/artist(page=${page.maxPage})}">마지막</a>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
 
 
 </main>

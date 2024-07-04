@@ -35,14 +35,16 @@
         LIMIT #{countPerPage} OFFSET #{selectOffset}
     </select>
 
-    <select id="selectCommentAll" resultType="com.ksh.soundstory.entities.CommentEntity">
+    <select id="selectCommentAllByArtistId" resultType="com.ksh.soundstory.entities.CommentEntity">
         SELECT `index`      AS `index`,
                `artist_id`  AS `artistId`,
                `nickname`   AS `nickname`,
                `content`    AS `content`,
                `created_at` AS `createdAt`
         FROM `ss`.`comments`
+        WHERE `artist_id` = #{artistId}
         ORDER BY `index` DESC
+
     </select>
 
     <select id="getCommentCount" parameterType="com.ksh.soundstory.entities.CommentEntity" resultType="_int">

@@ -375,7 +375,7 @@
             <td colspan="5">댓글이 존재하지 않습니다.</td>
         </tr>
         <tr th:if="${comments != null}" th:each="comment : ${comments}">
-            <td th:text="${comment.index}"></td>
+            <td class="index" th:text="${comment.index}"></td>
             <td th:text="${comment.nickname}"></td>
             <td th:text="${comment.content}"></td>
             <td th:text="${#temporals.format(comment.createdAt, 'yyyy-MM-dd HH:mm')}"></td>

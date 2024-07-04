@@ -31,7 +31,7 @@ public class ArtistController {
     @RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
     public ModelAndView getArtist(@RequestParam(value = "artistId") int artistId) {
         ArtistEntity artist = this.artistService.getArtist(artistId);
-        CommentEntity[] comments = this.commentService.selectCommentAll();
+        CommentEntity[] comments = this.commentService.selectCommentAllByArtistId(artistId);
         ModelAndView modelAndView = new ModelAndView("index/artist");
         modelAndView.addObject("artist", artist);
         modelAndView.addObject("comments", comments);
@@ -53,10 +53,8 @@ public class ArtistController {
 
     }
 
+
 }
-
-
-
 
 //    @RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
 //    public ModelAndView getArtist(@RequestParam(value = "page", required = false, defaultValue ="1") int _page) {

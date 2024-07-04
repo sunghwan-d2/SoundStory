@@ -46,7 +46,7 @@ deleteCommentButtons.forEach(deleteCommentButton => {
             }
         };
 
-        xhr.open('DELETE', '/comment/?index=' + index);
+        xhr.open('DELETE', `/comment/?index=${index}`);
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.send();
     });

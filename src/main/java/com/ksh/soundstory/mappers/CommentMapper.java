@@ -14,11 +14,11 @@ public interface CommentMapper {
 
     int getCommentCount();
 
-    CommentEntity selectCommentByIndex(@Param("index")int index);
+    CommentEntity selectCommentByIndex(@Param("index") int index);
 
     CommentEntity[] selectCommentsByPage(PageVo pageVo);
 
-    CommentEntity[] selectCommentAll();
+    CommentEntity[] selectCommentAllByArtistId(int artistId);
 
 }
 

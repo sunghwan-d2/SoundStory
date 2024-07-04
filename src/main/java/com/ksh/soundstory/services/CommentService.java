@@ -40,8 +40,8 @@ public class CommentService {
 
     } // 댓글 삽입
 
-    public CommentEntity[] selectCommentAll() {
-        return this.commentMapper.selectCommentAll();
+    public CommentEntity[] selectCommentAllByArtistId(int artistId) {
+        return this.commentMapper.selectCommentAllByArtistId(artistId);
     } // 전체 댓글을 불러옴
 
 

@@ -28,13 +28,13 @@ public class CommentController {
 
     // 댓글 작성
     @RequestMapping(value = "/write", method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
-    public ModelAndView getWrite(@SessionAttribute("user") UserEntity user) {
+    public ModelAndView getWrite(@SessionAttribute("user") UserEntity user,
+                                 @RequestParam("artistId") int artistId) {
         if (user == null) {
             return new ModelAndView("redirect:/index/artist");
         }
         ModelAndView modelAndView = new ModelAndView("index/artist");
-        CommentEntity[] comments = this.commentService.selectCommentAll();
-        modelAndView.addObject("comments", comments);
+        modelAndView.addObject("artistId", artistId);
         return modelAndView;
     }
 
@@ -56,11 +56,31 @@ public class CommentController {
             modelAndView.setViewName("redirect:/artist?artistId=" + artistId); // artistId로 리다이렉트
         } else {
             modelAndView.setViewName("index/artist");
+            modelAndView.addObject("comments", this.commentService.selectCommentAllByArtistId(artistId)); // 댓글 리스트 다시 로드
         }
         return modelAndView;
     }
+
+    @RequestMapping(value = "/", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public String deleteComment(@RequestParam("index") int index) {
+        CommonResult result = this.commentService.delete(index);
+        JSONObject responseObject = new JSONObject();
+        responseObject.put("result", result.name().toLowerCase());
+        return responseObject.toString();
+
+
+    }
 }
 
+//    @RequestMapping(value = "/", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+//    @ResponseBody
+//    public String deleteComment(@RequestParam("index") int index) {
+//        CommonResult result = this.commentService.delete(index);
+//        JSONObject responseObject = new JSONObject();
+//        responseObject.put("result", result.name().toLowerCase());
+//        return responseObject.toString();
+//    }
 
 //    @RequestMapping(value = "/write", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 //    @ResponseBody
@@ -69,7 +89,7 @@ public class CommentController {
 
 //        return "redirect:/artist?artistId=" + comment.getArtistId();
 //    }
-    //    @RequestMapping(value = "/read", method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
+//    @RequestMapping(value = "/read", method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
 //    public ModelAndView getRead(@SessionAttribute("user") UserEntity user,
 //                                @RequestParam(value = "page", defaultValue = "1") int _page) {
 //        PageVo page = new PageVo(_page);
@@ -86,12 +106,4 @@ public class CommentController {
 //
 //
 
-//    @RequestMapping(value = "/", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
-//    @ResponseBody
-//    public String deleteComment(@RequestParam("index") int index) {
-//        CommonResult result = this.commentService.delete(index);
-//        JSONObject responseObject = new JSONObject();
-//        responseObject.put("result", result.name().toLowerCase());
-//        return responseObject.toString();
-//    }
 
